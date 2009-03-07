@@ -7,11 +7,11 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>HP-21</string>
+	<string>HP-16C</string>
 	<key>CFBundleExecutable</key>
-	<string>HP-21.command</string>
+	<string>HP-16C.command</string>
 	<key>CFBundleIconFile</key>
-	<string>HP-21.icns</string>
+	<string>HP-16C.icns</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
