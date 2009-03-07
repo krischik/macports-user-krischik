@@ -1,5 +1,5 @@
 /*
-$Id: voyager_lcd.h 585 2005-05-11 23:36:03Z eric $
+$Id$
 Copyright 1995, 2004, 2005 Eric L. Smith <eric@brouhaha.com>
 
 Nonpareil is free software; you can redistribute it and/or modify it

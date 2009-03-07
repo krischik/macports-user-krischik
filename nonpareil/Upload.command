@@ -1,9 +1,9 @@
 #!/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author: krischik@macports.org $
-#   $Revision: 47817 $
-#   $Date: 2009-03-07 11:23:54 +0100 (Sa, 07 Mär 2009) $
-#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/nonpareil/appbundles/HP-41CX.app/Contents/MacOS/HP-41CX.command $
+#   $Author$
+#   $Revision$
+#   $Date$
+#   $HeadURL$
 ############################################################## }}}1 ##########
 
 setopt Err_Exit;
@@ -22,13 +22,13 @@ pushd "/var/tmp"
     pushd "${Port}"
 	for I in "voyager" "appbundles"; do
 	    mv --verbose ${I} ${I}-r${in_Version}
-	    tar --create --gzip				    \
-		--file="${Port}-${I}-r${in_Version}.tar.gz" \
+	    tar --create --gzip								\
+		--file="${Port}-${I}-r${in_Version}.tar.gz"				\
 		${I}-r${in_Version}
-	    svn import					    \
-		-m"Add distfile for ${Port}"		    \
-		"${Port}-${I}-r${in_Version}.tar.gz"	    \
-		"${Repository}/distfiles/${Port}/"	    ;
+	    svn import									\
+		-m"Add distfile for ${Port}"						\
+		"${Port}-${I}-r${in_Version}.tar.gz"					\
+		"${Repository}/distfiles/${Port}/${Port}-${I}-r${in_Version}.tar.gz"	;
 	done; unset I
     popd;
     echo rm --verbose --recursive "${Port}"
