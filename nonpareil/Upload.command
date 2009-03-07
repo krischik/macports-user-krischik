@@ -31,7 +31,7 @@ pushd "/var/tmp"
 		"${Repository}/distfiles/${Port}/${Port}-${I}-r${in_Version}.tar.gz"	;
 	done; unset I
     popd;
-    echo rm --verbose --recursive "${Port}"
+    rm --verbose --recursive "${Port}"
 popd;
 
 ############################################################ {{{1 ###########
