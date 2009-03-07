@@ -6,13 +6,32 @@
 #   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/nonpareil/appbundles/HP-41CX.app/Contents/MacOS/HP-41CX.command $
 ############################################################## }}}1 ##########
 
-typeset in_Version=${1}
+setopt Err_Exit;
+
+typeset -r in_Version=${1}
+typeset -r Repository=http://svn.macports.org/repository/macports
+typeset -r User=krischik
+typeset -r Port=nonpareil
+
+alias tar=/opt/local/bin/gnutar
+alias mv=/opt/local/bin/gmv
+alias rm=/opt/local/bin/grm
 
 pushd "/var/tmp"
-    mkdir "nonpareil"
-    pushd "nonpareil"
-	svn 
-    popd;    
+    svn export ${Repository}/users/${User}/${Port}
+    pushd "${Port}"
+	for I in "voyager" "appbundles"; do
+	    mv --verbose ${I} ${I}-r${in_Version}
+	    tar --create --gzip				    \
+		--file="${Port}-${I}-r${in_Version}.tar.gz" \
+		${I}-r${in_Version}
+	    svn import					    \
+		-m"Add distfile for ${Port}"		    \
+		"${Port}-${I}-r${in_Version}.tar.gz"	    \
+		"${Repository}/distfiles/${Port}/"	    ;
+	done; unset I
+    popd;
+    echo rm --verbose --recursive "${Port}"
 popd;
 
 ############################################################ {{{1 ###########
