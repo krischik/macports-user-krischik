@@ -9,9 +9,9 @@
 	<key>CFBundleDisplayName</key>
 	<string>Atari 320XE (BASIC)</string>
 	<key>CFBundleExecutable</key>
-	<string>Atari-320XE.command</string>
+	<string>Atari320XE.command</string>
 	<key>CFBundleIconFile</key>
-	<string>Atari-320XE.icns</string>
+	<string>Atari320XE.icns</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
