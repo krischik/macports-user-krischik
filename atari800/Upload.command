@@ -13,7 +13,6 @@ typeset -r Repository=http://svn.macports.org/repository/macports
 typeset -r User=krischik
 typeset -r Port=atari800
 
-#alias tar=/opt/local/bin/gnutar
 alias mv=/opt/local/bin/gmv
 alias rm=/opt/local/bin/grm
 
@@ -22,7 +21,7 @@ pushd "/var/tmp"
     pushd "${Port}"
 	for I in "appbundles"; do
 	    mv --verbose ${I} ${I}-r${in_Version}
-	    tar --create --gzip								\
+	    tar --verbose --create --gzip						\
 		--file="${Port}-${I}-r${in_Version}.tar.gz"				\
 		${I}-r${in_Version}
 	    svn import									\
