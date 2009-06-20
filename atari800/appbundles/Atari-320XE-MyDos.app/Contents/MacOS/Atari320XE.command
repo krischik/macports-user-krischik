@@ -19,7 +19,7 @@ for I in	    \
     "DOS25.XFD	    \
     "MYDOS45D.ATR
 do
-    if test ! -f  "${User_Data}/MYDOS45D.ATR"; then
+    if test ! -f "${User_Data}/${I}"; then
 	cp					\
 	    "/opt/local/share/atari800/${I}"	\
 	    "${User_Data}/${I}"			;
@@ -28,14 +28,12 @@ done; unset I
 
 /opt/local/bin/atari800				\
     -320xe					\
-    -basic					\
     -pal					\
     -windowed					\
     -width 1280					\
     -height 960					\
     -bpp 16					\
     -xlxe_rom "${System_Data}/ATARIXL.ROM"	\
-    -basic_rom "${System_Data}/ATARIBAS.ROM"	\
     ${User_Data}/MYDOS45D.ATR			;
 
 ############################################################ {{{1 ###########
