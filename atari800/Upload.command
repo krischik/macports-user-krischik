@@ -1,9 +1,9 @@
 #!/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author: krischik@macports.org $
-#   $Revision: 47826 $
-#   $Date: 2009-03-07 14:16:20 +0100 (Sa, 07 Mär 2009) $
-#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/nonpareil/Upload.command $
+#   $Author$
+#   $Revision$
+#   $Date$
+#   $HeadURL$
 ############################################################## }}}1 ##########
 
 setopt Err_Exit;
