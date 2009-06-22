@@ -7,11 +7,11 @@
 ############################################################## }}}1 ##########
 
 local User_Data="${HOME}/Library/Application Support/Atari800"
-local System_Data="/opt/local/share/atari800";
+local System_Data="@PREFIX@/share/atari800";
 
 ${System_Data}/Setup.command
 
-/opt/local/bin/atari800				\
+@PREFIX@/bin/atari800				\
     -1400					\
     -xep80					\
     -nobasic					\

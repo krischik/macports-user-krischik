@@ -23,9 +23,7 @@ for I in		\
     "MYDOS45D.ATR"
 do
     if test ! -f "${User_Data}/${I}"; then
-	cp				\
-	    "${System_Data}/${I}"	\
-	    "${User_Data}/${I}"		;
+	cp "${System_Data}/${I}" "${User_Data}/${I}";
     fi;
 done; unset I
 
