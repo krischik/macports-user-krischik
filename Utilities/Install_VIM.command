@@ -36,11 +36,10 @@ if test "${USER}" = "root"; then
 
     for I in eview evim ex gview gvim gvimdiff rgview rgvim rview rvim view vim vimdiff; do
 	if test ! -e /opt/local/bin/${I};  then
-	   gln --symbolic						\
-		/Applications/MacPorts/MacVim.app/Contents/MacOS/Vim	\
-		/opt/local/bin/${I}					;
+	   gln --symbolic mvim /opt/local/bin/${I};
 	fi;
     done; unset I
+
     gcc_select gnat-gcc
 else
     setopt Multi_OS;
