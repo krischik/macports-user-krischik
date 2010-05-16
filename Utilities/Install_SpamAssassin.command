@@ -13,46 +13,29 @@ setopt X_Trace;
 if test "${USER}" = "root"; then
     gcc_select gcc42
 
-    Update;
-    No_Universal;
-    Foce_Activate;
+    launchctl unload -w "/Library/LaunchDaemons/org.macports.spamd.plist"
 
-    for I in					\
-	"gnutar ${=General_Variants}"		\
-	"grep ${=General_Variants}"		\
-	"ncurses ${=General_Variants}"		\
-	"libiconv ${=General_Variants}"		\
-	"ctags ${=General_Variants}"		\
-	"perl5 ${=General_Variants}"		\
-	"python26 ${=General_Variants}"		\
-	"autoconf ${=General_Variants}"		\
-	"ruby ${=General_Variants}"		\
-	"tcl ${=General_Variants}"		\
-	"gettext ${=General_Variants}"		\
-	"MacVim +cscope +huge +nls +ruby +xim"	;
+    for I in							\
+	"p5-mail-spamassassin +razor+ssl ${=General_Variants}"	;
     do
 	Install_Update ${I};
     done; unset I
 
-    for I in	    \
-	eview	    \
-	evim	    \
-	ex	    \
-	gview	    \
-	gvim	    \
-	gvimdiff    \
-	rgview	    \
-	rgvim	    \
-	rview	    \
-	rvim	    \
-	view	    \
-	vim	    \
-	vimdiff	    ;
-    do
-	if test ! -e /opt/local/bin/${I};  then
-	   gln --symbolic mvim /opt/local/bin/${I};
-	fi;
-    done; unset I
+    pushd /opt/local/etc/mail/spamassassin
+	for I in	\
+	    init.pre	\
+	    local.cf	\
+	    v310.pre	\
+	    v312.pre	\
+	    v320.pre	;
+	do
+	    if test ! -f "${I}";  then
+	       gcp --verbose "${I}.sample" "${I}";
+	    fi;
+	done; unset I
+    popd;
+
+    launchctl load -w "/Library/LaunchDaemons/org.macports.spamd.plist"
 
     gcc_select gnat-gcc
 else
