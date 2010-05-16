@@ -13,7 +13,7 @@ setopt X_Trace;
 if test "${USER}" = "root"; then
     gcc_select gcc42
 
-    launchctl unload -w "/Library/LaunchDaemons/org.macports.spamd.plist"
+    launchctl unload -w "/Library/LaunchDaemons/org.macports.spamd.plist";
 
     for I in							\
 	"p5-mail-spamassassin +razor+ssl ${=General_Variants}"	;
@@ -35,7 +35,7 @@ if test "${USER}" = "root"; then
 	done; unset I
     popd;
 
-    launchctl load -w "/Library/LaunchDaemons/org.macports.spamd.plist"
+    launchctl load -w "/Library/LaunchDaemons/org.macports.spamd.plist";
 
     gcc_select gnat-gcc
 else
