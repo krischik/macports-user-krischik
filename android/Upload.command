@@ -16,6 +16,10 @@ typeset -r Port=android
 alias mv=/opt/local/bin/gmv
 alias rm=/opt/local/bin/grm
 
+pushd "/Work/MacPorts/krischik/android"
+    svn commit -m"New Startup bundles for android."
+popd
+
 pushd "/var/tmp"
     svn export ${Repository}/users/${User}/${Port}
     pushd "${Port}"
@@ -27,11 +31,11 @@ pushd "/var/tmp"
 	    svn import									\
 		-m"Add distfile for ${Port}"						\
 		"${Port}-${I}-r${in_Version}.tar.gz"					\
-		"${Repository}/distfiles/${Port}/${Port}-${I}-r${in_Version}.tar.gz"	;
+		"${Repository}/distfiles/${Port}/${Port}-${I}-r${in_Version}.tar.gz"
 	done; unset I
-    popd;
+    popd
     rm --verbose --recursive "${Port}"
-popd;
+popd
 
 ############################################################ {{{1 ###########
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :
