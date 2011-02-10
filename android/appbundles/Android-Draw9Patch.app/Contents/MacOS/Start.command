@@ -6,9 +6,9 @@
 #   $HeadURL$
 ############################################################## }}}1 ##########
 
-typeset -x- g  ANDROID_HOME="@PREFIX@/share/java/android-sdk-mac_86"
+typeset -x- g  ANDROID_HOME="@PREFIX@/share/java/android-sdk-mac_x86"
 
-@PREFIX@/share/java/android-sdk-mac_86/tools/draw9patch
+${ANDROID_HOME}/tools/draw9patch
 
 ############################################################ {{{1 ###########
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :
