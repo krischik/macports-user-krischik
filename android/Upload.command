@@ -15,6 +15,7 @@ typeset -r Port=android
 
 alias mv=/opt/local/bin/gmv
 alias rm=/opt/local/bin/grm
+alias svn=/opt/local/bin/svn
 
 pushd "/Work/MacPorts/krischik/android"
     svn commit -m"New Startup bundles for android."
