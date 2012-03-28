@@ -6,7 +6,7 @@
 #   $HeadURL$
 ############################################################## }}}1 ##########
 
-typeset -x -g ANDROID_HOME="@PREFIX@/share/java/android-sdk-mac_x86"
+typeset -x -g ANDROID_HOME="@PREFIX@/share/java/android-sdk-macosx"
 
 ${ANDROID_HOME}/tools/hierarchyviewer
 
