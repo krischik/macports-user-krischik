@@ -6,7 +6,7 @@ setopt No_X_Trace;
 setopt Multi_OS;
 
 sudo port install								    \
-    "gcc_select" ${=General_Variants}						    \
+    "coreutils" ${=General_Variants}						    \
     "zsh-devel" "+doc" "+mp_completion" ${=General_Variants}			    \
     "subversion" "+bash_completion" "+tools" "+unicode_path" ${=General_Variants}   \
     1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out							    ;

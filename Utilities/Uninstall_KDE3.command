@@ -21,9 +21,7 @@ if test "${USER}" = "root"; then
 	"kdesdk3"		    \
 	"kdetoys3"		    \
 	"kdeutils3"		    \
-	"kdewebdev3"		    \
-	"gmake"			    \
-	"qt3"			    ;
+	"kdewebdev3"		    ;
     do
 	port uninstall --follow-dependents "${I}"
     done; unset I

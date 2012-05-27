@@ -11,19 +11,23 @@ source ${0:h}/Setup.command
 setopt X_Trace;
 
 if test "${USER}" = "root"; then
-    gcc_select gcc42
+    port select gcc gcc42
 
     launchctl unload -w "/Library/LaunchDaemons/org.macports.dovecot.plist";
+    launchctl unload -w "/Library/LaunchDaemons/org.macports.slapd.plist";
 
-    for I in							\
+    for I in		\
+	"imapfilter"	\
+	"openldap"	\
 	"dovecot"	;
     do
 	Install_Update ${I} ${=General_Variants};
     done; unset I
 
+    launchctl load -w "/Library/LaunchDaemons/org.macports.slapd.plist";
     launchctl load -w "/Library/LaunchDaemons/org.macports.dovecot.plist";
 
-    gcc_select gnat-gcc
+    port select gcc gnat-gcc42
 else
     setopt Multi_OS;
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out;

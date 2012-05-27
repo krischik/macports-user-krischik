@@ -13,17 +13,12 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
-    for I in		\
-	"qt4-mac"	\
-	"akonadi"	\
-	"kdelibs4"	\
-	"kde4-baseapps"	\
-	"kdepim4"	\
-	"amarok"	
+    for I in									    \
+	"MPlayer +aa+caca+dts+mencoder_extras+esd+fribidi+live+osd+sdl+smb+speex"   \
+	"avidemux +aac+dts+esd+jack+lame+ogg+x264+xvid"				    \
+	"VLC +huge+qt4"
     do
-	# KDE libs hang in compile with 8 cores.
-	# build.jobs=1
-	Install_Update ${=I} "${Qt_Variants}${General_Variants} build.jobs=1"
+	Install_Update ${=I} "${Qt_Variants}${General_Variants}"
     done; unset I
 
     port select gcc gnat-gcc42

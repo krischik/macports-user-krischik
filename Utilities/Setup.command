@@ -1,16 +1,16 @@
 #!/bin/echo usage: source
 ############################################################## {{{1 ##########
-#   $Author: krischik@macports.org $
-#   $Revision: 52694 $
-#   $Date: 2009-06-21 20:48:35 +0200 (So, 21. Jun 2009) $
-#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/atari800/Upload.command $
+#   $Author$
+#   $Revision$
+#   $Date$
+#   $HeadURL$
 ############################################################## }}}1 ##########
 
 setopt No_X_Trace;
 
 case "${OSTYPE}" in
     ((darwin10*))
-	typeset  General_Variants="+universal"
+	typeset  General_Variants="+universal-atlas"
     ;;
     ((darwin9*))
 	typeset  General_Variants=""
@@ -62,6 +62,8 @@ function Load_System ()
     Load "/Library/LaunchDaemons/org.macports.gdm.plist";
     Load "/Library/LaunchDaemons/org.macports.rsyncd.plist";
     Load "/Library/LaunchDaemons/org.macports.spamd.plist";
+    Load "/Library/LaunchDaemons/org.macports.dovecot.plist";
+    Load "/Library/LaunchDaemons/org.macports.mysql5.plist";
 
     return;
     } # Load_System
@@ -95,6 +97,7 @@ function Unload_System ()
     Unload "/Library/LaunchDaemons/org.macports.spamd.plist";
     Unload "/Library/LaunchDaemons/org.freedesktop.dbus-system.plist";
     Unload "/Library/LaunchDaemons/org.macports.gdm.plist";
+    #Unload "/Library/LaunchDaemons/org.macports.dovecot.plist";
 
     return;    
     } # Unload_System
@@ -109,85 +112,54 @@ function Unload_User ()
 function Install_Update ()
     {
     local in_Package="${1}";
-    local in_Options="${2}";
+    local in_Options="${2} ${3} ${4}";
 
-    if ! port install -f ${=in_Package} ${=in_Options}; then
+    echo "===> Install  ${=in_Package} ${=in_Options}"
+
+    if ! port install ${=in_Package} ${=in_Options}; then
 	port upgrade --enforce-variants ${=in_Package} ${=in_Options};	
     fi;
 
-    port activate -f  ${=in_Package} ${=in_Options} || true;
+    port activate ${=in_Package} ${=in_Options} || true;
     return
     } # Install_Update
 
-function Force_Activate ()
+function Update_Tree ()
     {
-    local I;
-    
-    for I in						    \
-	"dbus ${General_Variants}"			    \
-	"oxygen-icons ${=Qt_Variants}${General_Variants}"   \
-	"kdebase4-runtime ${=Qt_Variants}"		    \
-	"kdelibs4 ${=Qt_Variants}"			    \
-	"taglib-devel ${General_Variants}"		    \
-	"gnome-menus ${Gnome_Variants}${General_Variants}"  ;
-    do
-	Install_Update ${I};
-    done; unset I
-
-    return
-    } # Force_Activate
-
-function No_Universal ()
-    {
-    local I;
-    
-    for I in				    \
-	"dbacl"				    \
-	"evolution-data-server"		    \
-	"libgweather"			    \
-	"openldap"			    \
-	"python24"			    \
-	"python25"			    \
-	"python26"			    \
-	"py25-cairo"			    \
-	"py25-gobject"			    \
-	"py25-gtk"			    \
-	"dbus-python25"			    \
-	"speex"				    ;
-    do
-	Install_Update ${I};
-    done; unset I
-
-    return
-    } # No_Universal
-
-function Update ()
-    {
-	setopt X_Trace;
-
     if test -d "${Base_Work_Dir}"; then
 	pushd "${Base_Work_Dir}";
-	    sudo svn cleanup
-	    sudo svn revert PortIndex*
-	    sudo svn update
-	    sudo portindex
+	    typeset Archive_Owner="$(gstat -c %U .)";
+	    typeset Archive_Group="$(gstat -c %G .)";
+
+	    svn cleanup
+	    svn revert PortIndex*
+	    svn update
+	    portindex
+	    gchown --recursive ${Archive_Owner}:${Archive_Group} .
 	popd;
     fi;
 
+    echo "===> Self Update"
     port selfupdate;
+    echo "===> Sync"
     port sync;
-    port deactivate kdelibs4;
-    port upgrade --enforce-variants qt4-mac ${Qt_Variants} ${General_Variants} ;
-    port activate kdelibs4 ${Qt_Variants};
-    port -p upgrade --enforce-variants outdated ${General_Variants} ;
 
     return
-    } # Update
+    } # Update_Tree
+    
+function Update_Packages ()
+    {
+    port -p upgrade --enforce-variants outdated ${General_Variants};
+
+    return
+    } # Update_Packages
 
 function Clean ()
     {
-    port -p uninstall inactive		    ;
-    port -f clean --all all		    ;
+    echo "===> Clean"
+    port -p uninstall inactive;
+    port -p uninstall outdated;
+    port -f -q clean --all all >/dev/null;
 
     return
     } # Clean

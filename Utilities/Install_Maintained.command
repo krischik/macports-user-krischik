@@ -2,15 +2,14 @@
 
 source ${0:h}/Setup.command
 
-setopt X_Trace;
+setopt No_X_Trace;
 setopt No_Err_Exit;
 
 if test "${USER}" = "root"; then
-    gcc_select gcc42
+    port select gcc gcc42
 
-    Update;
-    No_Universal;
-    Force_Activate
+    Update_Tree;
+    Update_Packages;
 
     for I in					    \
 	"atari800"				    \
@@ -23,10 +22,10 @@ if test "${USER}" = "root"; then
 	"oorexx"				    \
 	"sigil"					    ;
     do
-	port install ${=I} ${=General_Variants}
+	port install -f ${=I} ${=General_Variants}
     done; unset I
 
-    gcc_select gnat-gcc
+    port select gcc gnat-gcc42
 else
     setopt Multi_OS;
 

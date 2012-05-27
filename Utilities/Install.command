@@ -5,76 +5,78 @@ source ${0:h}/Setup.command
 setopt X_Trace;
 
 if test "${USER}" = "root"; then
-    gcc_select gcc42
+    port select gcc gcc42
 
-    Update;
-    No_Universal;
-    Force_Activate;
+    Update_Tree;
+    Update_Packages;
 
     for I in									\
-	"acl2"					    				\
-	"aspell +nls"				    				\
-	"aspell-dict-de"			    				\
-	"aspell-dict-en"			    				\
-	"aspell-dict-ru"			    				\
-	"autoconf"				    				\
-	"avahi +mono"				    				\
-	"b5i2iso"				    				\
-	"bison +yacc"				    				\
-	"bitstream-vera"			    				\
-	"bzip2"					    				\
-	"coreutils"				    				\
-	"ctags"					    				\
-	"dbacl"					    				\
-	"diffutils"				    				\
-	"dos2unix"				    				\
-	"dovecot +ldap"				    				\
-	"enchant"				    				\
-	"fetchmail +fetchmailconf+ssl+ntml"	    				\
-	"file"									\
-	"findutils"				    				\
-	"flex"					    				\
+	"acl2"									\
+	"aspell +nls"								\
+	"aspell-dict-de"							\
+	"aspell-dict-en"							\
+	"aspell-dict-ru"							\
+	"autoconf"								\
+	"avahi +mono"								\
+	"b5i2iso"								\
+	"bison +yacc"								\
+	"bitstream-vera"							\
+	"bzip2"									\
+	"coreutils"								\
+	"ctags"									\
+	"dbacl"									\
+	"dbus"									\
+	"dbus-devel"								\
+	"diffutils"								\
+	"dos2unix"								\
+	"dovecot +ldap"								\
+	"enchant"								\
+	"fetchmail +fetchmailconf+ssl+ntml"					\
+	"file +with_text_magic_file"						\
+	"findutils"								\
+	"flex"									\
 	"fontconfig +vera"							\
-	"fugu"					    				\
-	"giflib"				    				\
-	"gmp"					    				\
-	"gnutar"				    				\
-	"gsed"					    				\
-	"gwhich"				    				\
-	"gzip +rsyncable"			    				\
-	"hunspell"				    				\
-	"hunspell-dict-de_DE"			    				\
-	"ispell"				    				\
-	"jasper +jiv"				    				\
-	"jpeg"					    				\
-	"liblzma"				    				\
-	"libpng"				    				\
-	"lzma"					    				\
-	"lzmautils"				    				\
-	"m4"					    				\
-	"mdf2iso"				    				\
-	"mpfr"					    				\
-	"nrg2iso"				    				\
-	"p5-mail-spamassassin +bayes +razor +ssl"   				\
-	"p7zip"					    				\
-	"pdi2iso"				    				\
-	"pgp"					    				\
-	"png2ico"				    				\
-	"rb-termios"				    				\
-	"readline"				    				\
-	"rsync +rsyncd"				    				\
-	"shared-mime-info"			    				\
-	"sitecopy"				    				\
-	"spellutils"				    				\
-	"star"					    				\
-	"texinfo"				    				\
-	"tiff"					    				\
-	"transmission-x11 +aqua"		    				\
-	"uif2iso"				    				\
-	"unix2dos"				    				\
-	"urw-fonts"				    				\
-	"wget"					    				\
-	"xpm"					    				\
+	"fugu"									\
+	"giflib"								\
+	"gmp"									\
+	"gnutar"								\
+	"gsed"									\
+	"gwhich"								\
+	"gzip +rsyncable"							\
+	"hunspell"								\
+	"hunspell-dict-de_DE"							\
+	"ispell"								\
+	"jasper +jiv"								\
+	"jpeg"									\
+	"liblzma"								\
+	"libpng"								\
+	"lzma"									\
+	"lzmautils"								\
+	"m4"									\
+	"mdf2iso"								\
+	"mpfr"									\
+	"nrg2iso"								\
+	"p5-mail-spamassassin +bayes +razor +ssl"				\
+	"p7zip"									\
+	"pdi2iso"								\
+	"pgp"									\
+	"png2ico"								\
+	"rb-termios"								\
+	"readline"								\
+	"rsync +rsyncd"								\
+	"shared-mime-info"							\
+	"sitecopy"								\
+	"spellutils"								\
+	"star"									\
+	"texinfo"								\
+	"tiff"									\
+	"transmission-x11 +aqua"						\
+	"uif2iso"								\
+	"unix2dos"								\
+	"urw-fonts"								\
+	"wget +ssl"								\
+	"wput +ssl"								\
+	"xpm"									\
 	"ImageMagick +graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"	;
     do
 	port install ${=I} ${=General_Variants}
@@ -82,7 +84,7 @@ if test "${USER}" = "root"; then
 
     Clean;
 
-    gcc_select gnat-gcc
+    port select gcc gnat-gcc42
 else
     setopt Multi_OS;
 
