@@ -14,6 +14,12 @@ if test "${USER}" = "root"; then
     Update_Packages
 
     for I in									    \
+	"poppler"
+    do
+	Install_Update ${=I} "${General_Variants}"
+    done; unset I
+    
+    for I in									    \
 	"MPlayer +aa+caca+dts+mencoder_extras+esd+fribidi+live+osd+sdl+smb+speex"   \
 	"avidemux +aac+dts+esd+jack+lame+ogg+x264+xvid"				    \
 	"VLC +huge+qt4"
