@@ -9,6 +9,9 @@
 setopt No_X_Trace;
 
 case "${OSTYPE}" in
+    ((darwin11*))
+	typeset  General_Variants="+universal"
+    ;;
     ((darwin10*))
 	typeset  General_Variants="+universal-atlas"
     ;;
@@ -116,7 +119,7 @@ function Install_Update ()
 
     echo "===> Install  ${=in_Package} ${=in_Options}"
 
-    if ! port install ${=in_Package} ${=in_Options}; then
+    if ! port -f install ${=in_Package} ${=in_Options}; then
 	port upgrade --enforce-variants ${=in_Package} ${=in_Options};	
     fi;
 

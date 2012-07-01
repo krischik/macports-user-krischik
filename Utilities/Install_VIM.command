@@ -13,8 +13,8 @@ setopt X_Trace;
 if test "${USER}" = "root"; then
     port select gcc gcc42
 
-    Update_Tree;
-    Update_Packages;
+    #Update_Tree;
+    #Update_Packages;
 
     for I in					\
 	"gnutar ${=General_Variants}"		\

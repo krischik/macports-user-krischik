@@ -14,12 +14,13 @@ if test "${USER}" = "root"; then
     Update_Packages
 
     for I in		\
+	"qt4_select"	\
 	"qt4-mac"	\
 	"akonadi"	\
 	"kdelibs4"	\
 	"kde4-baseapps"	\
 	"kdepim4"	\
-	"amarok"	
+	"amarok"
     do
 	# KDE libs hang in compile with 8 cores.
 	# build.jobs=1
@@ -27,14 +28,14 @@ if test "${USER}" = "root"; then
     done; unset I
 
     port select gcc gnat-gcc42
-    
+
     sudo gchown -R ${1} ~/Library/Preferences/KDE
 
     Clean;
     Load_System
 else
     setopt Multi_OS
-    
+
     Unload_User
     sudo ${0:a} ${USER} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
     Load_User

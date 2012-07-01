@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 
-setopt X_Trace;
+setopt X_Trace
 
 if test "${USER}" = "root"; then
-    Unload_System;
+    Unload_System
 
     for I in		    \
 	"kdeadmin4"	    \
@@ -17,19 +17,21 @@ if test "${USER}" = "root"; then
 	"kdepimlibs4"	    \
 	"kdesdk4"	    \
 	"kdesupport4"	    \
-	"kdeutils4"	    ;
+	"kdeutils4"	    \
+	"kdelibs4"	    \
+	"qt4_select"
     do
 	port uninstall --follow-dependents ${=I}
     done; unset I
 
-    Load_System;
+    Load_System
 else
-    setopt Multi_OS;
+    setopt Multi_OS
 
-    Unload_User;
-    sudo ${0} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out;
-    Load_User;
-fi;
+    Unload_User
+    sudo ${0} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+    Load_User
+fi
 
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :
 # vim: set textwidth=0 filetype=zsh foldmethod=marker nospell :
