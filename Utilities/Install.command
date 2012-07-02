@@ -73,7 +73,7 @@ if test "${USER}" = "root"; then
 	"wget +ssl"								\
 	"wput +ssl"								\
 	"xpm"									\
-	"xz"
+	"xz"									\
 	"transmission-x11 +aqua"						\
 	"fontforge +freetype_bytecode"						\
 	"ImageMagick +graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"	;
