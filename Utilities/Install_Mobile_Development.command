@@ -8,7 +8,8 @@
 
 source ${0:h}/Setup.command
 
-setopt X_Trace;
+setopt No_X_Trace;
+setopt No_Err_Exit;
 
 if test "${USER}" = "root"; then
     port select gcc gcc42

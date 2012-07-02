@@ -1,4 +1,10 @@
 #!/opt/local/bin/zsh
+############################################################## {{{1 ##########
+#   $Author$
+#   $Revision$
+#   $Date$
+#   $HeadURL$
+############################################################## }}}1 ##########
 
 source ${0:h}/Setup.command
 
@@ -13,15 +19,15 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
-    for I in									    \
+    for I in									\
 	"poppler"
     do
 	Install_Update ${=I} "${General_Variants}"
     done; unset I
     
-    for I in									    \
-	"MPlayer +aa+caca+dts+mencoder_extras+esd+fribidi+live+osd+sdl+smb+speex"   \
-	"avidemux +aac+dts+esd+jack+lame+ogg+x264+xvid"				    \
+    for I in									\
+	"MPlayer +aa+caca+dts+mencoder_extras+esd+fribidi+live+osd+sdl+speex"   \
+	"avidemux +aac+dts+esd+jack+lame+ogg+x264+xvid"				\
 	"VLC +huge+qt4"
     do
 	Install_Update ${=I} "${Qt_Variants}${General_Variants}"

@@ -1,8 +1,15 @@
 #!/opt/local/bin/zsh
+############################################################## {{{1 ##########
+#   $Author$
+#   $Revision$
+#   $Date$
+#   $HeadURL$
+############################################################## }}}1 ##########
 
 source ${0:h}/Setup.command
 
-setopt X_Trace;
+setopt No_X_Trace;
+setopt No_Err_Exit;
 
 if test "${USER}" = "root"; then
     port select gcc gcc42
@@ -17,7 +24,6 @@ if test "${USER}" = "root"; then
 	"aspell-dict-en"							\
 	"aspell-dict-ru"							\
 	"autoconf"								\
-	"avahi +mono"								\
 	"b5i2iso"								\
 	"bison +yacc"								\
 	"bitstream-vera"							\
@@ -26,26 +32,23 @@ if test "${USER}" = "root"; then
 	"ctags"									\
 	"dbacl"									\
 	"dbus"									\
-	"dbus-devel"								\
 	"diffutils"								\
 	"dos2unix"								\
-	"dovecot +ldap"								\
+	"dos2unix"								\
 	"enchant"								\
-	"fetchmail +fetchmailconf+ssl+ntml"					\
 	"file +with_text_magic_file"						\
 	"findutils"								\
 	"flex"									\
 	"fontconfig +vera"							\
-	"fugu"									\
 	"giflib"								\
 	"gmp"									\
+	"gnupg"									\
 	"gnutar"								\
 	"gsed"									\
 	"gwhich"								\
 	"gzip +rsyncable"							\
 	"hunspell"								\
 	"hunspell-dict-de_DE"							\
-	"ispell"								\
 	"jasper +jiv"								\
 	"jpeg"									\
 	"liblzma"								\
@@ -56,10 +59,8 @@ if test "${USER}" = "root"; then
 	"mdf2iso"								\
 	"mpfr"									\
 	"nrg2iso"								\
-	"p5-mail-spamassassin +bayes +razor +ssl"				\
 	"p7zip"									\
 	"pdi2iso"								\
-	"pgp"									\
 	"png2ico"								\
 	"rb-termios"								\
 	"readline"								\
@@ -70,16 +71,23 @@ if test "${USER}" = "root"; then
 	"star"									\
 	"texinfo"								\
 	"tiff"									\
-	"transmission-x11 +aqua"						\
 	"uif2iso"								\
-	"unix2dos"								\
 	"urw-fonts"								\
 	"wget +ssl"								\
 	"wput +ssl"								\
 	"xpm"									\
+	"transmission-x11 +aqua"						\
+	"fontforge +freetype_bytecode"						\
 	"ImageMagick +graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"	;
     do
-	port install ${=I} ${=General_Variants}
+	Install_Update ${=I} "${General_Variants}"
+    done; unset I
+
+    for I in		\
+	"avahi +mono"	\
+	"fugu"
+    do
+	Install_Update ${=I} 
     done; unset I
 
     Clean;

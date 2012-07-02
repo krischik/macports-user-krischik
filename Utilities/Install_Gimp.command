@@ -1,8 +1,15 @@
 #!/opt/local/bin/zsh
+############################################################## {{{1 ##########
+#   $Author$
+#   $Revision$
+#   $Date$
+#   $HeadURL$
+############################################################## }}}1 ##########
 
 source ${0:h}/Setup.command
 
 setopt No_X_Trace;
+setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
     Unload_System;
@@ -15,14 +22,18 @@ if test "${USER}" = "root"; then
     # The dependecies to not work because
     # to few libraries build with +universal
     for I in						    \
-	"py26-numpy"					    \
-	"gimp2 +gvfs+help_browser +universal -atlas"	    \
-	"gimp-app +animation +help_browser +gvfs -atlas"    \
-	"gimp-user-manual +de -atlas"
+	"py26-numpy"					    
     do
-	Install_Update ${=I} ${=Gnome_Variants}
+	Install_Update ${=I} "-atlas"
     done; unset I
 
+    for I in						    \
+	"gimp2 +gvfs+help_browser +universal"		    \
+	"gimp-app +animation +help_browser +gvfs"	    \
+	"gimp-help-de"
+    do
+	Install_Update ${=I} "${=Gnome_Variants}${=General_Variants}"
+    done; unset I
 
     port select gcc gnat-gcc42
     Clean

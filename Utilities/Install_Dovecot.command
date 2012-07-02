@@ -8,7 +8,8 @@
 
 source ${0:h}/Setup.command
 
-setopt X_Trace;
+setopt No_X_Trace;
+setopt No_Err_Exit;
 
 if test "${USER}" = "root"; then
     port select gcc gcc42
@@ -16,10 +17,11 @@ if test "${USER}" = "root"; then
     launchctl unload -w "/Library/LaunchDaemons/org.macports.dovecot.plist";
     launchctl unload -w "/Library/LaunchDaemons/org.macports.slapd.plist";
 
-    for I in		\
-	"imapfilter"	\
-	"openldap"	\
-	"dovecot"	;
+    for I in				    \
+	"fetchmail +fetchmailconf+ssl+ntml" \
+	"imapfilter"			    \
+	"openldap"			    \
+	"dovecot"			    ;
     do
 	Install_Update ${I} ${=General_Variants};
     done; unset I

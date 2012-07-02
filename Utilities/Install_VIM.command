@@ -8,7 +8,8 @@
 
 source ${0:h}/Setup.command
 
-setopt X_Trace;
+setopt No_X_Trace;
+setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
     port select gcc gcc42
@@ -16,18 +17,23 @@ if test "${USER}" = "root"; then
     Update_Tree;
     Update_Packages;
 
+    for I in		\
+	"autoconf"	\
+	"ctags"		\
+	"gettext"	\
+	"gnutar"	\
+	"grep"		\
+	"libiconv"	\
+	"ncurses"	\
+	"perl5"		\
+	"python26"	\
+	"ruby"		\
+	"tcl"		;
+    do
+	Install_Update ${I} "${=General_Variants}";
+    done; unset I
+    
     for I in					\
-	"gnutar ${=General_Variants}"		\
-	"grep ${=General_Variants}"		\
-	"ncurses ${=General_Variants}"		\
-	"libiconv ${=General_Variants}"		\
-	"ctags ${=General_Variants}"		\
-	"perl5 ${=General_Variants}"		\
-	"python26 ${=General_Variants}"		\
-	"autoconf ${=General_Variants}"		\
-	"ruby ${=General_Variants}"		\
-	"tcl ${=General_Variants}"		\
-	"gettext ${=General_Variants}"		\
 	"MacVim +cscope +huge +nls +ruby +xim"	;
     do
 	Install_Update ${I};

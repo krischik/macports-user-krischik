@@ -8,17 +8,18 @@
 
 source ${0:h}/Setup.command
 
-setopt X_Trace;
+setopt No_X_Trace;
+setopt No_Err_Exit;
 
 if test "${USER}" = "root"; then
     port select gcc gcc42
 
     launchctl unload -w "/Library/LaunchDaemons/org.macports.spamd.plist";
 
-    for I in							\
-	"p5-mail-spamassassin +razor+ssl ${=General_Variants}"	;
+    for I in					    \
+	"p5-mail-spamassassin +bayes+razor+ssl"	    ;
     do
-	Install_Update ${I};
+	Install_Update ${I} "${=General_Variants}";
     done; unset I
 
     pushd /opt/local/etc/mail/spamassassin
