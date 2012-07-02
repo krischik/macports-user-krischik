@@ -38,7 +38,7 @@ fi
 
 $OPENSSL req -new -x509 -nodes -config $OPENSSLCONFIG -out $CERTFILE -keyout $KEYFILE -days 3650 || exit 2
 chmod 0600 $KEYFILE
-echo 
+echo
 $OPENSSL x509 -subject -fingerprint -noout -in $CERTFILE || exit 2
 
 ############################################################ {{{1 ###########

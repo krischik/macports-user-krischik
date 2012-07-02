@@ -10,7 +10,7 @@ setopt No_X_Trace;
 
 case "${OSTYPE}" in
     ((darwin11*))
-	typeset  General_Variants="+universal"
+	typeset  General_Variants="+universal-atlas"
     ;;
     ((darwin10*))
 	typeset  General_Variants="+universal-atlas"
@@ -54,7 +54,7 @@ function Load ()
 	launchctl load -w ${in_PList}
     fi;
 
-    return;    
+    return;
     } # Load
 
 function Load_System ()
@@ -90,7 +90,7 @@ function Unload ()
 	launchctl unload -w ${in_PList}
     fi;
 
-    return;    
+    return;
     } # Unload
 
 function Unload_System ()
@@ -102,7 +102,7 @@ function Unload_System ()
     Unload "/Library/LaunchDaemons/org.macports.gdm.plist";
     #Unload "/Library/LaunchDaemons/org.macports.dovecot.plist";
 
-    return;    
+    return;
     } # Unload_System
 
 function Unload_User ()
@@ -120,7 +120,7 @@ function Install_Update ()
     echo "===> Install  ${=in_Package} ${=in_Options}"
 
     if ! port -f install ${=in_Package} ${=in_Options}; then
-	port upgrade --enforce-variants ${=in_Package} ${=in_Options};	
+	port upgrade --enforce-variants ${=in_Package} ${=in_Options};
     fi;
 
     port activate ${=in_Package} ${=in_Options} || true;
@@ -149,7 +149,7 @@ function Update_Tree ()
 
     return
     } # Update_Tree
-    
+
 function Update_Packages ()
     {
     port -p upgrade --enforce-variants outdated ${General_Variants};

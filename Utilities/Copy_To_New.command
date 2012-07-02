@@ -9,7 +9,7 @@
 setopt X_Trace;
 
 if test "${USER}" = "root"; then
-    pushd "/opt/local.10.5"
+    pushd "/opt/local.old"
 	for I in					    \
 	    **/CVS(/)					    \
 	    bin/startkde				    \
@@ -24,11 +24,11 @@ if test "${USER}" = "root"; then
 	    etc/rsyncd.conf				    \
 	    etc/ssl					    \
 	    var/log					    \
-	    var/run/dovecot	    			    \
-	    var/run/fetchmail	    			    \
-	    var/spool/news	    			    ;
+	    var/run/dovecot				    \
+	    var/run/fetchmail				    \
+	    var/spool/news				    ;
 	do
-	    gmv --verbose "${I}" "/opt/local/${I}";
+	    gcp --archive --verbose "${I}" "/opt/local/${I}";
 	done; unset I
     popd;
 

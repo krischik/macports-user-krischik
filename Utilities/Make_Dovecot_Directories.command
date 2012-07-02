@@ -14,10 +14,10 @@ if test "${USER}" = "root"; then
     gmkdir --parents --verbose /opt/local/var/run/dovecot
     gmkdir --parents --verbose /opt/local/etc/ssl/certs
     gmkdir --parents --verbose /opt/local/etc/ssl/private
-    
+
     gchown --recursive _dovecot:_dovecot /opt/local/var/log/dovecot
-    gchown --recursive _dovecot:_dovecot /opt/local/var/run/dovecot 
-    gchown --recursive _dovecot:_dovecot /opt/local/etc/dovecot 
+    gchown --recursive _dovecot:_dovecot /opt/local/var/run/dovecot
+    gchown --recursive _dovecot:_dovecot /opt/local/etc/dovecot
 else
     setopt Multi_OS;
 

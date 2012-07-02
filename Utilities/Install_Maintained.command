@@ -32,6 +32,7 @@ if test "${USER}" = "root"; then
     done; unset I
 
     port select gcc gnat-gcc42
+    Clean
 else
     setopt Multi_OS;
 

@@ -17,13 +17,11 @@ if test "${USER}" = "root"; then
     port select gcc gcc42
 
     Update_Tree;
-    #Force_Activate;
     Update_Packages;
 
-    #Clean;
-
     port select gcc gnat-gcc42
-    Load_System;
+    Clean
+    Load_System
 else
     setopt Multi_OS;
 

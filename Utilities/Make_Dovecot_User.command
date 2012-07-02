@@ -11,7 +11,7 @@ setopt No_Err_Exit;
 
 if test "${USER}" = "root"; then
     dscl . -create /Groups/_dovecot
-    dscl . -create /Groups/_dovecot UniqueID 30 
+    dscl . -create /Groups/_dovecot UniqueID 30
     dscl . -create /Users/_dovecot
     dscl . -create /Users/_dovecot UserShell /bin/false
     dscl . -create /Users/_dovecot RealName "Dovecot IMAP Server"

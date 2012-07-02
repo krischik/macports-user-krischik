@@ -18,15 +18,20 @@ if test "${USER}" = "root"; then
     Foce_Activate;
     Update_Packages;
 
-    for I in				    \
-	"android ${=General_Variants}"	    \
-	"antenna ${=General_Variants}"	    \
-	"maven3 ${=General_Variants}"	    \
-	"microemu ${=General_Variants}"	    \
-	"proguard ${=General_Variants}"	    \
-	"scala29 ${=General_Variants}"	    \
-	"scala_select ${=General_Variants}" \
-	"wine"				    ;
+    for I in		    \
+	"android"	    \
+	"antenna"	    \
+	"maven3"	    \
+	"microemu"	    \
+	"proguard"	    \
+	"scala29"	    \
+	"scala_select"	    ;
+    do
+	Install_Update ${I} ${=General_Variants};
+    done; unset I
+
+    for I in		    \
+	"wine"		    ;
     do
 	Install_Update ${I};
     done; unset I

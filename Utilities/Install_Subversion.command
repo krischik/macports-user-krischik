@@ -14,8 +14,8 @@ setopt No_Err_Exit
 if test "${USER}" = "root"; then
     port select gcc gcc42
 
-    Update_Tree;
-    Update_Packages;
+    Update_Tree
+    Update_Packages
 
     for I in										    \
 	"junit ${=General_Variants}"							    \
@@ -27,6 +27,7 @@ if test "${USER}" = "root"; then
     done; unset I
 
     port select gcc gnat-gcc42
+    Clean
 else
     setopt Multi_OS;
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out;

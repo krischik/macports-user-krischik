@@ -33,7 +33,7 @@ if test "${USER}" = "root"; then
     done; unset I
 
     Clean;
-    Load_System;    
+    Load_System;
 else
     setopt Multi_OS;
 

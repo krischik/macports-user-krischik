@@ -22,7 +22,7 @@ if test "${USER}" = "root"; then
     # The dependecies to not work because
     # to few libraries build with +universal
     for I in						    \
-	"py26-numpy"					    
+	"py26-numpy"
     do
 	Install_Update ${=I} "-atlas"
     done; unset I

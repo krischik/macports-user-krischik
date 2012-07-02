@@ -20,28 +20,25 @@ if test "${USER}" = "root"; then
     Update_Packages
 
     for I in									\
-	"poppler"
+	"poppler"								\
+	"MPlayer +aa+caca+dts+mencoder_extras+esd+fribidi+live+osd+sdl+speex"   \
+	"avidemux +aac+dts+esd+jack+lame+ogg+x264+xvid"				\
     do
 	Install_Update ${=I} "${General_Variants}"
     done; unset I
-    
+
     for I in									\
-	"MPlayer +aa+caca+dts+mencoder_extras+esd+fribidi+live+osd+sdl+speex"   \
-	"avidemux +aac+dts+esd+jack+lame+ogg+x264+xvid"				\
 	"VLC +huge+qt4"
     do
 	Install_Update ${=I} "${Qt_Variants}${General_Variants}"
     done; unset I
 
     port select gcc gnat-gcc42
-    
-    sudo gchown -R ${1} ~/Library/Preferences/KDE
-
-    Clean;
+    Clean
     Load_System
 else
     setopt Multi_OS
-    
+
     Unload_User
     sudo ${0:a} ${USER} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
     Load_User

@@ -44,7 +44,7 @@ if test "${USER}" = "root"; then
 
     port select gcc gnat-gcc42
     Clean;
-    Load_System;    
+    Load_System;
 else
     setopt Multi_OS;
 
@@ -56,7 +56,7 @@ fi;
 # To start gnome put "exec gnome-session" in your .xinitrc
 # See also http://trac.macports.org/wiki/GNOME
 # sudo launchctl load -w /Library/LaunchDaemons/org.macports.dbus.plist
-# 
+#
 # sudo port select python26
 #
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :

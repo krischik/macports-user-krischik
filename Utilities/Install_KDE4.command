@@ -35,9 +35,7 @@ if test "${USER}" = "root"; then
 
     port select gcc gnat-gcc42
 
-    sudo gchown -R ${1} ~/Library/Preferences/KDE
-
-    Clean;
+    Clean
     Load_System
 else
     setopt Multi_OS

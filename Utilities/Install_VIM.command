@@ -32,7 +32,7 @@ if test "${USER}" = "root"; then
     do
 	Install_Update ${I} "${=General_Variants}";
     done; unset I
-    
+
     for I in					\
 	"MacVim +cscope +huge +nls +ruby +xim"	;
     do
@@ -59,8 +59,8 @@ if test "${USER}" = "root"; then
 	fi;
     done; unset I
 
-    Clean;
     port select gcc gnat-gcc42
+    Clean
 else
     setopt Multi_OS;
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out;

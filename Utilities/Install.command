@@ -85,7 +85,7 @@ if test "${USER}" = "root"; then
 	"avahi +mono"	\
 	"fugu"
     do
-	Install_Update ${=I} 
+	Install_Update ${=I}
     done; unset I
 
     Clean;
