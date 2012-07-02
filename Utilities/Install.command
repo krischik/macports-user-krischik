@@ -51,10 +51,7 @@ if test "${USER}" = "root"; then
 	"hunspell-dict-de_DE"							\
 	"jasper +jiv"								\
 	"jpeg"									\
-	"liblzma"								\
 	"libpng"								\
-	"lzma"									\
-	"lzmautils"								\
 	"m4"									\
 	"mdf2iso"								\
 	"mpfr"									\
@@ -76,6 +73,7 @@ if test "${USER}" = "root"; then
 	"wget +ssl"								\
 	"wput +ssl"								\
 	"xpm"									\
+	"xz"
 	"transmission-x11 +aqua"						\
 	"fontforge +freetype_bytecode"						\
 	"ImageMagick +graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"	;
