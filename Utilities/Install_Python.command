@@ -8,30 +8,30 @@
 
 source ${0:h}/Setup.command
 
-setopt No_X_Trace;
-setopt No_Err_Exit;
+setopt No_X_Trace
+setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
     port select gcc gcc42
 
-    Update_Tree;
-    Update_Packages;
+    Update_Tree
+    Update_Packages
 
-    for I in				    \
-	"python27 ${=General_Variants}"	    \
-	"py27-ctypes ${=General_Variants}"  \
-	"py27-crypto  ${=General_Variants}" \
-	"py27-tkinter ${=General_Variants}" ;
+    for I in		\
+	"python27 "	\
+	"py27-ctypes"	\
+	"py27-crypto"	\
+	"py27-tkinter"
     do
-	Install_Update ${I} --enforce-variants;
+	Install_Update ${I} "${=General_Variants}"s
     done; unset I
 
-    port select python25
+    port select python27
     port select gcc gnat-gcc42
 else
-    setopt Multi_OS;
-    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out;
-fi;
+    setopt Multi_OS
+    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+fi
 
 ############################################################ {{{1 ###########
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :

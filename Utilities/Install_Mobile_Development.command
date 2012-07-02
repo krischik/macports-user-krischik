@@ -8,15 +8,15 @@
 
 source ${0:h}/Setup.command
 
-setopt No_X_Trace;
-setopt No_Err_Exit;
+setopt No_X_Trace
+setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
     port select gcc gcc42
 
-    Update_Tree;
-    Foce_Activate;
-    Update_Packages;
+    Update_Tree
+    Foce_Activate
+    Update_Packages
 
     for I in		    \
 	"android"	    \
@@ -25,22 +25,22 @@ if test "${USER}" = "root"; then
 	"microemu"	    \
 	"proguard"	    \
 	"scala29"	    \
-	"scala_select"	    ;
+	"scala_select"
     do
-	Install_Update ${I} ${=General_Variants};
+	Install_Update ${I} ${=General_Variants}
     done; unset I
 
     for I in		    \
-	"wine"		    ;
+	"wine"
     do
-	Install_Update ${I};
+	Install_Update ${I}
     done; unset I
 
     port select gcc gnat-gcc42
 else
-    setopt Multi_OS;
-    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out;
-fi;
+    setopt Multi_OS
+    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+fi
 
 ############################################################ {{{1 ###########
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :

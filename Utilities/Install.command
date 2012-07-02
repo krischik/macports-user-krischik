@@ -8,14 +8,14 @@
 
 source ${0:h}/Setup.command
 
-setopt No_X_Trace;
-setopt No_Err_Exit;
+setopt No_X_Trace
+setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
     port select gcc gcc42
 
-    Update_Tree;
-    Update_Packages;
+    Update_Tree
+    Update_Packages
 
     for I in									\
 	"acl2"									\
@@ -76,7 +76,7 @@ if test "${USER}" = "root"; then
 	"xz"									\
 	"transmission-x11 +aqua"						\
 	"fontforge +freetype_bytecode"						\
-	"ImageMagick +graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"	;
+	"ImageMagick +graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"
     do
 	Install_Update ${=I} "${General_Variants}"
     done; unset I
@@ -88,14 +88,15 @@ if test "${USER}" = "root"; then
 	Install_Update ${=I}
     done; unset I
 
-    Clean;
+    Clean
 
     port select gcc gnat-gcc42
 else
-    setopt Multi_OS;
+    setopt Multi_OS
 
-    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out;
-fi;
+    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+fi
 
+############################################################ {{{1 ###########
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :
 # vim: set textwidth=0 filetype=zsh foldmethod=marker nospell :

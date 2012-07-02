@@ -6,8 +6,8 @@
 #   $HeadURL$
 ############################################################## }}}1 ##########
 
-setopt X_Trace;
-setopt No_Err_Exit;
+setopt X_Trace
+setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
     dscl . -create /Groups/_dovecot
@@ -21,10 +21,10 @@ if test "${USER}" = "root"; then
 
     defaults write /Library/Preferences/com.apple.loginwindow HiddenUsersList -array-add _fetchmail _dovecot
 else
-    setopt Multi_OS;
+    setopt Multi_OS
 
-    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out;
-fi;
+    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+fi
 
 ############################################################ {{{1 ###########
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :

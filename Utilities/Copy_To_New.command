@@ -6,7 +6,7 @@
 #   $HeadURL$
 ############################################################## }}}1 ##########
 
-setopt X_Trace;
+setopt X_Trace
 
 if test "${USER}" = "root"; then
     pushd "/opt/local.old"
@@ -20,17 +20,19 @@ if test "${USER}" = "root"; then
 	    etc/dovecot/passwd.dovecot			    \
 	    etc/dovecot/renewcert.zsh			    \
 	    etc/dovecot/userdb.dovecot			    \
+	    etc/fetchmailrc				    \
 	    etc/leafnode/config				    \
 	    etc/rsyncd.conf				    \
 	    etc/ssl					    \
+	    share/purple				    \
 	    var/log					    \
 	    var/run/dovecot				    \
 	    var/run/fetchmail				    \
-	    var/spool/news				    ;
+	    var/spool/news
 	do
-	    gcp --archive --verbose "${I}" "/opt/local/${I}";
+	    gcp --archive --verbose "${I}" "/opt/local/${I}"
 	done; unset I
-    popd;
+    popd
 
     pushd "/opt/local"
 	/bin/chmod +a "martin allow write"	    \
@@ -41,12 +43,13 @@ if test "${USER}" = "root"; then
 	    etc					    \
 	    etc/LaunchDaemons			    \
 	    etc/dovecot				    \
-	    etc/macports			    ;
-    popd;
+	    etc/macports
+    popd
 else
-    setopt Multi_OS;
-    sudo ${0} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out;
-fi;
+    setopt Multi_OS
+    sudo ${0} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+fi
 
+############################################################ {{{1 ###########
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :
 # vim: set textwidth=0 filetype=zsh foldmethod=marker nospell :

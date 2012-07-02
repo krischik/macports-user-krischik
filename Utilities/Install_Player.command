@@ -22,16 +22,18 @@ if test "${USER}" = "root"; then
     for I in									\
 	"poppler"								\
 	"MPlayer +aa+caca+dts+mencoder_extras+esd+fribidi+live+osd+sdl+speex"   \
-	"avidemux +aac+dts+esd+jack+lame+ogg+x264+xvid"				\
+	"avidemux +aac+dts+esd+jack+lame+ogg+x264+xvid"
     do
 	Install_Update ${=I} "${General_Variants}"
     done; unset I
 
-    for I in									\
+    for I in		\
+	"qt4_select"	\
+	"qt4-mac"	\
 	"VLC +huge+qt4"
     do
 	Install_Update ${=I} "${Qt_Variants}${General_Variants}"
-    done; unset I
+    done; unset I;
 
     port select gcc gnat-gcc42
     Clean
@@ -44,5 +46,6 @@ else
     Load_User
 fi
 
+############################################################ {{{1 ###########
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :
 # vim: set textwidth=0 filetype=zsh foldmethod=marker nospell :

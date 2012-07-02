@@ -6,7 +6,7 @@
 #   $HeadURL$
 ############################################################## }}}1 ##########
 
-setopt X_Trace;
+setopt X_Trace
 
 # Generates a self-signed certificate.
 # Edit dovecot-openssl.cnf before running this.

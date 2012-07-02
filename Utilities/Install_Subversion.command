@@ -8,7 +8,7 @@
 
 source ${0:h}/Setup.command
 
-setopt No_X_Trace;
+setopt No_X_Trace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
@@ -17,21 +17,21 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
-    for I in										    \
-	"junit ${=General_Variants}"							    \
-	"subversion +bash_completion+tools+mod_dav_svn+unicode_path${=General_Variants}"    \
-	"cvs2svn ${=General_Variants}"							    \
-	"subversion-javahlbindings ${=General_Variants}"					    ;
+    for I in								\
+	"juni"								\
+	"subversion +bash_completion+tools+mod_dav_svn+unicode_path"    \
+	"cvs2svn"							\
+	"subversion-javahlbindings"
     do
-	Install_Update ${I};
+	Install_Update ${I} "${=General_Variants}"
     done; unset I
 
     port select gcc gnat-gcc42
     Clean
 else
-    setopt Multi_OS;
-    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out;
-fi;
+    setopt Multi_OS
+    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+fi
 
 ############################################################ {{{1 ###########
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :

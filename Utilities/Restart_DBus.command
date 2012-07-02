@@ -6,8 +6,8 @@
 #   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Update.command $
 ############################################################## }}}1 ##########
 
-setopt No_X_Trace;
-setopt No_Err_Exit;
+setopt No_X_Trace
+setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
 
@@ -28,10 +28,11 @@ if test "${USER}" = "root"; then
     launchctl load   -w    /Library/LaunchAgents/org.freedesktop.dbus-session.plist
     launchctl start         org.freedesktop.dbus-session
 else
-    setopt Multi_OS;
+    setopt Multi_OS
 
-    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out;
-fi;
+    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+fi
 
+############################################################ {{{1 ###########
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 expandtab :
 # vim: set textwidth=0 filetype=zsh foldmethod=marker nospell :

@@ -7,7 +7,7 @@
 ############################################################## }}}1 ##########
 
 setopt No_X_Trace
-setopt No_Err_Exit;
+setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
     Unload_System
@@ -40,5 +40,6 @@ else
     Load_User
 fi
 
+############################################################ {{{1 ###########
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :
 # vim: set textwidth=0 filetype=zsh foldmethod=marker nospell :
