@@ -54,9 +54,11 @@ if test "${USER}" = "root"; then
 	"libpng"								\
 	"m4"									\
 	"mdf2iso"								\
+	"mmv"									\
 	"mpfr"									\
 	"nrg2iso"								\
 	"p7zip"									\
+	"par2"									\
 	"pdi2iso"								\
 	"png2ico"								\
 	"rb-termios"								\
@@ -74,6 +76,7 @@ if test "${USER}" = "root"; then
 	"wput +ssl"								\
 	"xpm"									\
 	"xz"									\
+	"yencode"								\
 	"transmission-x11 +aqua"						\
 	"fontforge +freetype_bytecode"						\
 	"ImageMagick +graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"

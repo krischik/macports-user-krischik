@@ -13,11 +13,23 @@ setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
     Clean
+    echo "===> Remove Backup file in /opt/local"
     gfind "/opt/local"			    \
 	-regextype grep			    \
 	-iregex '.\+mp_[[:digit:]]\{10\}'   \
 	-exec grm --verbose '{}' ';'
+    echo "===> Remove Backup file in /Applications/MacPorts"
     gfind "/Applications/MacPorts"	    \
+	-regextype grep			    \
+	-iregex '.\+mp_[[:digit:]]\{10\}'   \
+	-exec grm --verbose '{}' ';'
+    echo "===> Remove Backup file in /Library/LaunchAgents"
+    gfind "/Library/LaunchAgents "	    \
+	-regextype grep			    \
+	-iregex '.\+mp_[[:digit:]]\{10\}'   \
+	-exec grm --verbose '{}' ';'
+    echo "===> Remove Backup file in /Library/LaunchDaemons"
+    gfind "/Library/LaunchDaemons "	    \
 	-regextype grep			    \
 	-iregex '.\+mp_[[:digit:]]\{10\}'   \
 	-exec grm --verbose '{}' ';'

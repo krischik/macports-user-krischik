@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author: krischik@macports.org $
-#   $Revision: 93582 $
-#   $Date: 2012-05-27 17:53:43 +0200 (So, 27. Mai 2012) $
-#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Update.command $
+#   $Author$
+#   $Revision$
+#   $Date$
+#   $HeadURL$
 ############################################################## }}}1 ##########
 
 setopt No_X_Trace

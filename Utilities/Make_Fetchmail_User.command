@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author: krischik@macports.org $
-#   $Revision: 94900 $
-#   $Date: 2012-07-02 08:58:52 +0200 (Mo, 02. Jul 2012) $
-#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Clean.command $
+#   $Author$
+#   $Revision$
+#   $Date$
+#   $HeadURL$
 ############################################################## }}}1 ##########
 
 setopt X_Trace

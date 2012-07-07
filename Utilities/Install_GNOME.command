@@ -34,9 +34,6 @@ if test "${USER}" = "root"; then
 	"mono"						    \
 	"mono-addins"					    \
 	"gqview"					    \
-	"gimp2 gvfs+help_browser"			    \
-	"gimp-app +animation +help_browser +gvfs"	    \
-	"gimp-user-manual +de"				    \
 	"pan2"
     do
 	port install ${=I} ${=General_Variants} ${=Gnome_Variants}

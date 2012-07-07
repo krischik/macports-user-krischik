@@ -159,9 +159,11 @@ function Update_Packages ()
 
 function Clean ()
     {
-    echo "===> Clean"
+    echo "===> Uninstall Inactive"
     port -p uninstall inactive
+    echo "===> Uninstall Outdated"
     port -p uninstall outdated
+    echo "===> Clean"
     port -f -q clean --all all >/dev/null
 
     return

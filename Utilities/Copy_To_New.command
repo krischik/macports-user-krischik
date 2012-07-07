@@ -36,9 +36,9 @@ if test "${USER}" = "root"; then
 
     pushd "/opt/local"
 	/bin/chmod +a "martin allow write"	    \
-	    Applications			    \
-	    Applications/Utilities		    \
 	    .					    \
+	    /opt/local/etc/macports		    \
+	    /opt/local/etc/macports/sources.conf    \
 	    bin					    \
 	    etc					    \
 	    etc/LaunchDaemons			    \

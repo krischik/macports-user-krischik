@@ -27,13 +27,15 @@ if test "${USER}" = "root"; then
 	Install_Update ${=I} "${General_Variants}"
     done; unset I
 
-    for I in		\
-	"qt4_select"	\
-	"qt4-mac"	\
-	"VLC +huge+qt4"
+    for I in			\
+	"qt4-mac"		\
+	"qt4_select"		\
+	"VLC-devel +huge+qt4"
     do
 	Install_Update ${=I} "${Qt_Variants}${General_Variants}"
     done; unset I;
+
+# +bonjour+dvb+eyetv+ffmpeg+fribidi+huge+jack+mod+mpc+osd+qt4+qtkit+quartz+sdl+shout+speex+svg+vcd
 
     port select gcc gnat-gcc42
     Clean

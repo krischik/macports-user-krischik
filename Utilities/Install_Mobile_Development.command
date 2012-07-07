@@ -15,16 +15,16 @@ if test "${USER}" = "root"; then
     port select gcc gcc42
 
     Update_Tree
-    Foce_Activate
     Update_Packages
-
+    
     for I in		    \
 	"android"	    \
 	"antenna"	    \
 	"maven3"	    \
+	"maven_select"	    \
 	"microemu"	    \
 	"proguard"	    \
-	"scala29"	    \
+	"scala2.9"	    \
 	"scala_select"
     do
 	Install_Update ${I} ${=General_Variants}
@@ -35,6 +35,8 @@ if test "${USER}" = "root"; then
     do
 	Install_Update ${I}
     done; unset I
+
+    port select --set maven maven3
 
     port select gcc gnat-gcc42
 else
