@@ -59,6 +59,7 @@ function Load ()
 
 function Load_System ()
     {
+    echo "===> Load System"
     Load "/Library/LaunchDaemons/org.macports.dbus.plist"
     Load "/Library/LaunchDaemons/org.macports.slapd.plist"
     Load "/Library/LaunchDaemons/org.freedesktop.dbus-system.plist"
@@ -73,6 +74,7 @@ function Load_System ()
 
 function Load_User ()
     {
+    echo "===> Load User"
     Load "/Library/LaunchAgents/org.freedesktop.dbus-session.plist"
 
     if test -d /Applications/MacPorts/KDE4/kdeinit4.app; then
@@ -95,6 +97,7 @@ function Unload ()
 
 function Unload_System ()
     {
+    echo "===> Load User"
     Unload "/Library/LaunchDaemons/org.macports.dbus.plist"
     Unload "/Library/LaunchDaemons/org.macports.rsyncd.plist"
     Unload "/Library/LaunchDaemons/org.macports.spamd.plist"
@@ -107,6 +110,7 @@ function Unload_System ()
 
 function Unload_User ()
     {
+    echo "===> Un-Load User"
     Unload "/Library/LaunchAgents/org.freedesktop.dbus-session.plist"
 
     return
@@ -134,8 +138,10 @@ function Update_Tree ()
 	    typeset Archive_Owner="$(gstat -c %U .)"
 	    typeset Archive_Group="$(gstat -c %G .)"
 
+	    echo "===> Subversion Cleanup"
 	    svn cleanup
 	    svn revert PortIndex*
+	    echo "===> Subversion Update"
 	    svn update
 	    portindex
 	    gchown --recursive ${Archive_Owner}:${Archive_Group} .
@@ -152,6 +158,7 @@ function Update_Tree ()
 
 function Update_Packages ()
     {
+    echo "===> Upgrade Outdated"
     port -p upgrade --enforce-variants outdated ${General_Variants}
 
     return

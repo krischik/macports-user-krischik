@@ -25,7 +25,7 @@ if test "${USER}" = "root"; then
 	"dovecot"			    \
 	"fetchmail +fetchmailconf+ssl+ntml" \
 	"imapfilter"			    \
-	"postfix +dovecot+pcre+tls"
+	"postfix +dovecot+sasl+pcre+tls"
     do
 	Install_Update ${I} ${=General_Variants}
     done; unset I
