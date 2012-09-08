@@ -12,7 +12,7 @@ setopt No_X_Trace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    port select gcc gcc42
+    port select --set gcc llvm-gcc42
 
     launchctl unload -w "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
     launchctl unload -w "/Library/LaunchDaemons/org.macports.dovecot.plist"

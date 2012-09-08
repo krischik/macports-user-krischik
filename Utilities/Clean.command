@@ -24,12 +24,12 @@ if test "${USER}" = "root"; then
 	-iregex '.\+mp_[[:digit:]]\{10\}'   \
 	-exec grm --verbose '{}' ';'
     echo "===> Remove Backup file in /Library/LaunchAgents"
-    gfind "/Library/LaunchAgents "	    \
+    gfind "/Library/LaunchAgents"	    \
 	-regextype grep			    \
 	-iregex '.\+mp_[[:digit:]]\{10\}'   \
 	-exec grm --verbose '{}' ';'
     echo "===> Remove Backup file in /Library/LaunchDaemons"
-    gfind "/Library/LaunchDaemons "	    \
+    gfind "/Library/LaunchDaemons"	    \
 	-regextype grep			    \
 	-iregex '.\+mp_[[:digit:]]\{10\}'   \
 	-exec grm --verbose '{}' ';'

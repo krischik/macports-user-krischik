@@ -6,27 +6,14 @@
 #   $HeadURL$
 ############################################################## }}}1 ##########
 
-source ${0:h}/Setup.command
-
 setopt No_X_Trace
 setopt No_Err_Exit
 
-if test "${USER}" = "root"; then
-    port select --set gcc llvm-gcc42
-
-    for I in		    \
-	"py26-wxpython"	    \
-	"bittornado"
-    do
-	Install_Update ${I} ${=General_Variants}
-    done; unset I
-
-    port select gcc gnat-gcc42
-else
-    setopt Multi_OS
-    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
-fi
+launchctl stop         com.krischik.imapfilter
+launchctl unload -w    "${HOME}/Library/LaunchAgents/com.krischik.imapfilter.plist"
+launchctl load   -w    "${HOME}/Library/LaunchAgents/com.krischik.imapfilter.plist"
+launchctl start        com.krischik.imapfilter
 
 ############################################################ {{{1 ###########
-# vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :
+# vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 expandtab :
 # vim: set textwidth=0 filetype=zsh foldmethod=marker nospell :

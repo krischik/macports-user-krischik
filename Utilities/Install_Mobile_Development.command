@@ -12,7 +12,7 @@ setopt No_X_Trace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    port select gcc gcc42
+    port select --set gcc llvm-gcc42
 
     Update_Tree
     Update_Packages
@@ -37,8 +37,7 @@ if test "${USER}" = "root"; then
     done; unset I
 
     port select --set maven maven3
-
-    port select gcc gnat-gcc42
+    port select --set gcc   gnat-gcc42
 else
     setopt Multi_OS
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out

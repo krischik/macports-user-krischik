@@ -14,29 +14,42 @@ setopt No_Err_Exit
 if test "${USER}" = "root"; then
     Unload_System
 
-    port select gcc gcc42
+    port select --set gcc llvm-gcc42
 
     Update_Tree
     Update_Packages
 
-    for I in						    \
-	"cairo"						    \
-	"pango"						    \
-	"gtk2"						    \
-	"gtk-engines2"					    \
-	"gnome-themes"					    \
-	"tango-icon-theme +big_icons"			    \
-	"tango-icon-theme-extras +big_icons"		    \
-	"gtk-theme-switch"				    \
-	"gtkspell2"					    \
-	"gconf"						    \
-	"gmime"						    \
-	"mono"						    \
-	"mono-addins"					    \
-	"gqview"					    \
+    # The dependecies to not work because
+    # to few libraries build with +universal
+    for I in						\
+	"py26-numpy"
+    do
+	Install_Update ${=I} "-atlas"
+    done; unset I
+
+    for I in						\
+	"cairo"						\
+	"pango"						\
+	"gtk2"						\
+	"gtk-engines2"					\
+	"gnome-themes"					\
+	"tango-icon-theme +big_icons"			\
+	"tango-icon-theme-extras +big_icons"		\
+	"gtk-theme-switch"				\
+	"gtkspell2"					\
+	"gconf"						\
+	"gmime"						\
+	"mono"						\
+	"mono-addins"					\
+	"gnome-control-center"				\
+	"evolution-data-server+gtk_doc"			\
+	"gimp-app +animation +help_browser +gvfs"	\
+	"gimp-help-de"					\
+	"gimp2 +gvfs+help_browser +universal"		\
+	"gqview"					\
 	"pan2"
     do
-	port install ${=I} ${=General_Variants} ${=Gnome_Variants}
+	Install_Update ${=I} "${=General_Variants}${=Gnome_Variants}"
     done; unset I
 
     port select gcc gnat-gcc42

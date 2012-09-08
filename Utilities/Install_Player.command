@@ -14,12 +14,13 @@ setopt No_Err_Exit
 if test "${USER}" = "root"; then
     Unload_System
 
-    port select gcc gcc42
+    port select --set gcc llvm-gcc42
 
     Update_Tree
     Update_Packages
 
     for I in									\
+	"ffmpeg +nonfree+gpl2+mmx+universal"					\
 	"poppler"								\
 	"MPlayer +aa+caca+dts+mencoder_extras+esd+fribidi+live+osd+sdl+speex"   \
 	"avidemux +aac+dts+esd+jack+lame+ogg+x264+xvid"

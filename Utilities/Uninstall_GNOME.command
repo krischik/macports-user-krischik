@@ -14,22 +14,28 @@ setopt No_Err_Exit
 if test "${USER}" = "root"; then
     Unload_System
 
-    for I in						    \
-	"gnome-control-center"				    \
-	"gnome-platform-suite"				    \
-	"gnome-desktop-suite"				    \
-	"gnome-desktop"					    \
-	"gnome-icon-theme"				    \
-	"gnome-keyring"					    \
-	"gnome-menus"					    \
-	"gnome-mime-data"				    \
-	"gnome-panel"					    \
-	"gnome-session"					    \
-	"gnome-settings-daemon"				    \
-	"gnome-terminal"				    \
-	"gnome-themes"
+    for I in			\
+	"gqview"		\
+	"pan2"			\
+	"gnome-control-center"	\
+	"gnome-platform-suite"	\
+	"gnome-desktop-suite"	\
+	"gnome-desktop"		\
+	"gnome-icon-theme"	\
+	"gnome-keyring"		\
+	"gnome-menus"		\
+	"gnome-mime-data"	\
+	"gnome-panel"		\
+	"gnome-session"		\
+	"gnome-settings-daemon" \
+	"gnome-terminal"	\
+	"gnome-themes"		\
+	"pango"			\
+	"cairo"			\
+	"gtk2"			\
+	"gtk-engines2"
     do
-	port uninstall --follow-dependents ${=I}
+	Un_Install ${=I}
     done; unset I
 
     Clean

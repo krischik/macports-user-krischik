@@ -8,20 +8,18 @@
 
 setopt No_X_Trace
 
-case "${OSTYPE}" in
-    ((darwin11*))
-	typeset  General_Variants="+universal-atlas"
-    ;;
-    ((darwin10*))
-	typeset  General_Variants="+universal-atlas"
-    ;;
-    ((darwin9*))
-	typeset  General_Variants=""
-    ;;
-esac
+
+# Current status (26.07.2012): build with atlas
+#
+typeset  General_Variants="+universal"
+#typeset  General_Variants="+universal-atlas"
 
 typeset       Qt_Variants="+docs+cocoa"
-#typeset   Gnome_Variants="+quartz+no_X11"
+
+# Current status (26.07.2012) quartz compiles but crashes a lot
+# and most GNOME tools still need X11
+#
+#typeset   Gnome_Variants="+quartz+no_X11-x11"
 typeset    Gnome_Variants="+x11"
 
 if test -d "/Work/MacPorts/dports"; then
@@ -60,14 +58,20 @@ function Load ()
 function Load_System ()
     {
     echo "===> Load System"
-    Load "/Library/LaunchDaemons/org.macports.dbus.plist"
-    Load "/Library/LaunchDaemons/org.macports.slapd.plist"
+
+    Load "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
     Load "/Library/LaunchDaemons/org.freedesktop.dbus-system.plist"
-    Load "/Library/LaunchDaemons/org.macports.gdm.plist"
-    Load "/Library/LaunchDaemons/org.macports.rsyncd.plist"
-    Load "/Library/LaunchDaemons/org.macports.spamd.plist"
+    Load "/Library/LaunchDaemons/org.macports.dbus.plist"
     Load "/Library/LaunchDaemons/org.macports.dovecot.plist"
+    Load "/Library/LaunchDaemons/org.macports.fetchnews.plist"
+    Load "/Library/LaunchDaemons/org.macports.gdm.plist"
+    Load "/Library/LaunchDaemons/org.macports.leafnode.plist"
     Load "/Library/LaunchDaemons/org.macports.mysql5.plist"
+    Load "/Library/LaunchDaemons/org.macports.postfix.plist"
+    Load "/Library/LaunchDaemons/org.macports.rsyncd.plist"
+    Load "/Library/LaunchDaemons/org.macports.slapd.plist"
+    Load "/Library/LaunchDaemons/org.macports.spamd.plist"
+    Load "/Library/LaunchDaemons/org.macports.texpire.plist"
 
     return
     } # Load_System
@@ -76,6 +80,7 @@ function Load_User ()
     {
     echo "===> Load User"
     Load "/Library/LaunchAgents/org.freedesktop.dbus-session.plist"
+    Load "${HOME}/Library/LaunchAgents/com.krischik.imapfilter.plist"
 
     if test -d /Applications/MacPorts/KDE4/kdeinit4.app; then
 	open /Applications/MacPorts/KDE4/kdeinit4.app
@@ -97,13 +102,21 @@ function Unload ()
 
 function Unload_System ()
     {
-    echo "===> Load User"
-    Unload "/Library/LaunchDaemons/org.macports.dbus.plist"
-    Unload "/Library/LaunchDaemons/org.macports.rsyncd.plist"
-    Unload "/Library/LaunchDaemons/org.macports.spamd.plist"
+    echo "===> Un-Load System"
+
+    Unload "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
     Unload "/Library/LaunchDaemons/org.freedesktop.dbus-system.plist"
+    Unload "/Library/LaunchDaemons/org.macports.dbus.plist"
+    Unload "/Library/LaunchDaemons/org.macports.dovecot.plist"
+    Unload "/Library/LaunchDaemons/org.macports.fetchnews.plist"
     Unload "/Library/LaunchDaemons/org.macports.gdm.plist"
-    #Unload "/Library/LaunchDaemons/org.macports.dovecot.plist"
+    Unload "/Library/LaunchDaemons/org.macports.leafnode.plist"
+    Unload "/Library/LaunchDaemons/org.macports.mysql5.plist"
+    Unload "/Library/LaunchDaemons/org.macports.postfix.plist"
+    Unload "/Library/LaunchDaemons/org.macports.rsyncd.plist"
+    Unload "/Library/LaunchDaemons/org.macports.slapd.plist"
+    Unload "/Library/LaunchDaemons/org.macports.spamd.plist"
+    Unload "/Library/LaunchDaemons/org.macports.texpire.plist"
 
     return
     } # Unload_System
@@ -111,7 +124,9 @@ function Unload_System ()
 function Unload_User ()
     {
     echo "===> Un-Load User"
+
     Unload "/Library/LaunchAgents/org.freedesktop.dbus-session.plist"
+    Unload "${HOME}/Library/LaunchAgents/com.krischik.imapfilter.plist"
 
     return
     } # Unload_User
@@ -130,6 +145,17 @@ function Install_Update ()
     port activate ${=in_Package} ${=in_Options} || true
     return
     } # Install_Update
+
+function Un_Install ()
+    {
+    local in_Package="${1}"
+
+    echo "===> Un-Install  ${in_Package}"
+
+    port uninstall --follow-dependents ${=I}
+
+    return
+    } # Un_Install
 
 function Update_Tree ()
     {

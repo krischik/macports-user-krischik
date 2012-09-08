@@ -6,7 +6,7 @@
 #   $HeadURL$
 ############################################################## }}}1 ##########
 
-setopt X_Trace
+setopt No_X_Trace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then

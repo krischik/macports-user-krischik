@@ -12,7 +12,7 @@ setopt No_X_Trace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    port select gcc gcc42
+    port select --set gcc llvm-gcc42
 
     Update_Tree
     Update_Packages
@@ -33,7 +33,6 @@ if test "${USER}" = "root"; then
 	"dbacl"									\
 	"dbus"									\
 	"diffutils"								\
-	"dos2unix"								\
 	"dos2unix"								\
 	"enchant"								\
 	"file +with_text_magic_file"						\
@@ -67,6 +66,7 @@ if test "${USER}" = "root"; then
 	"shared-mime-info"							\
 	"sitecopy"								\
 	"spellutils"								\
+	"sshpass"								\
 	"star"									\
 	"texinfo"								\
 	"tiff"									\

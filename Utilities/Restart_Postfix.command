@@ -1,8 +1,7 @@
 #!/bin/zsh
 
-setopt X_Trace;
+setopt No_X_Trace;
 setopt No_Err_Exit;
-
 
 if test "${USER}" = "root"; then
     launchctl stop      "org.postfix.master"
