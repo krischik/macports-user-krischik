@@ -43,9 +43,9 @@ if test "${USER}" = "root"; then
 	"mono-addins"					\
 	"gnome-control-center"				\
 	"evolution-data-server+gtk_doc"			\
-	"gimp-app +animation +help_browser +gvfs"	\
+	"gimp-app"					\
 	"gimp-help-de"					\
-	"gimp2 +gvfs+help_browser +universal"		\
+	"gimp2 +gvfs -help_browser +quartz"		\
 	"gqview"					\
 	"pan2"
     do

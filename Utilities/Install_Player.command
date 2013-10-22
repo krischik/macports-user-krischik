@@ -21,8 +21,11 @@ if test "${USER}" = "root"; then
 
     for I in									\
 	"ffmpeg +nonfree+gpl2+mmx+universal"					\
+	"libogg"								\
+	"flac"									\
 	"poppler"								\
 	"MPlayer +aa+caca+dts+mencoder_extras+esd+fribidi+live+osd+sdl+speex"   \
+	"sox"									\
 	"avidemux +aac+dts+esd+jack+lame+ogg+x264+xvid"
     do
 	Install_Update ${=I} "${General_Variants}"
@@ -31,12 +34,10 @@ if test "${USER}" = "root"; then
     for I in			\
 	"qt4-mac"		\
 	"qt4_select"		\
-	"VLC-devel +huge+qt4"
+	"VLC +huge+qt4"
     do
 	Install_Update ${=I} "${Qt_Variants}${General_Variants}"
     done; unset I;
-
-# +bonjour+dvb+eyetv+ffmpeg+fribidi+huge+jack+mod+mpc+osd+qt4+qtkit+quartz+sdl+shout+speex+svg+vcd
 
     port select gcc gnat-gcc42
     Clean

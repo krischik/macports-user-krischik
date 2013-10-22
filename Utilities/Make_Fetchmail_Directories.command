@@ -13,9 +13,16 @@ if test "${USER}" = "root"; then
     gmkdir --parents --verbose /opt/local/var/log/fetchmail
     gmkdir --parents --verbose /opt/local/var/run/fetchmail
 
-    gchown _fetchmail:_fetchmail /opt/local/var/log/fetchmail
-    gchown _fetchmail:_fetchmail /opt/local/var/run/fetchmail
-    gchown _fetchmail:_fetchmail /private/etc/fetchmailrc
+    gchown --recursive  _fetchmail:_fetchmail /opt/local/var/log/fetchmail
+    gchown --recursive  _fetchmail:_fetchmail /opt/local/var/run/fetchmail
+    gchown              _fetchmail:_fetchmail /private/etc/fetchmailrc
+    gchown              _fetchmail:_fetchmail /opt/local/etc/fetchmailrc
+
+    gls ${=LS_OPTIONS} --format=long --all --human-readable --classify --directory  \
+        /opt/local/var/log/fetchmail                                                \
+        /opt/local/var/run/fetchmail                                                \
+        /opt/local/etc/fetchmailrc                                                  \
+        /private/etc/fetchmailrc
 else
     setopt Multi_OS
 

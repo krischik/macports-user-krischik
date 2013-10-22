@@ -18,6 +18,11 @@ if test "${USER}" = "root"; then
     Update_Packages
 
     for I in								\
+	"openssh"							\
+	"sshpass"							\
+	"git-core +bash_completion"					\
+	"git-extras"							\
+	"GitX"								\
 	"juni"								\
 	"subversion +bash_completion+tools+mod_dav_svn+unicode_path"    \
 	"cvs2svn"							\

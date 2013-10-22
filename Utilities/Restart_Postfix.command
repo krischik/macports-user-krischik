@@ -23,7 +23,7 @@ if test "${USER}" = "root"; then
     popd;
 
     launchctl load -w "/Library/LaunchDaemons/org.macports.postfix.plist"
-    launchctl stop    "org.macports.postfix"
+    launchctl start "org.macports.postfix"
 else
     sudo ${0};
 fi;
