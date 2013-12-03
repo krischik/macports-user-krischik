@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>Dalvic Debug Monitor</string>
+	<string>Android Monitor</string>
 	<key>CFBundleExecutable</key>
 	<string>Start.command</string>
 	<key>CFBundleIconFile</key>
