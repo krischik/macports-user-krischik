@@ -22,7 +22,7 @@ pushd "/Work/MacPorts/krischik/android"
 popd
 
 pushd "/var/tmp"
-    svn export ${Repository}/users/${User}/${Port}
+    svn export -- force ${Repository}/users/${User}/${Port}
     pushd "${Port}"
 	for I in "appbundles" "tools"; do
 	    mv --verbose ${I} ${I}-r${in_Version}
