@@ -34,7 +34,7 @@ if test "${USER}" = "root"; then
     done; unset I
 
     for I in					\
-	"MacVim +cscope +huge +nls +ruby +xim"
+	"MacVim +cscope +huge +nls +ruby2 +xim"
     do
 	Install_Update ${I}
     done; unset I
