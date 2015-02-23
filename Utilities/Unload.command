@@ -9,33 +9,14 @@
 source ${0:h}/Setup.command
 
 setopt No_X_Trace
-setopt No_Err_Exit
+setopt Err_Exit
 
 if test "${USER}" = "root"; then
-    port select gcc gcc42
-
-    Update_Tree
-    Update_Packages
-
-    for I in								\
-	"openssh"							\
-	"sshpass"							\
-	"git-core +bash_completion"					\
-	"git-extras"							\
-	"GitX"								\
-	"juni"								\
-	"subversion +bash_completion+tools+mod_dav_svn+unicode_path"	\
-	"cvs2svn"							\
-	"subversion-javahlbindings"
-    do
-	Install_Update ${I} "${=General_Variants}"
-    done; unset I
-
-    port select gcc gnat-gcc42
-    Clean
+    Unload_System
 else
     setopt Multi_OS
-    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+
+    Unload_User
 fi
 
 ############################################################ {{{1 ###########

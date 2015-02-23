@@ -17,7 +17,6 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
-    for I in									\
 	"acl2"									\
 	"aspell +nls"								\
 	"aspell-dict-de"							\
@@ -39,6 +38,10 @@ if test "${USER}" = "root"; then
 	"findutils"								\
 	"flex"									\
 	"fontconfig +vera"							\
+	"fontforge +freetype_bytecode"						\
+	"fuse4x"								\
+	"gcc49"									\
+	"gcc_select"								\
 	"giflib"								\
 	"gmp"									\
 	"gnupg"									\
@@ -51,6 +54,9 @@ if test "${USER}" = "root"; then
 	"jasper +jiv"								\
 	"jpeg"									\
 	"libpng"								\
+	"llvm-3.4"								\
+	"llvm-gcc42"								\
+	"llvm_select"								\
 	"m4"									\
 	"mdf2iso"								\
 	"mmv"									\
@@ -65,11 +71,13 @@ if test "${USER}" = "root"; then
 	"rsync +rsyncd"								\
 	"shared-mime-info"							\
 	"sitecopy"								\
+	"slocate"								\
 	"spellutils"								\
 	"sshpass"								\
 	"star"									\
 	"texinfo"								\
 	"tiff"									\
+	"transmission-x11 +aqua"						\
 	"uif2iso"								\
 	"urw-fonts"								\
 	"wget +ssl"								\
@@ -77,8 +85,7 @@ if test "${USER}" = "root"; then
 	"xpm"									\
 	"xz"									\
 	"yencode"								\
-	"transmission-x11 +aqua"						\
-	"fontforge +freetype_bytecode"						\
+    for I in									\
 	"ImageMagick +graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"
     do
 	Install_Update ${=I} "${General_Variants}"

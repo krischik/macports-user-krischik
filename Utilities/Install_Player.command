@@ -24,7 +24,7 @@ if test "${USER}" = "root"; then
 	"libogg"								\
 	"flac"									\
 	"poppler"								\
-	"MPlayer +aa+caca+dts+mencoder_extras+esd+fribidi+live+osd+sdl+speex"   \
+	"MPlayer +aa+caca+dts+mencoder_extras+esd+fribidi+live+osd+sdl+speex"	\
 	"sox"									\
 	"avidemux +aac+dts+esd+jack+lame+ogg+x264+xvid"
     do
@@ -34,6 +34,7 @@ if test "${USER}" = "root"; then
     for I in			\
 	"qt4-mac"		\
 	"qt4_select"		\
+	"MP4Joiner"		\
 	"VLC +huge+qt4"
     do
 	Install_Update ${=I} "${Qt_Variants}${General_Variants}"

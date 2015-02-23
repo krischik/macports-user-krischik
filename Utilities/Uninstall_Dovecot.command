@@ -22,7 +22,6 @@ if test "${USER}" = "root"; then
 
     for I in				    \
 	"openldap"			    \
-	"curl-ca-bundle"		    \
 	"dovecot"			    \
 	"fetchmail +fetchmailconf+ssl+ntml" \
 	"imapfilter"			    \
@@ -33,7 +32,6 @@ if test "${USER}" = "root"; then
 
     launchctl load -w "/Library/LaunchDaemons/org.macports.postfix.plist"
     launchctl load -w "/Library/LaunchDaemons/org.macports.slapd.plist"
-    launchctl load -w "/Library/LaunchDaemons/org.macports.dovecot.plist"
     launchctl load -w "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
 
     port select gcc gnat-gcc42

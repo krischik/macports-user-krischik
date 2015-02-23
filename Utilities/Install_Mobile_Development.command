@@ -17,14 +17,16 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
     
-    for I in		    \
-	"android"	    \
-	"antenna"	    \
-	"maven3"	    \
-	"maven_select"	    \
-	"microemu"	    \
-	"proguard"	    \
-	"scala2.10"	    \
+    for I in			    \
+	"android"		    \
+	"antenna"		    \
+	"gradle"		    \
+	"maven3"		    \
+	"maven_select"		    \
+	"microemu"		    \
+	"proguard"		    \
+	"scala2.10"		    \
+	"scala2.11"		    \
 	"scala_select"
     do
 	Install_Update ${I} ${=General_Variants}
@@ -37,11 +39,18 @@ if test "${USER}" = "root"; then
     done; unset I
 
     port select --set maven maven3
+    port select --set scala scala2.11
     port select --set gcc   gnat-gcc42
 else
     setopt Multi_OS
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 fi
+
+
+
+http://media.hackingg-lab.com/
+
+
 
 ############################################################ {{{1 ###########
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :

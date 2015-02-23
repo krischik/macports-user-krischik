@@ -17,6 +17,7 @@ if test "${USER}" = "root"; then
     launchctl unload -w "/Library/LaunchDaemons/org.macports.spamd.plist"
 
     for I in					    \
+	"clamav +clamav_milter"			    \
 	"p5-mail-spamassassin +bayes+razor+ssl"
     do
 	Install_Update ${I} "${=General_Variants}"

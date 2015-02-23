@@ -12,7 +12,7 @@ setopt No_X_Trace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    Unload_System
+    #Unload_System
 
     port select --set gcc llvm-gcc42
 

@@ -117,6 +117,7 @@ function Unload_System ()
     Unload "/Library/LaunchDaemons/org.macports.slapd.plist"
     Unload "/Library/LaunchDaemons/org.macports.spamd.plist"
     Unload "/Library/LaunchDaemons/org.macports.texpire.plist"
+    Unload "/System/Library/LaunchDaemons/org.postfix.master.plist"
 
     return
     } # Unload_System

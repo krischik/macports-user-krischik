@@ -17,6 +17,8 @@ if test "${USER}" = "root"; then
     gchown --recursive  _fetchmail:_fetchmail /opt/local/var/run/fetchmail
     gchown              _fetchmail:_fetchmail /private/etc/fetchmailrc
     gchown              _fetchmail:_fetchmail /opt/local/etc/fetchmailrc
+    gchmod go-rwx                             /private/etc/fetchmailrc
+    gchmod go-rwx                             /opt/local/etc/fetchmailrc
 
     gls ${=LS_OPTIONS} --format=long --all --human-readable --classify --directory  \
         /opt/local/var/log/fetchmail                                                \

@@ -26,15 +26,17 @@ if test "${USER}" = "root"; then
 	"libiconv"	\
 	"ncurses"	\
 	"perl5"		\
-	"python26"	\
+	"python34"	\
 	"ruby"		\
 	"tcl"
     do
 	Install_Update ${I} "${=General_Variants}"
     done; unset I
 
-    for I in					\
-	"MacVim +cscope +huge +nls +ruby2 +xim"
+#    "MacVim +cscope +huge +nls +ruby +xim"
+
+    for I in							    \
+	"MacVim +cscope +huge +nls +ruby2 +python34 +lua +perl +xim"
     do
 	Install_Update ${I}
     done; unset I
