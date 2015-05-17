@@ -20,7 +20,10 @@ if test "${USER}" = "root"; then
     for I in			    \
 	"android"		    \
 	"antenna"		    \
+	"git"			    \
 	"gradle"		    \
+	"maven31"		    \
+	"maven32"		    \
 	"maven3"		    \
 	"maven_select"		    \
 	"microemu"		    \

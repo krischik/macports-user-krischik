@@ -17,6 +17,7 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
+    for I in									\
 	"acl2"									\
 	"aspell +nls"								\
 	"aspell-dict-de"							\
@@ -85,7 +86,6 @@ if test "${USER}" = "root"; then
 	"xpm"									\
 	"xz"									\
 	"yencode"								\
-    for I in									\
 	"ImageMagick +graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"
     do
 	Install_Update ${=I} "${General_Variants}"
