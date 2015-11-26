@@ -20,6 +20,7 @@ if test "${USER}" = "root"; then
     for I in								\
 	"openssh"							\
 	"sshpass"							\
+	"cvs"								\
 	"git +bash_completion+credential_osxkeychain+doc+svn"		\
 	"git-core +bash_completion"					\
 	"git-extras"							\

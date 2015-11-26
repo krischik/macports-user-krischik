@@ -18,9 +18,10 @@ if test "${USER}" = "root"; then
     Update_Packages
     
     for I in			    \
+	"apache-ant"		    \
+	"ant-contrib"		    \
 	"android"		    \
 	"antenna"		    \
-	"git"			    \
 	"gradle"		    \
 	"maven31"		    \
 	"maven32"		    \
