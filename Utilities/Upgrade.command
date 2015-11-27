@@ -14,22 +14,21 @@ setopt No_Err_Exit
 if test "${USER}" = "root"; then
     #Unload_System
 
-    Install_Minimum.command*
-    Install.command*
-    Install_VIM.command*
-    Install_VCS.command*
-    Install_Mobile_Development.command*
-    Install_Gimp.command*
-    Install_GNOME.command*
-    Install_KDE4.command*
-    Install_Player.command*
+    ./Install.command*
+    ./Install_VIM.command*
+    ./Install_VCS.command*
+    ./Install_Mobile_Development.command*
+    ./Install_Gimp.command*
+    ./Install_GNOME.command*
+    ./Install_KDE4.command*
+    ./Install_Player.command*
 
-    if test ""${HOSTNAME}" = "macpro.local"; then
-	Install_BitTornado.command*
-	Install_Dovecot.command*
-	Install_Maintained.command*
-	Install_Python.command*
-	Install_SpamAssassin.command*
+    if test "${HOSTNAME}" = "macpro.local"; then
+	./Install_BitTornado.command*
+	./Install_Dovecot.command*
+	./Install_Maintained.command*
+	./Install_Python.command*
+	./Install_SpamAssassin.command*
     fi
 
     Clean

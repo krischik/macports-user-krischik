@@ -86,6 +86,7 @@ if test "${USER}" = "root"; then
 	"xpm"									\
 	"xz"									\
 	"yencode"								\
+	"zsh +doc+mp_completion"						\
 	"ImageMagick +graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"
     do
 	Install_Update ${=I} "${General_Variants}"
