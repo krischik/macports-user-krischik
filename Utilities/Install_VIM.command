@@ -8,12 +8,11 @@
 
 source ${0:h}/Setup.command
 
-setopt No_X_Trace
+setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    port select gcc gcc42
-
+    Deselect_System
     Update_Tree
     Update_Packages
 
@@ -24,21 +23,20 @@ if test "${USER}" = "root"; then
 	"gnutar"	\
 	"grep"		\
 	"libiconv"	\
+	"lua"		\
 	"ncurses"	\
 	"perl5"		\
-	"python34"	\
-	"ruby"		\
+	"python35"	\
+	"ruby22 +gmp"	\
 	"tcl"
     do
 	Install_Update ${I} "${=General_Variants}"
     done; unset I
 
-#    "MacVim +cscope +huge +nls +ruby +xim"
-
-    for I in							    \
-	"MacVim +cscope +huge +nls +ruby2 +python34 +lua +perl +xim"
+    for I in								    \
+	"MacVim +cscope +huge +nls +ruby22 +python35 +lua +perl +tcl +xim"
     do
-	Install_Update ${I}
+	Install_Update ${I} "${=General_Variants}"
     done; unset I
 
     for I in	    \
@@ -61,8 +59,8 @@ if test "${USER}" = "root"; then
 	fi
     done; unset I
 
-    port select gcc gnat-gcc42
     Clean
+    Select_System
 else
     setopt Multi_OS
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out

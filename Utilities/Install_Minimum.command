@@ -9,7 +9,7 @@
 
 source ${0:h}/Setup.command
 
-setopt No_X_Trace
+setopt No_XTrace
 setopt Multi_OS
 
 sudo port install								    \

@@ -8,11 +8,11 @@
 
 source ${0:h}/Setup.command
 
-setopt No_X_Trace
+setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    port select --set gcc llvm-gcc42
+    Deselect_System
 
     launchctl unload -w "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
     launchctl unload -w "/Library/LaunchDaemons/org.macports.dovecot.plist"
@@ -36,7 +36,7 @@ if test "${USER}" = "root"; then
     launchctl load -w "/Library/LaunchDaemons/org.macports.dovecot.plist"
     launchctl load -w "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
 
-    port select gcc gnat-gcc42
+    Select_System
 else
     setopt Multi_OS
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out

@@ -8,12 +8,11 @@
 
 source ${0:h}/Setup.command
 
-setopt No_X_Trace
+setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    port select gcc gcc42
-
+    Deselect_System
     Update_Tree
     Update_Packages
 
@@ -26,8 +25,7 @@ if test "${USER}" = "root"; then
 	Install_Update ${I} "${=General_Variants}"s
     done; unset I
 
-    port select python27
-    port select gcc gnat-gcc42
+    Select_System
 else
     setopt Multi_OS
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out

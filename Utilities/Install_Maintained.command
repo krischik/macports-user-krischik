@@ -8,12 +8,11 @@
 
 source ${0:h}/Setup.command
 
-setopt No_X_Trace
+setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    port select --set gcc llvm-gcc42
-
+    Deselect_System
     Update_Tree
     Update_Packages
 
@@ -31,8 +30,8 @@ if test "${USER}" = "root"; then
 	port install -f ${=I} ${=General_Variants}
     done; unset I
 
-    port select gcc gnat-gcc42
     Clean
+    Select_System
 else
     setopt Multi_OS
 

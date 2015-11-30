@@ -8,11 +8,11 @@
 
 source ${0:h}/Setup.command
 
-setopt No_X_Trace
+setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    port select gcc gcc42
+    Deselect_System
 
     launchctl unload -w "/Library/LaunchDaemons/org.macports.spamd.plist"
 
@@ -39,7 +39,7 @@ if test "${USER}" = "root"; then
 
     launchctl load -w "/Library/LaunchDaemons/org.macports.spamd.plist"
 
-    port select gcc gnat-gcc42
+    Select_System
 else
     setopt Multi_OS
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out

@@ -8,17 +8,15 @@
 
 source ${0:h}/Setup.command
 
-setopt No_X_Trace
+setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    port select --set gcc llvm-gcc42
-
+    Deselect_System
     Update_Tree
     Update_Packages
 
     for I in									\
-	"acl2"									\
 	"aspell +nls"								\
 	"aspell-dict-de"							\
 	"aspell-dict-en"							\
@@ -40,8 +38,7 @@ if test "${USER}" = "root"; then
 	"flex"									\
 	"fontconfig +vera"							\
 	"fontforge +freetype_bytecode"						\
-	"fuse4x"								\
-	"gcc49"									\
+	"gcc5"									\
 	"gcc_select"								\
 	"giflib"								\
 	"gmp"									\
@@ -55,7 +52,7 @@ if test "${USER}" = "root"; then
 	"jasper +jiv"								\
 	"jpeg"									\
 	"libpng"								\
-	"llvm-3.4"								\
+	"llvm-3.8"								\
 	"llvm-gcc42"								\
 	"llvm_select"								\
 	"m4"									\
@@ -92,16 +89,19 @@ if test "${USER}" = "root"; then
 	Install_Update ${=I} "${General_Variants}"
     done; unset I
 
-    for I in		\
-	"avahi +mono"	\
+    # Ports without a universal variant
+
+    for I in									\
+	"osxfuse"								\
+	"ext4fuse"								\
+	"avahi +mono"								\
 	"fugu"
     do
 	Install_Update ${=I}
     done; unset I
 
     Clean
-
-    port select gcc gnat-gcc42
+    Select_System
 else
     setopt Multi_OS
 
