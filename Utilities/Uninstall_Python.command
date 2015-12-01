@@ -8,21 +8,17 @@
 
 source ${0:h}/Setup.command
 
-setopt No_XTrace
+setopt No_X_Trace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    for I in		\
-	"py27-crypto"	\
-	"py27-ctypes"	\
-	"py27-numpy"	\
-	"py27-tkinter"	\
-	"py27-wxpython"	\
-	"python27"	\
-	"python35"	
-    do
-	Install_Update ${I} "${=General_Variants}"
-    done; unset I
+
+    port uninstall  \
+	"python26"  \
+	"py26-*"    \
+	"python34"  \
+	"py34-*"
+
 else
     setopt Multi_OS
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out

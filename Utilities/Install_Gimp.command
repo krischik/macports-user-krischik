@@ -16,14 +16,7 @@ if test "${USER}" = "root"; then
     Unload_System
     Update_Tree
     Update_Packages
-
-    # The dependecies to not work because
-    # to few libraries build with +universal
-    for I in						    \
-	"py26-numpy"
-    do
-	Install_Update ${=I} "-atlas"
-    done; unset I
+    Install_Python.command
 
     for I in						    \
 	"gimp2 +gvfs+help_browser +universal"		    \

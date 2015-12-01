@@ -20,8 +20,8 @@ if test "${USER}" = "root"; then
 	"openssh"							\
 	"sshpass"							\
 	"cvs"								\
-	"git +bash_completion+credential_osxkeychain+doc+svn"		\
 	"git-core +bash_completion"					\
+	"git +bash_completion+credential_osxkeychain+doc+svn"		\
 	"git-extras"							\
 	"GitX"								\
 	"juni"								\

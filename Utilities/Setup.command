@@ -92,13 +92,14 @@ function Select_System ()
     {
     echo "===> Select System"
 
-    port select --set python	python35
-    port select --set python3	python35
-    port select --set ruby	ruby22
-    port select --set gcc	gcc5
-    #port select --set llvm 38
-    port select --set maven	maven3
-    port select --set scala	scala2.11
+    port select --set "cython"	"cython27"
+    port select --set "python"	"python35"
+    port select --set "python3"	"python35"
+    port select --set "ruby"	"ruby22"
+    port select --set "gcc"	"mp-gcc5"
+    port select --set "llvm"	"mp-llvm-3.7"
+    port select --set "maven"	"maven3"
+    port select --set "scala"	"scala2.11"
 
     return
     } # Select_System
@@ -107,13 +108,14 @@ function Deselect_System ()
     {
     echo "===> Select System"
 
-    port select --set python	none
-    port select --set python3	none
-    port select --set ruby	none
-    port select --set gcc	none
-    port select --set llvm	none
-    port select --set maven	none
-    port select --set scala	none
+    port select --set "cython"	"none"
+    port select --set "python"	"none"
+    port select --set "python3"	"none"
+    port select --set "ruby"	"none"
+    port select --set "gcc"	"none"
+    port select --set "llvm"	"none"
+    port select --set "maven"	"none"
+    port select --set "scala"	"none"
 
     return
     } # Select_System

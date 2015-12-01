@@ -15,6 +15,7 @@ if test "${USER}" = "root"; then
     Deselect_System
     Update_Tree
     Update_Packages
+    Install_Python.command
 
     for I in		\
 	"autoconf"	\
@@ -26,7 +27,6 @@ if test "${USER}" = "root"; then
 	"lua"		\
 	"ncurses"	\
 	"perl5"		\
-	"python35"	\
 	"ruby22 +gmp"	\
 	"tcl"
     do

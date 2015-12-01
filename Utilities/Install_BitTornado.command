@@ -13,9 +13,9 @@ setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
     Deselect_System
+    Install_Python.command
 
     for I in		    \
-	"py26-wxpython"	    \
 	"bittornado"
     do
 	Install_Update ${I} ${=General_Variants}
