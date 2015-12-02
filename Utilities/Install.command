@@ -75,7 +75,6 @@ if test "${USER}" = "root"; then
 	"star"									\
 	"texinfo"								\
 	"tiff"									\
-	"transmission-x11 +aqua"						\
 	"uif2iso"								\
 	"urw-fonts"								\
 	"wget +ssl"								\

@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author: krischik@macports.org $
-#   $Revision: 133186 $
-#   $Date: 2015-02-23 14:59:43 +0100 (Mo, 23 Feb 2015) $
-#   $HeadURL: https://svn.macports.org/repository/macports/users/krischik/Utilities/Update.command $
+#   $Author$
+#   $Revision$
+#   $Date$
+#   $HeadURL$
 ############################################################## }}}1 ##########
 
 source ${0:a:h}/Setup.command
@@ -12,27 +12,37 @@ setopt No_X_Trace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    #Unload_System
+    Unload_System
 
-    ./Install.command*
-    ./Install_VIM.command*
-    ./Install_VCS.command*
-    ./Install_Mobile_Development.command*
-    ./Install_Gimp.command*
-    ./Install_GNOME.command*
-    ./Install_KDE4.command*
-    ./Install_Player.command*
+    #port -qv installed > myports.txt
+    #port echo requested | cut -d ' ' -f 1 > requested.txt
+    #port -f uninstall installed
 
-    if test "${HOSTNAME}" = "macpro.local"; then
-	./Install_BitTornado.command*
-	./Install_Dovecot.command*
-	./Install_Maintained.command*
-	./Install_Python.command*
-	./Install_SpamAssassin.command*
+    #rm -rf "/opt/local/var/macports/build/"*
+
+    ./Install.command
+    ./Install_VIM.command
+    ./Install_VCS.command
+    ./Install_Mobile_Development.command
+    ./Install_Gimp.command
+    ./Install_GNOME.command
+    ./Install_KDE4.command
+    ./Install_Player.command
+
+    if test "${HOSTNAME}" = "macpro-eth1.local"; then
+	./Install_BitTornado.command
+	./Install_Dovecot.command
+	./Install_Maintained.command
+	./Install_Python.command
+	./Install_SpamAssassin.command
     fi
 
+    #curl -O https://svn.macports.org/repository/macports/contrib/restore_ports/restore_ports.tcl
+    #chmod +x restore_ports.tcl
+    #./restore_ports.tcl myports.txt
+    #xargs sudo port setrequested < requested.txt
+
     Clean
-    Load_System
 else
     setopt Multi_OS
 

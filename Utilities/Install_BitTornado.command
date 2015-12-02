@@ -15,7 +15,8 @@ if test "${USER}" = "root"; then
     Deselect_System
     Install_Python.command
 
-    for I in		    \
+    for I in			    \
+	"transmission-x11 +aqua"    \
 	"bittornado"
     do
 	Install_Update ${I} ${=General_Variants}

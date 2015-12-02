@@ -8,20 +8,21 @@
 
 source ${0:h}/Setup.command
 
-setopt No_XTrace
+setopt No_X_Trace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    Deselect_System
+    port select gcc gcc42
+
     Update_Tree
     Update_Packages
 
     for I in								\
 	"openssh"							\
 	"sshpass"							\
-	"cvs"								\
-	"git-core +bash_completion"					\
+	"cvs +gssapi+proxy"						\
 	"git +bash_completion+credential_osxkeychain+doc+svn"		\
+	"git-core +bash_completion"					\
 	"git-extras"							\
 	"GitX"								\
 	"juni"								\
@@ -32,8 +33,8 @@ if test "${USER}" = "root"; then
 	Install_Update ${I} "${=General_Variants}"
     done; unset I
 
+    port select gcc gnat-gcc42
     Clean
-    Select_System
 else
     setopt Multi_OS
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
