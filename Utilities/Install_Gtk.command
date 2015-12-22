@@ -12,17 +12,15 @@ setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    Deselect_System
-    ${0:h}/Install_Python.command
-
-    for I in			    \
-	"transmission-x11 +aqua"    \
-	"bittornado"
+    for I in		\
+	"cairo"						\
+	"pango"						\
+	"gtk2 +bundle"					\
+	"gtk3"						\
+	"gtk-engines2"					
     do
-	Install_Update ${I} ${=General_Variants}
+	Install_Update ${=I} "${=General_Variants}${=Gnome_Variants}"
     done; unset I
-
-    Select_System
 else
     setopt Multi_OS
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out

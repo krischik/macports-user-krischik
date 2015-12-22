@@ -16,13 +16,11 @@ if test "${USER}" = "root"; then
     Unload_System
     Update_Tree
     Update_Packages
-    Install_Python.command
+
+    ${0:h}/Install_Python.command
+    ${0:h}/Install_Gtk.command
 
     for I in						\
-	"cairo"						\
-	"pango"						\
-	"gtk2"						\
-	"gtk-engines2"					\
 	"gnome-themes"					\
 	"tango-icon-theme +big_icons"			\
 	"tango-icon-theme-extras +big_icons"		\

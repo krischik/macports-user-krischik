@@ -13,15 +13,23 @@ setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
     for I in		\
-	"py27-crypto"	\
-	"py27-ctypes"	\
-	"py27-numpy"	\
-	"py27-tkinter"	\
-	"py27-wxpython"	\
 	"python27"	\
+	"py27-crypto"	\
+	"py27-tkinter"	\
 	"python35"	
     do
 	Install_Update ${I} "${=General_Variants}"
+    done; unset I
+   
+    # the following pyton moduls can't be compiled with
+    # universal as py27-numpy has no universal variant
+    #
+    for I in		\
+	"py27-numpy"	\
+	"py27-cairo"	\
+	"py27-pygtk"
+    do
+	Install_Update ${I}
     done; unset I
 else
     setopt Multi_OS

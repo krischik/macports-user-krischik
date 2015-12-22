@@ -16,14 +16,18 @@ if test "${USER}" = "root"; then
     Unload_System
     Update_Tree
     Update_Packages
-    Install_Python.command
 
-    for I in						    \
-	"gimp2 +gvfs+help_browser +universal"		    \
-	"gimp-app +animation +help_browser +gvfs"	    \
+    ${0:h}/Install_Python.command
+    ${0:h}/Install_Gtk.command
+
+    #+gvfs ${=General_Variants}
+    
+    for I in					    \
+	"gimp2 +help_browser"			    \
+	"gimp-app +animation+help_browser"	    \
 	"gimp-help-de"
     do
-	Install_Update ${=I} "${=Gnome_Variants}${=General_Variants}"
+	Install_Update ${=I} "${=Gnome_Variants}"
     done; unset I
 
     Clean

@@ -17,18 +17,28 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
-    for I in		\
-	"qt4_select"	\
-	"qt4-mac"	\
-	"akonadi"	\
-	"kdelibs4"	\
-	"kde4-baseapps"	\
-	"kdepim4"	\
+    ${0:h}/Install_Python.command
+
+    setopt Err_Exit
+    for I in			    \
+	"qt4_select"		    \
+	"qt4-mac"		    \
+	"qt4-mac-sqlite3-plugin"    \
+	"doxygen +wizard"
+    do
+	Install_Update ${=I} "${Qt_Variants}${General_Variants}"
+    done; unset I
+
+    for I in			    \
+	"akonadi"		    \
+	"kdelibs4"		    \
+	"kde4-baseapps"		    \
+	"kdepim4"		    \
 	"amarok"
     do
 	# KDE libs hang in compile with 8 cores.
 	# build.jobs=1
-	Install_Update ${=I} "${Qt_Variants}${General_Variants} build.jobs=1"
+	Install_Update ${=I} "${Qt_Variants}"
     done; unset I
 
     Clean

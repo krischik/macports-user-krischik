@@ -35,7 +35,10 @@ if test "${USER}" = "root"; then
 	Install_Update ${I} ${=General_Variants}
     done; unset I
 
-    for I in		    \
+    # wine has no universal variant
+    #
+    for I in			    \
+	"mono"			    \
 	"wine"
     do
 	Install_Update ${I}

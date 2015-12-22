@@ -8,24 +8,15 @@
 
 source ${0:h}/Setup.command
 
-setopt No_XTrace
-setopt No_Err_Exit
+setopt No_X_Trace
+setopt Err_Exit
 
 if test "${USER}" = "root"; then
-    Deselect_System
-    ${0:h}/Install_Python.command
-
-    for I in			    \
-	"transmission-x11 +aqua"    \
-	"bittornado"
-    do
-	Install_Update ${I} ${=General_Variants}
-    done; unset I
-
     Select_System
 else
     setopt Multi_OS
-    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+
+    sudo ${0:a} ${USER} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 fi
 
 ############################################################ {{{1 ###########

@@ -15,7 +15,8 @@ if test "${USER}" = "root"; then
     Deselect_System
     Update_Tree
     Update_Packages
-    Install_Python.command
+
+    ${0:h}/Install_Python.command
 
     for I in		\
 	"autoconf"	\
@@ -32,6 +33,10 @@ if test "${USER}" = "root"; then
     do
 	Install_Update ${I} "${=General_Variants}"
     done; unset I
+
+    #"vim +cscope +huge +nls +ruby22 +python35 +lua +perl +tcl +xim"	    \
+   
+    port uninstall vim
 
     for I in								    \
 	"MacVim +cscope +huge +nls +ruby22 +python35 +lua +perl +tcl +xim"

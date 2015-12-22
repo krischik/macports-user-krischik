@@ -11,12 +11,10 @@ setopt No_XTrace
 # Current status (26.07.2012): build with atlas
 #
 typeset  General_Variants="+universal"
-#typeset  General_Variants="+universal-atlas"
-
 typeset       Qt_Variants="+docs+cocoa"
 
-# Current status (26.07.2012) quartz compiles but crashes a lot
-# and most GNOME tools still need X11
+# Current status (04.12.2015) quartz compiles but crashes a lot
+# and most GNOME tools still need X11.
 #
 #typeset   Gnome_Variants="+quartz+no_X11-x11"
 typeset    Gnome_Variants="+x11"
@@ -116,6 +114,7 @@ function Deselect_System ()
     port select --set "llvm"	"none"
     port select --set "maven"	"none"
     port select --set "scala"	"none"
+    #port select --set "qt4"	"none"
 
     return
     } # Select_System
