@@ -24,7 +24,7 @@
 
 tell application "Terminal"
     set |Tab| to do script "
-	cd \"/Volumes/Daten/Developer/MacPorts/krischik/Utilities\""
+	cd \"/Work/MacPorts/krischik/Utilities\""
     set background color of |Tab| to {57344, 57344, 65535}
 end tell
 

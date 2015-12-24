@@ -11,7 +11,7 @@ setopt No_XTrace
 # Current status (26.07.2012): build with atlas
 #
 typeset  General_Variants="+universal"
-typeset       Qt_Variants="+docs+cocoa"
+typeset       Qt_Variants="+docs"
 
 # Current status (04.12.2015) quartz compiles but crashes a lot
 # and most GNOME tools still need X11.

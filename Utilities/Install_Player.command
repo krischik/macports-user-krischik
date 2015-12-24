@@ -38,6 +38,12 @@ if test "${USER}" = "root"; then
 	Install_Update ${=I} "${Qt_Variants}${General_Variants}"
     done; unset I;
 
+    # rm    ~"/Library/Preference/org.videolan.vlc.LSSharedFileList.plist"
+    # rm -r ~"/Library/Application Support/org.videolan.vlc"
+    # rm -r ~"/Library/Caches/org.videolan.vlc"
+    # rm -r ~"/Library/Preference/org.videolan.vlc"
+    # rm -r ~"/Library/Saved Application State/org.videolan.vlc.savedState"
+
     Clean
     Load_System
     Select_System

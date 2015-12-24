@@ -17,6 +17,7 @@ else
     setopt Multi_OS
 
     Unload_User
+    sudo ${0:a} ${USER} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 fi
 
 ############################################################ {{{1 ###########
