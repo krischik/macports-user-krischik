@@ -99,8 +99,8 @@ if test "${USER}" = "root"; then
 	Install_Update ${=I}
     done; unset I
 
-    Clean
     Select_System
+    Clean
 else
     setopt Multi_OS
 

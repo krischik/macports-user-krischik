@@ -40,6 +40,7 @@ if test "${USER}" = "root"; then
     launchctl load -w "/Library/LaunchDaemons/org.macports.spamd.plist"
 
     Select_System
+    Clean
 else
     setopt Multi_OS
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out

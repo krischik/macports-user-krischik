@@ -30,8 +30,8 @@ if test "${USER}" = "root"; then
 	port install -f ${=I} ${=General_Variants}
     done; unset I
 
-    Clean
     Select_System
+    Clean
 else
     setopt Multi_OS
 

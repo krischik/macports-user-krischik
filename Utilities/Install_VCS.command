@@ -12,8 +12,7 @@ setopt No_X_Trace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    port select gcc gcc42
-
+    Deselect_System
     Update_Tree
     Update_Packages
 
@@ -33,7 +32,7 @@ if test "${USER}" = "root"; then
 	Install_Update ${I} "${=General_Variants}"
     done; unset I
 
-    port select gcc gnat-gcc42
+    Select_System
     Clean
 else
     setopt Multi_OS

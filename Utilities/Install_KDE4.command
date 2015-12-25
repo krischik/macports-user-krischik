@@ -41,9 +41,9 @@ if test "${USER}" = "root"; then
 	Install_Update ${=I} "${Qt_Variants}"
     done; unset I
 
-    Clean
     Load_System
     Select_System
+    Clean
 else
     setopt Multi_OS
 

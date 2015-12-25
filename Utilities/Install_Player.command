@@ -44,9 +44,9 @@ if test "${USER}" = "root"; then
     # rm -r ~"/Library/Preference/org.videolan.vlc"
     # rm -r ~"/Library/Saved Application State/org.videolan.vlc.savedState"
 
-    Clean
     Load_System
     Select_System
+    Clean
 else
     setopt Multi_OS
 

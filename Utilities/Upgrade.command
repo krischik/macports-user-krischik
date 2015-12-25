@@ -29,12 +29,16 @@ if test "${USER}" = "root"; then
     ./Install_KDE4.command
     ./Install_Player.command
 
-    if test "${HOSTNAME}" = "macpro-eth1.local"; then
-	./Install_BitTornado.command
-	./Install_Dovecot.command
-	./Install_Maintained.command
-	./Install_SpamAssassin.command
-    fi
+    case "${HOSTNAME}" in
+	(macpro-eth1.local)
+	    ./Install_BitTornado.command
+	;;
+	(iMac.local)
+	    ./Install_Dovecot.command
+	    ./Install_Maintained.command
+	    ./Install_SpamAssassin.command
+	;;
+    esac
 
     #curl -O https://svn.macports.org/repository/macports/contrib/restore_ports/restore_ports.tcl
     #chmod +x restore_ports.tcl
