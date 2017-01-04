@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 143895 $
+#   $Date: 2015-12-25 08:11:12 +0100 (Fr, 25. Dez 2015) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Install.command $
 ############################################################## }}}1 ##########
 
 source ${0:h}/Setup.command
@@ -28,6 +28,7 @@ if test "${USER}" = "root"; then
 	"bzip2"									\
 	"coreutils"								\
 	"ctags"									\
+	"curl-ca-bundle"							\
 	"dbacl"									\
 	"dbus"									\
 	"diffutils"								\
@@ -44,6 +45,7 @@ if test "${USER}" = "root"; then
 	"gmp"									\
 	"gnupg"									\
 	"gnutar"								\
+	"gpg-agent"								\
 	"gsed"									\
 	"gwhich"								\
 	"gzip +rsyncable"							\
@@ -60,6 +62,7 @@ if test "${USER}" = "root"; then
 	"mmv"									\
 	"mpfr"									\
 	"nrg2iso"								\
+	"openldap"								\
 	"p7zip"									\
 	"par2"									\
 	"pdi2iso"								\

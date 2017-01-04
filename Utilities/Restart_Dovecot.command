@@ -1,19 +1,19 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 97540 $
+#   $Date: 2012-09-08 14:39:54 +0200 (Sa, 08. Sep 2012) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Restart_Dovecot.command $
 ############################################################## }}}1 ##########
 
 setopt No_X_Trace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    launchctl unload -w "/Library/LaunchDaemons/org.macports.dovecot.plist"
+    #launchctl unload -w "/Library/LaunchDaemons/org.macports.dovecot.plist"
     launchctl unload -w "/Library/LaunchDaemons/org.macports.slapd.plist"
     launchctl load   -w "/Library/LaunchDaemons/org.macports.slapd.plist"
-    launchctl load   -w "/Library/LaunchDaemons/org.macports.dovecot.plist"
+    #launchctl load   -w "/Library/LaunchDaemons/org.macports.dovecot.plist"
 else
     setopt Multi_OS
 

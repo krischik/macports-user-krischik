@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 143895 $
+#   $Date: 2015-12-25 08:11:12 +0100 (Fr, 25. Dez 2015) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Install_GNOME.command $
 ############################################################## }}}1 ##########
 
 source ${0:h}/Setup.command
@@ -35,6 +35,8 @@ if test "${USER}" = "root"; then
 	"gimp-app"					\
 	"gimp-help-de"					\
 	"gimp2 +gvfs -help_browser +quartz"		\
+	"gimp-app +animation+help_browser"		\
+	"gimp-help-de"					\
 	"gqview"					\
 	"pan2"
     do

@@ -1,9 +1,9 @@
 #!/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 143884 $
+#   $Date: 2015-12-24 21:02:29 +0100 (Do, 24. Dez 2015) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Install_Minimum.command $
 ############################################################## }}}1 ##########
 
 source ${0:h}/Setup.command
@@ -15,10 +15,13 @@ setopt Err_Exit
 if test "${USER}" = "root"; then
     xcode-select --switch /Applications/Developer/Xcode.app
 
-    port install						    \
-	"coreutils" ${=General_Variants}			    \
-	"zsh" "+doc" "+mp_completion" ${=General_Variants}	    \
+    port install										\
+	"coreutils" ${=General_Variants}							\
+	"subversion" "+bash_completion+tools+mod_dav_svn+unicode_path" "${=General_Variants}"	\
+	"zsh" "+doc" "+mp_completion" ${=General_Variants}					\
 	1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+
+#   echo /opt/local/bin/zsh >>/etc/shells
 
     gchmod --verbose 755    "/Applications/Developer/Xcode.app/Contents/Developer/Library/PrivateFrameworks/CoreSimulator.framework/Versions/A/XPCServices/com.apple.CoreSimulator.CoreSimulatorService.xpc"
     gchown --verbose root   "/Applications/Developer/Xcode.app/Contents/Developer/Library/PrivateFrameworks/CoreSimulator.framework/Versions/A/XPCServices/com.apple.CoreSimulator.CoreSimulatorService.xpc"

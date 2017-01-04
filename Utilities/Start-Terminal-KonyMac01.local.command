@@ -15,11 +15,11 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
-#  $Author$
-#  $Revision$
-#  $Date$
-#  $Id$
-#  $HeadURL$
+#  $Author: krischik@macports.org $
+#  $Revision: 143806 $
+#  $Date: 2015-12-22 14:08:15 +0100 (Di, 22. Dez 2015) $
+#  $Id: Start-Terminal-KonyMac01.local.command 143806 2015-12-22 13:08:15Z krischik@macports.org $
+#  $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Start-Terminal-KonyMac01.local.command $
 ############################################################ }}}1 ###########
 
 tell application "Terminal"

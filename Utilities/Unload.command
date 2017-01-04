@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 143884 $
+#   $Date: 2015-12-24 21:02:29 +0100 (Do, 24. Dez 2015) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Unload.command $
 ############################################################## }}}1 ##########
 
 source ${0:h}/Setup.command

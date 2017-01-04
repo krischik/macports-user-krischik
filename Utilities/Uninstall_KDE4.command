@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 94920 $
+#   $Date: 2012-07-02 14:29:54 +0200 (Mo, 02. Jul 2012) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Uninstall_KDE4.command $
 ############################################################## }}}1 ##########
 
 setopt No_X_Trace

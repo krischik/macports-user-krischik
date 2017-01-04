@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 95221 $
+#   $Date: 2012-07-07 11:30:13 +0200 (Sa, 07. Jul 2012) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Restart_Fetchmail.command $
 ############################################################## }}}1 ##########
 
 setopt No_X_Trace
@@ -19,8 +19,8 @@ if test "${USER}" = "root"; then
 
     launchctl stop         com.krischik.fetchmail
     launchctl unload -w    /Library/LaunchDaemons/com.krischik.fetchmail.plist
-    launchctl load   -w    /Library/LaunchDaemons/com.krischik.fetchmail.plist
-    launchctl start        com.krischik.fetchmail
+    #launchctl load   -w    /Library/LaunchDaemons/com.krischik.fetchmail.plist
+    #launchctl start        com.krischik.fetchmail
 else
     setopt Multi_OS
 

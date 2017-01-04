@@ -15,11 +15,11 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #############################################################################
-#  $Author$
-#  $Revision$
-#  $Date$
-#  $Id$
-#  $HeadURL$
+#  $Author: krischik@macports.org $
+#  $Revision: 143884 $
+#  $Date: 2015-12-24 21:02:29 +0100 (Do, 24. Dez 2015) $
+#  $Id: Start-Terminal.command 143884 2015-12-24 20:02:29Z krischik@macports.org $
+#  $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Start-Terminal.command $
 ############################################################ }}}1 ###########
 
 tell application "Terminal"

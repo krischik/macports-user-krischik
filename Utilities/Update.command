@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 133186 $
+#   $Date: 2015-02-23 14:59:43 +0100 (Mo, 23. Feb 2015) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Update.command $
 ############################################################## }}}1 ##########
 
 source ${0:a:h}/Setup.command

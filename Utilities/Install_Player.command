@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 143895 $
+#   $Date: 2015-12-25 08:11:12 +0100 (Fr, 25. Dez 2015) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Install_Player.command $
 ############################################################## }}}1 ##########
 
 source ${0:h}/Setup.command
@@ -18,13 +18,15 @@ if test "${USER}" = "root"; then
     Update_Packages
 
     for I in									\
-	"ffmpeg +nonfree+gpl2+mmx+universal"					\
+	"opencv"								\
+	"ffmpeg +nonfree+gpl2+mmx"						\
 	"libogg"								\
 	"flac"									\
 	"poppler"								\
 	"MPlayer +aa+caca+dts+mencoder_extras+esd+fribidi+live+osd+sdl+speex"	\
 	"sox"									\
-	"avidemux +aac+dts+esd+jack+lame+ogg+x264+xvid"
+	"avidemux +aac+dts+esd+jack+lame+ogg+x264+xvid"				\
+	"VLC +huge"
     do
 	Install_Update ${=I} "${General_Variants}"
     done; unset I
@@ -32,8 +34,7 @@ if test "${USER}" = "root"; then
     for I in			\
 	"qt4-mac"		\
 	"qt4_select"		\
-	"MP4Joiner"		\
-	"VLC +huge+qt4"
+	"MP4Joiner"		
     do
 	Install_Update ${=I} "${Qt_Variants}${General_Variants}"
     done; unset I;

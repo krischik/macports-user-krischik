@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 95269 $
+#   $Date: 2012-07-08 10:54:07 +0200 (So, 08. Jul 2012) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Make_Postfix_Directories.command $
 ############################################################## }}}1 ##########
 
 setopt X_Trace

@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 143806 $
+#   $Date: 2015-12-22 14:08:15 +0100 (Di, 22. Dez 2015) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Install_Gtk.command $
 ############################################################## }}}1 ##########
 
 source ${0:h}/Setup.command

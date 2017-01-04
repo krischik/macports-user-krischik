@@ -22,8 +22,8 @@ if test "${USER}" = "root"; then
         postmap   "header_checks"
     popd;
 
-    launchctl load -w "/Library/LaunchDaemons/org.macports.postfix.plist"
-    launchctl start "org.macports.postfix"
+    #launchctl load -w "/Library/LaunchDaemons/org.macports.postfix.plist"
+    #launchctl start "org.macports.postfix"
 else
     sudo ${0};
 fi;

@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 143884 $
+#   $Date: 2015-12-24 21:02:29 +0100 (Do, 24. Dez 2015) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Uninstall_Dovecot.command $
 ############################################################## }}}1 ##########
 
 source ${0:h}/Setup.command
@@ -20,12 +20,14 @@ if test "${USER}" = "root"; then
     launchctl unload -w "/Library/LaunchDaemons/org.macports.postfix.plist"
     launchctl unload -w "/System/Library/LaunchDaemons/org.postfix.master.plist"
 
+    # "imapfilter"			    \
+
     for I in				    \
-	"openldap"			    \
-	"curl-ca-bundle"		    \
 	"dovecot"			    \
 	"fetchmail"			    \
-	"imapfilter"			    \
+	"p5-mail-spamassassin"		    \
+	"p5.16-mail-spamassassin"	    \
+	"p5.22-mail-spamassassin"	    \
 	"postfix"
     do
 	Un_Install ${I}

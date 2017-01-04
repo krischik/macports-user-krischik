@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 112416 $
+#   $Date: 2013-10-22 15:18:14 +0200 (Di, 22. Okt 2013) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Make_Fetchmail_User.command $
 ############################################################## }}}1 ##########
 
 setopt X_Trace

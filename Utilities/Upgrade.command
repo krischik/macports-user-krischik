@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 144160 $
+#   $Date: 2016-01-03 19:41:24 +0100 (So, 03. Jan 2016) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Upgrade.command $
 ############################################################## }}}1 ##########
 
 source ${0:a:h}/Setup.command
@@ -29,11 +29,11 @@ if test "${USER}" = "root"; then
     ./Install_Player.command
 
     case "${HOSTNAME}" in
-	(macpro-eth1.local)
+	(macpro-eth1*)
 	    ./Install_BitTornado.command
 	;;
-	(iMac.local)
-	    ./Install_Dovecot.command
+	(iMac*)
+	    #./Install_Dovecot.command
 	    ./Install_Maintained.command
 	    ./Install_SpamAssassin.command
 	;;

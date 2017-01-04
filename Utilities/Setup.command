@@ -1,16 +1,16 @@
 #!/bin/echo usage: source
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 143884 $
+#   $Date: 2015-12-24 21:02:29 +0100 (Do, 24. Dez 2015) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Setup.command $
 ############################################################## }}}1 ##########
 
 setopt No_XTrace
 
 # Current status (26.07.2012): build with atlas
 #
-typeset  General_Variants="+universal"
+typeset  General_Variants=""
 typeset       Qt_Variants="+docs"
 
 # Current status (04.12.2015) quartz compiles but crashes a lot
@@ -56,18 +56,18 @@ function Load_System ()
     {
     echo "===> Load System"
 
-    Load "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
+    #Load "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
     Load "/Library/LaunchDaemons/org.freedesktop.dbus-system.plist"
     Load "/Library/LaunchDaemons/org.macports.dbus.plist"
-    Load "/Library/LaunchDaemons/org.macports.dovecot.plist"
+    #Load "/Library/LaunchDaemons/org.macports.dovecot.plist"
     Load "/Library/LaunchDaemons/org.macports.fetchnews.plist"
     Load "/Library/LaunchDaemons/org.macports.gdm.plist"
     Load "/Library/LaunchDaemons/org.macports.leafnode.plist"
     Load "/Library/LaunchDaemons/org.macports.mysql5.plist"
-    Load "/Library/LaunchDaemons/org.macports.postfix.plist"
+    #Load "/Library/LaunchDaemons/org.macports.postfix.plist"
     Load "/Library/LaunchDaemons/org.macports.rsyncd.plist"
     Load "/Library/LaunchDaemons/org.macports.slapd.plist"
-    Load "/Library/LaunchDaemons/org.macports.spamd.plist"
+    #Load "/Library/LaunchDaemons/org.macports.spamd.plist"
     Load "/Library/LaunchDaemons/org.macports.texpire.plist"
 
     return

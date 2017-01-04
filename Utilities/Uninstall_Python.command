@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 143003 $
+#   $Date: 2015-12-01 15:44:30 +0100 (Di, 01. Dez 2015) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Uninstall_Python.command $
 ############################################################## }}}1 ##########
 
 source ${0:h}/Setup.command

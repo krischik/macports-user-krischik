@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
-#   $Author$
-#   $Revision$
-#   $Date$
-#   $HeadURL$
+#   $Author: krischik@macports.org $
+#   $Revision: 97540 $
+#   $Date: 2012-09-08 14:39:54 +0200 (Sa, 08. Sep 2012) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Uninstall_GNOME.command $
 ############################################################## }}}1 ##########
 
 source ${0:h}/Setup.command
