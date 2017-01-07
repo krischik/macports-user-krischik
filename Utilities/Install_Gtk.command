@@ -14,10 +14,14 @@ setopt No_Err_Exit
 if test "${USER}" = "root"; then
     for I in		\
 	"cairo"						\
-	"pango"						\
+	"gconf"						\
+	"gmime"						\
+	"gtk-engines2"					\
+	"gtk-theme-switch"				\
 	"gtk2 +bundle"					\
 	"gtk3"						\
-	"gtk-engines2"					
+	"gtkspell2"					\
+	"pango"
     do
 	Install_Update ${=I} "${=General_Variants}${=Gnome_Variants}"
     done; unset I

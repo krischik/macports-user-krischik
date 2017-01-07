@@ -20,28 +20,45 @@ if test "${USER}" = "root"; then
     ${0:h}/Install_Python.command
     ${0:h}/Install_Gtk.command
 
-    for I in						\
-	"gnome-themes"					\
-	"tango-icon-theme +big_icons"			\
-	"tango-icon-theme-extras +big_icons"		\
-	"gtk-theme-switch"				\
-	"gtkspell2"					\
+    for I in		\
+	"cairo"						\
 	"gconf"						\
 	"gmime"						\
-	"mono"						\
-	"mono-addins"					\
-	"gnome-control-center"				\
-	"evolution-data-server+gtk_doc"			\
-	"gimp-app"					\
-	"gimp-help-de"					\
-	"gimp2 +gvfs -help_browser +quartz"		\
-	"gimp-app +animation+help_browser"		\
-	"gimp-help-de"					\
-	"gqview"					\
-	"pan2"
+	"gtk-engines2"					\
+	"gtk-theme-switch"				\
+	"gtk2 +bundle"					\
+	"gtk3"						\
+	"gtkspell2"					\
+	"pango"
     do
 	Install_Update ${=I} "${=General_Variants}${=Gnome_Variants}"
     done; unset I
+
+    for I in						\
+	"gnome-control-center"				\
+	"gnome-icon-theme"				\
+	"gnome-icon-theme-extras"			\
+	"gnome-icon-theme-symbolic"			\
+	"gnome-mime-data"				\
+	"gnome-themes-standard"				\
+	"mono"						\
+	"mono-addins"					\
+	"tango-icon-theme +big_icons"			\
+	"tango-icon-theme-extras +big_icons"		\
+    do
+	Install_Update ${=I} "${=General_Variants}${=Gnome_Variants}"
+    done; unset I
+
+    for I in					    \
+	"gimp-app +animation+help_browser"	    \
+	"gimp-help-de"				    \
+	"gimp2 +help_browser"			    \
+	"gqview"				    \
+	"pan2"
+    do
+	Install_Update ${=I} "${=Gnome_Variants}"
+    done; unset I
+
 
     Load_System
     Select_System
