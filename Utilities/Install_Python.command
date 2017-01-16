@@ -15,6 +15,7 @@ if test "${USER}" = "root"; then
     for I in		\
 	"python27"	\
 	"py27-crypto"	\
+	"py27-readline"	\
 	"py27-tkinter"	\
 	"python35"	
     do
