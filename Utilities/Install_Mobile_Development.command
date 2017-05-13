@@ -28,8 +28,8 @@ if test "${USER}" = "root"; then
 	"maven_select"		    \
 	"microemu"		    \
 	"proguard"		    \
-	"scala2.11"		    \
-	"scala2.11-docs"	    \
+	"scala2.12"		    \
+	"scala2.12-docs"	    \
 	"scala_select"
     do
 	Install_Update ${I} ${=General_Variants}

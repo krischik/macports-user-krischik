@@ -8,7 +8,7 @@
 
 source ${0:h}/Setup.command
 
-setopt No_X_Trace
+setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
