@@ -13,21 +13,18 @@ if test "${USER}" = "root"; then
 	for I in					    \
 	    **/CVS(/)					    \
 	    bin/startkde				    \
-	    etc/LaunchDaemons/org.macports.fetchmail.plist  \
 	    etc/dbus-1/system.d/avahi-dbus.conf		    \
 	    etc/dovecot/dovecot.conf			    \
 	    etc/dovecot/mkcert.zsh			    \
 	    etc/dovecot/passwd.dovecot			    \
 	    etc/dovecot/renewcert.zsh			    \
 	    etc/dovecot/userdb.dovecot			    \
-	    etc/fetchmailrc				    \
 	    etc/leafnode/config				    \
 	    etc/rsyncd.conf				    \
 	    etc/ssl					    \
 	    share/purple				    \
 	    var/log					    \
 	    var/run/dovecot				    \
-	    var/run/fetchmail				    \
 	    var/spool/news
 	do
 	    gcp --archive --verbose "${I}" "/opt/local/${I}"

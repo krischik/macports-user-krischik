@@ -16,7 +16,7 @@ typeset       Qt_Variants="+docs"
 # Current status (04.12.2015) quartz compiles but crashes a lot
 # and most GNOME tools still need X11.
 #
-#typeset   Gnome_Variants="+quartz+no_X11-x11"
+#typeset   Gnome_Variants="+quartz+bundle+no_X11-x11"
 typeset    Gnome_Variants="+x11"
 
 if test -d "/Work/MacPorts/dports"; then
@@ -134,19 +134,20 @@ function Unload_System ()
     {
     echo "===> Un-Load System"
 
-    Unload "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
+    #Unload "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
     Unload "/Library/LaunchDaemons/org.freedesktop.dbus-system.plist"
     Unload "/Library/LaunchDaemons/org.macports.dbus.plist"
-    Unload "/Library/LaunchDaemons/org.macports.dovecot.plist"
+    #Unload "/Library/LaunchDaemons/org.macports.dovecot.plist"
     Unload "/Library/LaunchDaemons/org.macports.fetchnews.plist"
     Unload "/Library/LaunchDaemons/org.macports.gdm.plist"
     Unload "/Library/LaunchDaemons/org.macports.leafnode.plist"
     Unload "/Library/LaunchDaemons/org.macports.mysql5.plist"
-    Unload "/Library/LaunchDaemons/org.macports.postfix.plist"
+    #Unload "/Library/LaunchDaemons/org.macports.postfix.plist"
     Unload "/Library/LaunchDaemons/org.macports.rsyncd.plist"
     Unload "/Library/LaunchDaemons/org.macports.slapd.plist"
-    Unload "/Library/LaunchDaemons/org.macports.spamd.plist"
+    #Unload "/Library/LaunchDaemons/org.macports.spamd.plist"
     Unload "/Library/LaunchDaemons/org.macports.texpire.plist"
+    
     Unload "/System/Library/LaunchDaemons/org.postfix.master.plist"
 
     return
@@ -195,11 +196,9 @@ function Update_Tree ()
 	    typeset Archive_Owner="$(gstat -c %U .)"
 	    typeset Archive_Group="$(gstat -c %G .)"
 
-	    echo "===> Subversion Cleanup"
-	    svn cleanup
-	    svn revert PortIndex*
-	    echo "===> Subversion Update"
-	    svn update
+	    echo "===> Git Pull"
+	    git pull
+	    echo "===> Git Update"
 	    portindex
 	    gchown --recursive ${Archive_Owner}:${Archive_Group} .
 	popd

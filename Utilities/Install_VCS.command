@@ -20,9 +20,9 @@ if test "${USER}" = "root"; then
 	"openssh"							\
 	"sshpass"							\
 	"cvs +gssapi+proxy"						\
-	"git +bash_completion+credential_osxkeychain+doc+svn"		\
-	"git-core +bash_completion"					\
+	"git +credential_osxkeychain+doc+svn"		\
 	"git-extras"							\
+	"git-cvs"							\
 	"GitX"								\
 	"juni"								\
 	"subversion +bash_completion+tools+mod_dav_svn+unicode_path"	\

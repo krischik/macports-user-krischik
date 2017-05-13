@@ -6,11 +6,10 @@
 #   $HeadURL$
 ############################################################## }}}1 ##########
 
-path=(/opt/local/sbin ${path})
-path=(/opt/local/bin ${path})
+path=(@PREFIX@/sbin ${path})
+path=(@PREFIX@/bin ${path})
 
-#@PREFIX@/bin/gqview &
-/opt/local/bin/gqview &
+@PREFIX@/bin/gqview &
 
 ############################################################ {{{1 ###########
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :

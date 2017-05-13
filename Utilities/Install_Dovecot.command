@@ -15,11 +15,11 @@ if test "${USER}" = "root"; then
 
     setopt No_Err_Exit
 
-    launchctl unload -w "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
-    launchctl unload -w "/Library/LaunchDaemons/org.macports.dovecot.plist"
-    launchctl unload -w "/Library/LaunchDaemons/org.macports.slapd.plist"
-    launchctl unload -w "/Library/LaunchDaemons/org.macports.postfix.plist"
-    launchctl unload -w "/System/Library/LaunchDaemons/org.postfix.master.plist"
+    #launchctl unload -w "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
+    #launchctl unload -w "/Library/LaunchDaemons/org.macports.dovecot.plist"
+    #launchctl unload -w "/Library/LaunchDaemons/org.macports.slapd.plist"
+    #launchctl unload -w "/Library/LaunchDaemons/org.macports.postfix.plist"
+    #launchctl unload -w "/System/Library/LaunchDaemons/org.postfix.master.plist"
     
     setopt Err_Exit
    
@@ -40,7 +40,7 @@ if test "${USER}" = "root"; then
     #launchctl load -w "/Library/LaunchDaemons/org.macports.postfix.plist"
     #launchctl load -w "/Library/LaunchDaemons/org.macports.slapd.plist"
     #launchctl load -w "/Library/LaunchDaemons/org.macports.dovecot.plist"
-    launchctl load -w "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
+    #launchctl load -w "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
 
     port load fetchmail
 

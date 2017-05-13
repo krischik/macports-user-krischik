@@ -18,47 +18,42 @@ if test "${USER}" = "root"; then
     Update_Packages
 
     ${0:h}/Install_Python.command
-    ${0:h}/Install_Gtk.command
 
-    for I in		\
-	"cairo"						\
-	"gconf"						\
+    for I in						\
+	"cairo +universal"				\
+	"gconf +universal"				\
 	"gmime"						\
 	"gtk-engines2"					\
 	"gtk-theme-switch"				\
-	"gtk2 +bundle"					\
-	"gtk3"						\
+	"gtk2"						\
+	"gtk3 +universal"				\
 	"gtkspell2"					\
-	"pango"
+	"pango +universal"
     do
 	Install_Update ${=I} "${=General_Variants}${=Gnome_Variants}"
     done; unset I
 
     for I in						\
 	"gnome-control-center"				\
-	"gnome-icon-theme"				\
-	"gnome-icon-theme-extras"			\
-	"gnome-icon-theme-symbolic"			\
 	"gnome-mime-data"				\
 	"gnome-themes-standard"				\
 	"mono"						\
 	"mono-addins"					\
 	"tango-icon-theme +big_icons"			\
-	"tango-icon-theme-extras +big_icons"		\
+	"tango-icon-theme-extras +big_icons"		
     do
 	Install_Update ${=I} "${=General_Variants}${=Gnome_Variants}"
     done; unset I
 
     for I in					    \
 	"gimp-app +animation+help_browser"	    \
-	"gimp-help-de"				    \
+	"gimp-help-en"				    \
 	"gimp2 +help_browser"			    \
 	"gqview"				    \
 	"pan2"
     do
 	Install_Update ${=I} "${=Gnome_Variants}"
     done; unset I
-
 
     Load_System
     Select_System
