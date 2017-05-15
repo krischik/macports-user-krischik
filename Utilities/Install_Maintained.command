@@ -18,14 +18,15 @@ if test "${USER}" = "root"; then
 
     for I in					    \
 	"atari800"				    \
+	"derby-server"				    \
 	"free42"				    \
 	"glassfishv3"				    \
-	"derby-server"				    \
 	"leafnode"				    \
 	"nonpareil"				    \
 	"nrg4iso"				    \
 	"oorexx"				    \
-	"sigil"
+	"sigil"					    \
+	"vimproc"
     do
 	port install -f ${=I} ${=General_Variants}
     done; unset I

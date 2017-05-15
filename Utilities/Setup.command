@@ -91,6 +91,7 @@ function Select_System ()
     echo "===> Select System"
 
     port select --set "cython"	"cython27"
+    port select --set "perl"	"perl5.24"
     port select --set "python"	"python35"
     port select --set "python3"	"python35"
     port select --set "ruby"	"ruby22"
@@ -195,11 +196,13 @@ function Update_Tree ()
 	    typeset Archive_Owner="$(gstat -c %U .)"
 	    typeset Archive_Group="$(gstat -c %G .)"
 
-	    echo "===> Subversion Cleanup"
-	    svn cleanup
-	    svn revert PortIndex*
-	    echo "===> Subversion Update"
-	    svn update
+	    echo "===> Git pull krischik"
+	    git pull "https://github.com/krischik/macports-ports"
+
+	    echo "===> Git pull macports"
+	    git pull "https://github.com/macports/macports-ports"
+
+	    echo "===> Update index"
 	    portindex
 	    gchown --recursive ${Archive_Owner}:${Archive_Group} .
 	popd

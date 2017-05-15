@@ -15,18 +15,27 @@ if test "${USER}" = "root"; then
     Deselect_System
     Update_Tree
     Update_Packages
-    
+
     for I in			    \
 	"android"		    \
 	"ant-contrib"		    \
 	"antenna"		    \
 	"apache-ant"		    \
 	"gradle"		    \
+	"kotlin"		    \
 	"maven3"		    \
 	"maven31"		    \
 	"maven32"		    \
 	"maven_select"		    \
 	"microemu"		    \
+	"perl5+perl5_24"	    \
+	"perl5.24"		    \
+	"p5.24-libwww-perl"	    \
+	"p5.24-xml-libxml"	    \
+	"p5.24-xml-parser"	    \
+	"p5.24-xml-writer"	    \
+	"p5.24-xml-writer-string"   \
+	"perl_select"		    \
 	"proguard"		    \
 	"scala2.12"		    \
 	"scala2.12-docs"	    \
@@ -38,11 +47,15 @@ if test "${USER}" = "root"; then
     # wine has no universal variant
     #
     for I in			    \
+	"nodejs6"		    \
+	"npm4"			    \
 	"mono"			    \
 	"wine"
     do
 	Install_Update ${I}
     done; unset I
+
+    npm -g install typescript
 
     Select_System
     Clean
