@@ -20,10 +20,11 @@ if test "${USER}" = "root"; then
     ${0:h}/Install_Python.command
 
     setopt Err_Exit
+
     for I in			    \
 	"qt4_select"		    \
-	"qt4-mac"		    \
 	"qt4-mac-sqlite3-plugin"    \
+	"qt4-mac"		    \
 	"doxygen +wizard"
     do
 	Install_Update ${=I} "${Qt_Variants}${General_Variants}"
@@ -33,6 +34,7 @@ if test "${USER}" = "root"; then
 	"akonadi"		    \
 	"kdelibs4"		    \
 	"kde4-baseapps"		    \
+	"kdiskfree"		    \
 	"kdepim4"		    \
 	"amarok"
     do

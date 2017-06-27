@@ -14,10 +14,10 @@ setopt No_Err_Exit
 if test "${USER}" = "root"; then
     Unload_System
 
-    #port -qv installed > myports.txt
-    #port echo requested | cut -d ' ' -f 1 > requested.txt
-    #port -f uninstall installed
-    #rm -rf "/opt/local/var/macports/build/"*
+    port -qv installed > myports.txt
+    port echo requested | cut -d ' ' -f 1 > requested.txt
+    port -f uninstall installed
+    rm -rf "/opt/local/var/macports/build/"*
 
     ./Install.command
     ./Install_VIM.command
@@ -35,7 +35,7 @@ if test "${USER}" = "root"; then
 	(iMac*)
 	    #./Install_Dovecot.command
 	    ./Install_Maintained.command
-	    ./Install_SpamAssassin.command
+	    #./Install_SpamAssassin.command
 	;;
     esac
 
