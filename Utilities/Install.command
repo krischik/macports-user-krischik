@@ -79,6 +79,7 @@ if test "${USER}" = "root"; then
 	"texinfo"								\
 	"tiff"									\
 	"uif2iso"								\
+	"unison +aqua"								\
 	"urw-fonts"								\
 	"wget +ssl"								\
 	"wput +ssl"								\

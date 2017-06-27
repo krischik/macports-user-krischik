@@ -19,7 +19,6 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
-    port select gcc gnat-gcc42
     Clean
     Load_System
 else
