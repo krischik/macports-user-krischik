@@ -11,24 +11,24 @@ source ${0:h}/Setup.command
 setopt No_XTrace
 setopt No_Err_Exit
 
+##########
+# Retired applications, replaced by Diskstation
+#
+#   launchctl unload -w "/Library/LaunchDaemons/org.macports.dovecot.plist"
+#   launchctl unload -w "/Library/LaunchDaemons/org.macports.slapd.plist"
+#   launchctl unload -w "/Library/LaunchDaemons/org.macports.postfix.plist"
+#   launchctl unload -w "/System/Library/LaunchDaemons/org.postfix.master.plist"
+##########
+
 if test "${USER}" = "root"; then
     Deselect_System
 
     launchctl unload -w "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
-    launchctl unload -w "/Library/LaunchDaemons/org.macports.dovecot.plist"
-    launchctl unload -w "/Library/LaunchDaemons/org.macports.slapd.plist"
-    launchctl unload -w "/Library/LaunchDaemons/org.macports.postfix.plist"
-    launchctl unload -w "/System/Library/LaunchDaemons/org.postfix.master.plist"
-
-    # "imapfilter"			    \
 
     for I in				    \
-	"dovecot"			    \
 	"fetchmail"			    \
-	"p5-mail-spamassassin"		    \
-	"p5.16-mail-spamassassin"	    \
-	"p5.22-mail-spamassassin"	    \
-	"postfix"
+	"imapfilter"			    \
+        "p5-mail-spamassassin"
     do
 	Un_Install ${I}
     done; unset I
