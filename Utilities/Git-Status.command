@@ -11,9 +11,13 @@ source ${0:a:h}/Setup.command
 setopt No_XTrace
 setopt No_Err_Exit
 
+echo "\n##### /Work/MacPorts/krischik\n"
+
 pushd "/Work/MacPorts/krischik"
     git status
 popd
+
+echo "\n##### /Work/MacPorts/dports\n"
 
 pushd "/Work/MacPorts/dports"
     git status
