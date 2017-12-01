@@ -18,31 +18,25 @@ if test "${USER}" = "root"; then
 
     ${0:h}/Install_Python.command
 
-    for I in		\
-	"autoconf"	\
-	"ctags"		\
-	"gettext"	\
-	"gnutar"	\
-	"grep"		\
-	"libiconv"	\
-	"lua"		\
-	"ncurses"	\
-	"perl5"		\
-	"ruby22 +gmp"	\
-	"tcl"
+    for I in								    \
+	"autoconf"							    \
+	"ctags"								    \
+	"gettext"							    \
+	"gnutar"							    \
+	"grep"								    \
+	"libiconv"							    \
+	"lua"								    \
+	"ncurses"							    \
+	"perl5"								    \
+	"ruby22 +gmp"							    \
+	"tcl"								    \
+	"MacVim +cscope +huge +nls +ruby23 +python36 +lua +perl +tcl +xim"  \
+	"vimproc"
     do
 	Install_Update ${I} "${=General_Variants}"
     done; unset I
 
     #"vim +cscope +huge +nls +ruby22 +python35 +lua +perl +tcl +xim"	    \
-   
-    port uninstall vim
-
-    for I in								    \
-	"MacVim +cscope +huge +nls +ruby22 +python35 +lua +perl +tcl +xim"
-    do
-	Install_Update ${I} "${=General_Variants}"
-    done; unset I
 
     for I in	    \
 	eview	    \

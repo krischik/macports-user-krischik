@@ -33,6 +33,7 @@ if test "${USER}" = "root"; then
 	"dbus"									\
 	"diffutils"								\
 	"dos2unix"								\
+	"docker"								\
 	"enchant"								\
 	"file +with_text_magic_file"						\
 	"findutils"								\
@@ -87,6 +88,7 @@ if test "${USER}" = "root"; then
 	"xz"									\
 	"yencode"								\
 	"zsh +doc+mp_completion"						\
+	"FileZilla"								\
 	"ImageMagick +graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"
     do
 	Install_Update ${=I} "${General_Variants}"

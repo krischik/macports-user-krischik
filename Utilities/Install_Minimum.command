@@ -17,8 +17,8 @@ if test "${USER}" = "root"; then
 
     port install										\
 	"coreutils" ${=General_Variants}							\
-	"subversion" "+bash_completion+tools+mod_dav_svn+unicode_path" "${=General_Variants}"	\
 	"zsh" "+doc" "+mp_completion" ${=General_Variants}					\
+	"subversion" "+bash_completion+tools+mod_dav_svn+unicode_path" "${=General_Variants}"	\
 	1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 
 #   echo /opt/local/bin/zsh >>/etc/shells

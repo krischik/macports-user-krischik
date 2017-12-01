@@ -36,23 +36,17 @@ if test "${USER}" = "root"; then
 	"p5.24-xml-writer"	    \
 	"p5.24-xml-writer-string"   \
 	"perl_select"		    \
+	"nodejs6"		    \
+	"npm4"			    \
+	"mono"			    \
 	"proguard"		    \
+	"scala2.11"		    \
+	"scala2.11-docs"	    \
 	"scala2.12"		    \
 	"scala2.12-docs"	    \
 	"scala_select"
     do
 	Install_Update ${I} ${=General_Variants}
-    done; unset I
-
-    # wine has no universal variant
-    #
-    for I in			    \
-	"nodejs6"		    \
-	"npm4"			    \
-	"mono"			    \
-	"wine"
-    do
-	Install_Update ${I}
     done; unset I
 
     npm -g install typescript

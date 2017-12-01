@@ -12,18 +12,18 @@ setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    for I in		\
-	"python27"	\
-	"py27-crypto"	\
-	"py27-readline"	\
-	"py27-tkinter"	\
-	"python35"	
+    for I in		    \
+	"python27"	    \
+	"py27-crypto"	    \
+	"py27-gnureadline"  \
+	"py27-tkinter"	    \
+	"python36"	
     do
 	Install_Update ${I} "${=General_Variants}"
     done; unset I
    
     # the following pyton moduls can't be compiled with
-    # niversal as py27-numpy has no universal variant
+    # universal as py27-numpy has no universal variant
     #
     for I in		\
 	"py27-numpy"	\

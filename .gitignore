@@ -18,3 +18,5 @@ myports.txt
 requested.txt
 target
 work
+installed.txt
+restore_ports.tcl
