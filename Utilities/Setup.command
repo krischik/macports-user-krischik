@@ -56,18 +56,14 @@ function Load_System ()
     {
     echo "===> Load System"
 
-    #Load "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
     Load "/Library/LaunchDaemons/org.freedesktop.dbus-system.plist"
     Load "/Library/LaunchDaemons/org.macports.dbus.plist"
-    #Load "/Library/LaunchDaemons/org.macports.dovecot.plist"
     Load "/Library/LaunchDaemons/org.macports.fetchnews.plist"
     Load "/Library/LaunchDaemons/org.macports.gdm.plist"
     Load "/Library/LaunchDaemons/org.macports.leafnode.plist"
     Load "/Library/LaunchDaemons/org.macports.mysql5.plist"
-    #Load "/Library/LaunchDaemons/org.macports.postfix.plist"
     Load "/Library/LaunchDaemons/org.macports.rsyncd.plist"
     Load "/Library/LaunchDaemons/org.macports.slapd.plist"
-    #Load "/Library/LaunchDaemons/org.macports.spamd.plist"
     Load "/Library/LaunchDaemons/org.macports.texpire.plist"
 
     return
@@ -95,7 +91,7 @@ function Select_System ()
     port select --set "python"	"python35"
     port select --set "python3"	"python35"
     port select --set "ruby"	"ruby22"
-    port select --set "gcc"	"mp-gcc5"
+    port select --set "gcc"	"mp-gcc6"
     port select --set "llvm"	"mp-llvm-3.7"
     port select --set "maven"	"maven3"
     port select --set "scala"	"scala2.11"
@@ -135,18 +131,14 @@ function Unload_System ()
     {
     echo "===> Un-Load System"
 
-    #Unload "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
     Unload "/Library/LaunchDaemons/org.freedesktop.dbus-system.plist"
     Unload "/Library/LaunchDaemons/org.macports.dbus.plist"
-    #Unload "/Library/LaunchDaemons/org.macports.dovecot.plist"
     Unload "/Library/LaunchDaemons/org.macports.fetchnews.plist"
     Unload "/Library/LaunchDaemons/org.macports.gdm.plist"
     Unload "/Library/LaunchDaemons/org.macports.leafnode.plist"
     Unload "/Library/LaunchDaemons/org.macports.mysql5.plist"
-    #Unload "/Library/LaunchDaemons/org.macports.postfix.plist"
     Unload "/Library/LaunchDaemons/org.macports.rsyncd.plist"
     Unload "/Library/LaunchDaemons/org.macports.slapd.plist"
-    #Unload "/Library/LaunchDaemons/org.macports.spamd.plist"
     Unload "/Library/LaunchDaemons/org.macports.texpire.plist"
     
     Unload "/System/Library/LaunchDaemons/org.postfix.master.plist"

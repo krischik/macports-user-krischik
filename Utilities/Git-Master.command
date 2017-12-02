@@ -1,27 +1,21 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
 #   $Author: krischik@macports.org $
-#   $Revision: 133186 $
-#   $Date: 2015-02-23 14:59:43 +0100 (Mo, 23. Feb 2015) $
-#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Update.command $
+#   $Revision: 97540 $
+#   $Date: 2012-09-08 14:39:54 +0200 (Sa, 08. Sep 2012) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Clean.command $
 ############################################################## }}}1 ##########
 
-source ${0:a:h}/Setup.command
+source ${0:h}/Setup.command
 
 setopt No_XTrace
-setopt Err_Exit
+setopt No_Err_Exit
 
-pushd "/Work/MacPorts"
-    pushd "dports"
-	git pull  --all
-	git fetch --all
-    popd
-    pushd "krischik"
-	git pull  --all
-	git fetch --all
-    popd
+pushd ${Base_Work_Dir}
+    git checkout master
+    git pull origin
+    git pull upstream master
 popd
-
 
 ############################################################ {{{1 ###########
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :

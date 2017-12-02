@@ -39,7 +39,7 @@ if test "${USER}" = "root"; then
     port uninstall vim
 
     for I in								    \
-	"MacVim +cscope +huge +nls +ruby22 +python35 +lua +perl +tcl +xim"
+	"MacVim +cscope +huge +nls +ruby23 +python36 +lua +perl +tcl +xim"
     do
 	Install_Update ${I} "${=General_Variants}"
     done; unset I

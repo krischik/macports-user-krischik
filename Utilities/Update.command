@@ -14,7 +14,7 @@ setopt No_Err_Exit
 if test "${USER}" = "root"; then
     #Unload_System
 
-    port select --set gcc llvm-gcc42
+    port select --set gcc llvm-gcc6
 
     Update_Tree
     Update_Packages

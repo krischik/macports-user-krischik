@@ -34,9 +34,15 @@ if test "${USER}" = "root"; then
     done; unset I
 
     for I in						\
+	"adwaita-icon-theme"				\
 	"gnome-control-center"				\
+	"gnome-icon-theme"				\
+	"gnome-icon-theme-extras"			\
+	"gnome-icon-theme-symbolic"			\
 	"gnome-mime-data"				\
+	"gnome-theme"					\
 	"gnome-themes-standard"				\
+	"hicolor-icon-theme"				\
 	"mono"						\
 	"mono-addins"					\
 	"tango-icon-theme +big_icons"			\

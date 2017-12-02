@@ -39,7 +39,7 @@ if test "${USER}" = "root"; then
 	"flex"									\
 	"fontconfig +vera"							\
 	"fontforge +freetype_bytecode"						\
-	"gcc5"									\
+	"gcc6"									\
 	"gcc_select"								\
 	"giflib"								\
 	"gmp"									\
