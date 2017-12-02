@@ -1,4 +1,4 @@
-#!/opt/local/bin/zsh
+et !/opt/local/bin/zsh
 ############################################################## {{{1 ##########
 #   $Author: krischik@macports.org $
 #   $Revision: 143895 $

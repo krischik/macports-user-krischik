@@ -37,9 +37,10 @@ path+=/usr/X11/bin
 
 typeset -x -g -U -T PKG_CONFIG_PATH pkg_config_path ':'
 
-pkg_config_path+="/opt/local/share/pkgconfig"
-pkg_config_path+="/opt/local/libexec/qt4-mac/lib/pkgconfig"
 pkg_config_path+="/opt/local/lib/pkgconfig"
+pkg_config_path+="/opt/local/libexec/qt5/lib/pkgconfig"
+pkg_config_path+="/opt/local/libexec/qt4-mac/lib/pkgconfig"
+pkg_config_path+="/opt/local/share/pkgconfig"
 
 function Load ()
     {

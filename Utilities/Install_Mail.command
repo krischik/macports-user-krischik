@@ -36,6 +36,8 @@ if test "${USER}" = "root"; then
     setopt No_Err_Exit
 
     #launchctl unload -w "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
+    #launchctl unload -w ~/"/Library//Library/LaunchAgents/com.krischik.fetchmail.plist"
+    #launchctl unload -w ~/"/Library//Library/LaunchAgents/imapfilter.vermithrax.plist"
     
     setopt Err_Exit
    

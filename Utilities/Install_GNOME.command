@@ -20,15 +20,15 @@ if test "${USER}" = "root"; then
     ${0:h}/Install_Python.command
 
     for I in						\
-	"cairo +universal"				\
-	"gconf +universal"				\
+	"cairo"						\
+	"gconf"						\
 	"gmime"						\
 	"gtk-engines2"					\
 	"gtk-theme-switch"				\
 	"gtk2"						\
-	"gtk3 +universal"				\
+	"gtk3"						\
 	"gtkspell2"					\
-	"pango +universal"
+	"pango"
     do
 	Install_Update ${=I} "${=General_Variants}${=Gnome_Variants}"
     done; unset I
