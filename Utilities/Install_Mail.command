@@ -37,7 +37,8 @@ if test "${USER}" = "root"; then
 
     #launchctl unload -w "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
     #launchctl unload -w ~/"/Library//Library/LaunchAgents/com.krischik.fetchmail.plist"
-    #launchctl unload -w ~/"/Library//Library/LaunchAgents/imapfilter.vermithrax.plist"
+    launchctl unload -w ~"/Library/LaunchAgents/imapfilter.vermithrax.plist"
+    launchctl unload -w ~"/Library/LaunchAgents/imapfilter.move.plist" 
     
     setopt Err_Exit
    
@@ -49,6 +50,8 @@ if test "${USER}" = "root"; then
 	Install_Update ${I} ${=General_Variants}
     done; unset I
 
+    launchctl load -w  ~"/Library/LaunchAgents/imapfilter.vermithrax.plist"
+    launchctl load -w  ~"/Library/LaunchAgents/imapfilter.move.plist" 
     #launchctl load -w "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
     #port load fetchmail
 
