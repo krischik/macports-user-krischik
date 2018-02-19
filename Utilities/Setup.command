@@ -93,13 +93,14 @@ function Select_System ()
 
     port select --set "cython"	"cython27"
     port select --set "perl"	"perl5.24"
-    port select --set "python"	"python35"
-    port select --set "python3"	"python35"
+    port select --set "python"	"python36"
+    port select --set "python3"	"python36"
     port select --set "ruby"	"ruby22"
     port select --set "gcc"	"mp-gcc5"
     port select --set "llvm"	"mp-llvm-3.7"
     port select --set "maven"	"maven3"
     port select --set "scala"	"scala2.11"
+    port select --set "sphinx"  "py36-sphinx"
 
     return
     } # Select_System
@@ -109,6 +110,7 @@ function Deselect_System ()
     echo "===> Select System"
 
     port select --set "cython"	"none"
+    port select --set "perl"	"none"
     port select --set "python"	"none"
     port select --set "python3"	"none"
     port select --set "ruby"	"none"
@@ -116,7 +118,7 @@ function Deselect_System ()
     port select --set "llvm"	"none"
     port select --set "maven"	"none"
     port select --set "scala"	"none"
-    #port select --set "qt4"	"none"
+    port select --set "sphinx"  "none"
 
     return
     } # Select_System

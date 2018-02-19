@@ -19,12 +19,13 @@ if test "${USER}" = "root"; then
 
     ${0:h}/Install_Python.command
 
-    for I in			    \
-	"qt4_select"		    \
-	"qt4-mac-sqlite3-plugin"    \
-	"qt4-mac"		    \
-	"qt5-sqlite-plugin"	    \
-	"qt5"			    \
+    for I in				\
+	"cmake +python36+qt5+docs+gui"  \
+	"qt4_select"			\
+	"qt4-mac-sqlite3-plugin"	\
+	"qt4-mac"			\
+	"qt5-sqlite-plugin"		\
+	"qt5"				\
 	"doxygen +wizard"
     do
 	Install_Update ${=I} "${Qt_Variants}${General_Variants}"

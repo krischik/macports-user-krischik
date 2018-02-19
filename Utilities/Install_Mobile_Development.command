@@ -37,7 +37,7 @@ if test "${USER}" = "root"; then
 	"p5.24-xml-writer-string"   \
 	"perl_select"		    \
 	"nodejs6"		    \
-	"npm4"			    \
+	"npm5"			    \
 	"mono"			    \
 	"proguard"		    \
 	"scala2.11"		    \
@@ -50,6 +50,7 @@ if test "${USER}" = "root"; then
     done; unset I
 
     npm -g install typescript
+    npm -g install solc
 
     Select_System
     Clean
