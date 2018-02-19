@@ -11,12 +11,31 @@ source ${0:h}/Setup.command
 setopt No_XTrace
 setopt No_Err_Exit
 
-brew update
-brew upgrade
-brew tap ethereum/ethereum
-brew install solidity
-brew linkapps solidity
-https://github.com/weidai11/cryptopp/archive/CRYPTOPP_5_6_5.tar.gz
+if test "${USER}" = "root"; then
+    for I in						\
+	"cargo"						\
+	"rust"
+    do
+	Install_Update ${=I} "${=General_Variants}"
+    done; unset I
+else
+    setopt Multi_OS
+
+    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+
+    brew update
+    brew upgrade
+    brew tap ethereum/ethereum
+    brew install solidity
+    brew linkapps solidity
+
+    cd parity
+
+    # build in release mode
+    cargo build --release
+#	https://github.com/weidai11/cryptopp/archive/CRYPTOPP_5_6_5.tar.gz
+    popd
+fi
 
 ############################################################ {{{1 ###########
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :
