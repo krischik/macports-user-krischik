@@ -21,6 +21,8 @@ if test "${USER}" = "root"; then
 	"opencv"								\
 	"ffmpeg +nonfree+gpl2+mmx"						\
 	"libogg"								\
+	"exif"									\
+	"exiftags"								\
 	"flac"									\
 	"poppler"								\
 	"MPlayer +aa+caca+dts+mencoder_extras+esd+fribidi+live+osd+sdl+speex"	\

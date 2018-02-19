@@ -10,9 +10,10 @@ source ${0:h}/Setup.command
 
 setopt No_XTrace
 setopt Multi_OS
-setopt Err_Exit
+setopt No_ErrExit
 
 if test "${USER}" = "root"; then
+    xcode-select --install
     xcode-select --switch /Applications/Developer/Xcode.app
 
     port install										\

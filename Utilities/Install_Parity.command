@@ -1,36 +1,31 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
 #   $Author: krischik@macports.org $
-#   $Revision: 133186 $
-#   $Date: 2015-02-23 14:59:43 +0100 (Mo, 23. Feb 2015) $
-#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Update.command $
+#   $Revision: 143895 $
+#   $Date: 2015-12-25 08:11:12 +0100 (Fr, 25. Dez 2015) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Install_Bittorrent.command $
 ############################################################## }}}1 ##########
 
-source ${0:a:h}/Setup.command
+source ${0:h}/Setup.command
 
-setopt No_X_Trace
+setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    #Unload_System
-
-    port select --set gcc llvm-gcc6
-
-    Update_Tree
-    Update_Packages
-
-    Clean
-    Load_System
+    for I in						\
+	"cargo"						\
+	"rust"
+    do
+	Install_Update ${=I} "${=General_Variants}"
+    done; unset I
 else
     setopt Multi_OS
 
-    Unload_User
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+    cd parity
 
-    brew update
-    brew upgrade
-
-    Load_User
+# build in release mode
+$ cargo build --release
 fi
 
 ############################################################ {{{1 ###########
