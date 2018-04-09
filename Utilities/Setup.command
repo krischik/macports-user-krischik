@@ -88,15 +88,15 @@ function Select_System ()
     echo "===> Select System"
 
     port select --set "cython"	"cython27"
-    port select --set "perl"	"perl5.24"
+    # port select --set "perl"	"perl5.26"
     port select --set "python"	"python36"
     port select --set "python3"	"python36"
     port select --set "ruby"	"ruby22"
-    port select --set "gcc"	"mp-gcc6"
-    port select --set "llvm"	"mp-llvm-3.7"
+    # port select --set "gcc"	"mp-gcc6"
+    # port select --set "llvm"	"mp-llvm-3.7"
     port select --set "maven"	"maven3"
     port select --set "scala"	"scala2.11"
-    port select --set "sphinx"  "py36-sphinx"
+    # port select --set "sphinx"  "py36-sphinx"
 
     return
     } # Select_System

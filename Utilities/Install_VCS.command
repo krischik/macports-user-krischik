@@ -1,4 +1,4 @@
-et !/opt/local/bin/zsh
+#!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
 #   $Author: krischik@macports.org $
 #   $Revision: 143895 $
@@ -20,14 +20,18 @@ if test "${USER}" = "root"; then
 	"openssh"							\
 	"sshpass"							\
 	"cvs +gssapi+proxy"						\
-	"git +credential_osxkeychain+doc+svn"		\
-	"git-extras"							\
-	"git-cvs"							\
-	"GitX"								\
-	"juni"								\
-	"subversion +bash_completion+tools+mod_dav_svn+unicode_path"	\
 	"cvs2svn"							\
-	"subversion-javahlbindings"
+	"git +credential_osxkeychain+doc+svn"				\
+	"git-extras"							\
+	"git-crypt"							\
+	"git-flow"							\
+	"git-flow-bash-completion"					\
+	"git-cvs"							\
+	"git-lfs"							\
+	"GitX"								\
+	"subversion +bash_completion+tools+mod_dav_svn+unicode_path"	\
+	"subversion-javahlbindings"					\
+	"svn2git"
     do
 	Install_Update ${I} "${=General_Variants}"
     done; unset I
