@@ -25,10 +25,11 @@ else
     setopt Multi_OS
 
     Unload_User
-    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 
     brew update
     brew upgrade
+
+    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 
     Load_User
 fi
