@@ -37,7 +37,8 @@ if test "${USER}" = "root"; then
 	"kde4-baseapps"		    \
 	"kdiskfree"		    \
 	"kdepim4"		    \
-	"amarok"
+	"amarok"		    \
+	"MP4Joiner"		
     do
 	# KDE libs hang in compile with 8 cores.
 	# build.jobs=1

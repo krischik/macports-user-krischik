@@ -33,14 +33,8 @@ if test "${USER}" = "root"; then
 	Install_Update ${=I} "${General_Variants}"
     done; unset I
 
-    for I in			\
-	"qt4-mac"		\
-	"qt4_select"		\
-	"MP4Joiner"		
-    do
-	Install_Update ${=I} "${Qt_Variants}${General_Variants}"
-    done; unset I;
 
+    sudo port -f deactivate cryptlib
     # rm    ~"/Library/Preference/org.videolan.vlc.LSSharedFileList.plist"
     # rm -r ~"/Library/Application Support/org.videolan.vlc"
     # rm -r ~"/Library/Caches/org.videolan.vlc"

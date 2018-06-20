@@ -94,6 +94,15 @@ if test "${USER}" = "root"; then
 	Install_Update ${=I} "${General_Variants}"
     done; unset I
 
+    sudo port -f deactivate cryptlib
+
+    Install_Update						    \
+	"ImageMagick"						    \
+	"+graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"  \
+	"${General_Variants}"
+
+    sudo port activate cryptlib
+
     # Ports without a universal variant
 
     for I in									\
