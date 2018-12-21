@@ -214,6 +214,11 @@ function Update_Tree ()
 
 function Update_Packages ()
     {
+    echo "===> Upgrade ImageMagick"
+    port -f deactivate cryptlib
+    port upgrade --enforce-variants ImageMagick ${General_Variants}    
+    port activate cryptlib
+
     echo "===> Upgrade Outdated"
     port -p upgrade --enforce-variants outdated ${General_Variants}
 
