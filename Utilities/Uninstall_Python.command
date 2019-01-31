@@ -17,7 +17,11 @@ if test "${USER}" = "root"; then
 	"python26"  \
 	"py26-*"    \
 	"python34"  \
-	"py34-*"
+	"py34-*"    \
+	"python34"  \
+	"py34-*"    \
+	"python35"  \
+	"py35-*"
 
 else
     setopt Multi_OS

@@ -22,11 +22,12 @@ if test "${USER}" = "root"; then
     for I in				\
 	"autoconf"			\
 	"automake"			\
-	"cryptlib"			\
 	"boost"				\
+	"cryptlib"			\
 	"git"				\
 	"libtool"			\
 	"openssl"			\
+	"ruby25"			\
 	"secpwgen"			\
         "berkeley-db"			\
         "gperftools"
@@ -34,6 +35,13 @@ if test "${USER}" = "root"; then
 	Install_Update ${I} ${=General_Variants}
     done; unset I
 
+    port select --set "ruby" "ruby25"
+
+    gem install bundler
+    gem install steem-ruby
+    gem install radiator
+    gem install colorize
+    
     #Select_System
     #Clean
 else
@@ -42,6 +50,7 @@ else
     # brew install homebrew/versions/boost160
     
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+
 
     # brew update
     # brew upgrade
@@ -60,15 +69,15 @@ else
     # git submodule update --init --recursive
     # git checkout tags/v0.19.2
 
-    pushd "/Volumes/KINGSTON/Work/steemit"
-	git clone https://github.com/steemit/steem
+    # pushd "/Volumes/KINGSTON/Work/steemit"
+	# git clone https://github.com/steemit/steem
 
-	pushd "steem"
-	    git submodule update --init --recursive
-	    cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_CONTENT_PATCHING=OFF -DLOW_MEMORY_NODE=ON
-	    make
-	popd
-    popd
+	# pushd "steem"
+	    # git submodule update --init --recursive
+	    # cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_CONTENT_PATCHING=OFF -DLOW_MEMORY_NODE=ON
+	    # make
+	# popd
+    # popd
 fi
 
 ############################################################ {{{1 ###########

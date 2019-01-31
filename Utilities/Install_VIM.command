@@ -28,9 +28,9 @@ if test "${USER}" = "root"; then
 	"lua"								    \
 	"ncurses"							    \
 	"perl5"								    \
-	"ruby22 +gmp"							    \
+	"ruby25 +gmp"							    \
 	"tcl"								    \
-	"MacVim +cscope +huge +nls +ruby23 +python36 +lua +perl +tcl +xim"  \
+	"MacVim +cscope +huge +nls +ruby25 +python37 +lua +perl +tcl +xim"  \
 	"vimproc"
     do
 	Install_Update ${I} "${=General_Variants}"
@@ -64,6 +64,10 @@ else
     setopt Multi_OS
 
     brew cask install macdown
+    #brew install vim 
+    #brew unlink  vim
+    brew install macvim 
+    brew link macvim
 
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 fi

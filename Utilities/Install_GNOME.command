@@ -23,6 +23,7 @@ if test "${USER}" = "root"; then
 	"cairo"						\
 	"gconf"						\
 	"gmime"						\
+	"gexiv2 +python37"
 	"gtk-engines2"					\
 	"gtk-theme-switch"				\
 	"gtk2"						\

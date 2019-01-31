@@ -20,7 +20,7 @@ if test "${USER}" = "root"; then
     ${0:h}/Install_Python.command
 
     for I in				\
-	"cmake +python36+qt5+docs+gui"  \
+	"cmake +python37+qt5+docs+gui"  \
 	"qt4_select"			\
 	"qt4-mac-sqlite3-plugin"	\
 	"qt4-mac"			\

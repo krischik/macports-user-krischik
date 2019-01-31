@@ -31,8 +31,8 @@ if test "${USER}" = "root"; then
 	"mono"			    \
 	"nodejs7"		    \
 	"npm5"			    \
-	"perl5+perl5_26"	    \
-	"perl5.26"		    \
+	"perl5+perl5_28"	    \
+	"perl5.28"		    \
 	"proguard"		    \
 	"scala2.11"		    \
 	"scala2.11-docs"	    \
@@ -44,18 +44,18 @@ if test "${USER}" = "root"; then
 
     for I in			    \
 	"maven_select"		    \
-	"p5.26-common-sense"	    \
-	"p5.26-data-dumper"	    \
-	"p5.26-json"		    \
-	"p5.26-json-parse"	    \
-	"p5.26-json-xs"		    \
-	"p5.26-libwww-perl"	    \
-	"p5.26-types-serialiser"    \
-	"p5.26-xml-libxml"	    \
-	"p5.26-xml-parser"	    \
-	"p5.26-xml-parser-easytree" \
-	"p5.26-xml-writer"	    \
-	"p5.26-xml-writer-string"   \
+	"p5.28-common-sense"	    \
+	"p5.28-data-dumper"	    \
+	"p5.28-json"		    \
+	"p5.28-json-parse"	    \
+	"p5.28-json-xs"		    \
+	"p5.28-libwww-perl"	    \
+	"p5.28-types-serialiser"    \
+	"p5.28-xml-libxml"	    \
+	"p5.28-xml-parser"	    \
+	"p5.28-xml-parser-easytree" \
+	"p5.28-xml-writer"	    \
+	"p5.28-xml-writer-string"   \
 	"perl_select"		    \
 	"scala_select"
     do

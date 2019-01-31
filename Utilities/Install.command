@@ -68,7 +68,6 @@ if test "${USER}" = "root"; then
 	"par2"									\
 	"pdi2iso"								\
 	"png2ico"								\
-	"rb-termios"								\
 	"readline"								\
 	"rsync +rsyncd"								\
 	"shared-mime-info"							\

@@ -12,26 +12,32 @@ setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    for I in		    \
-	"python27"	    \
-	"py27-crypto"	    \
-	"py27-gnureadline"  \
-	"py27-tkinter"	    \
-	"python36"	
+    for I in			\
+	"python27"		\
+	"py27-crypto"		\
+	"py27-gnureadline"	\
+	"py27-tkinter"		\
+	"py27-xlwt"		\
+	"python37"		\
+	"py37-pygments"		\
+	"py37-xlwt"
     do
 	Install_Update ${I} "${=General_Variants}"
     done; unset I
-   
+
     # the following pyton moduls can't be compiled with
     # universal as py27-numpy has no universal variant
     #
-    for I in		\
-	"py27-numpy"	\
-	"py27-cairo"	\
+    for I in			\
+	"py27-numpy"		\
+	"py27-cairo"		\
 	"py27-pygtk"
     do
 	Install_Update ${I}
     done; unset I
+
+
+    select --set pygments py37-pygments
 else
     setopt Multi_OS
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
