@@ -69,6 +69,9 @@ if test "${USER}" = "root"; then
     Clean
 else
     setopt Multi_OS
+
+    brew install carthage 
+
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 fi
 
