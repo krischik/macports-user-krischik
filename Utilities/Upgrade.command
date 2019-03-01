@@ -9,15 +9,17 @@
 source ${0:a:h}/Setup.command
 
 setopt No_XTrace
-setopt No_Err_Exit
+setopt Err_Exit
 
 if test "${USER}" = "root"; then
     Unload_System
 
     port -qv installed                      > installed.txt
     port echo requested | cut -d ' ' -f 1   > requested.txt
-    #port -f uninstall installed
-    #rm -rf "/opt/local/var/macports/build/"*
+    port -f uninstall installed
+    rm -rf "/opt/local/var/macports/build/"*
+
+    ./Install_Minimum.command 
 
     ./Install.command
     ./Install_VIM.command
@@ -38,7 +40,7 @@ if test "${USER}" = "root"; then
 else
     setopt Multi_OS
 
-    xcode-select --install
+    # xcode-select --install
     Unload_User
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
     Load_User

@@ -12,55 +12,38 @@ setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    Deselect_System
-    Update_Tree
-    Update_Packages
-    ${0:h}/Install_Perl.command
-
     for I in			    \
-	"android"		    \
-	"ant-contrib"		    \
-	"antenna"		    \
-	"apache-ant"		    \
-	"gradle"		    \
-	"junit"			    \
-	"kotlin"		    \
-	"maven3"		    \
-	"maven31"		    \
-	"maven32"		    \
-	"microemu"		    \
-	"gmake +guile"		    \
-	"mono"			    \
-	"nodejs7"		    \
-	"npm5"			    \
-	"proguard"		    \
-	"scala2.11"		    \
-	"scala2.11-docs"	    \
-	"scala2.12"		    \
-	"scala2.12-docs"	    
+	"perl5+perl5_28"	    \
+	"perl5.28"		    
     do
 	Install_Update ${I} ${=General_Variants}
     done; unset I
 
     for I in			    \
-	"maven_select"		    \
-	"scala_select"
+	"p5.28-common-sense"	    \
+	"p5.28-data-dumper"	    \
+	"p5.28-json"		    \
+	"p5.28-json-parse"	    \
+	"p5.28-json-xs"		    \
+	"p5.28-libwww-perl"	    \
+	"p5.28-types-serialiser"    \
+	"p5.28-xml-libxml"	    \
+	"p5.28-xml-parser"	    \
+	"p5.28-xml-parser-easytree" \
+	"p5.28-xml-writer"	    \
+	"p5.28-xml-writer-string"   \
+	"perl_select"
     do
 	Install_Update ${I} ${=General_Variants}
     done; unset I
-
-    npm -g install typescript
-    npm -g install solc
-
-    Select_System
-    Clean
 else
     setopt Multi_OS
-    ${0:h}/Install_Perl.command
 
-    brew install carthage 
+    brew install perl
 
-    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+    cpan Log::Log4perl
+    cpan XML::Parser
+    cpan XML::Parser::EasyTree
 fi
 
 ############################################################ {{{1 ###########

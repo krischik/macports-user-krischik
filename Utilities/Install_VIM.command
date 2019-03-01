@@ -16,7 +16,9 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
+    ${0:h}/Install_Perl.command
     ${0:h}/Install_Python.command
+    ${0:h}/Install_Ruby.command
 
     for I in								    \
 	"autoconf"							    \
@@ -27,8 +29,6 @@ if test "${USER}" = "root"; then
 	"libiconv"							    \
 	"lua"								    \
 	"ncurses"							    \
-	"perl5"								    \
-	"ruby25 +gmp"							    \
 	"tcl"								    \
 	"MacVim +cscope +huge +nls +ruby25 +python37 +lua +perl +tcl +xim"  \
 	"vimproc"
@@ -62,10 +62,11 @@ if test "${USER}" = "root"; then
     Clean
 else
     setopt Multi_OS
+    ${0:h}/Install_Perl.command
+    ${0:h}/Install_Python.command
+    ${0:h}/Install_Ruby.command
 
     brew cask install macdown
-    #brew install vim 
-    #brew unlink  vim
     brew install macvim 
     brew link macvim
 

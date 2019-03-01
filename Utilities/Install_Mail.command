@@ -37,8 +37,14 @@ if test "${USER}" = "root"; then
 
     #launchctl unload -w "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
     #launchctl unload -w ~/"/Library//Library/LaunchAgents/com.krischik.fetchmail.plist"
-    launchctl unload -w ~"/Library/LaunchAgents/imapfilter.vermithrax.plist"
+    launchctl unload -w ~"/Library/LaunchAgents/imapfilter.config.plist"
+    launchctl unload -w ~"/Library/LaunchAgents/imapfilter.gmail.plist"
+    launchctl unload -w ~"/Library/LaunchAgents/imapfilter.krischik.plist"
+    launchctl unload -w ~"/Library/LaunchAgents/imapfilter.mobileme.plist"
+    launchctl unload -w ~"/Library/LaunchAgents/imapfilter.move.plist"
     launchctl unload -w ~"/Library/LaunchAgents/imapfilter.move.plist" 
+    launchctl unload -w ~"/Library/LaunchAgents/imapfilter.vermithrax.plist"
+    launchctl unload -w ~"/Library/LaunchAgents/imapfilter.yahoo.plist"
     
     setopt Err_Exit
    
@@ -50,8 +56,14 @@ if test "${USER}" = "root"; then
 	Install_Update ${I} ${=General_Variants}
     done; unset I
 
-    launchctl load -w  ~"/Library/LaunchAgents/imapfilter.vermithrax.plist"
-    launchctl load -w  ~"/Library/LaunchAgents/imapfilter.move.plist" 
+    launchctl load -w ~"/Library/LaunchAgents/imapfilter.config.plist"
+    launchctl load -w ~"/Library/LaunchAgents/imapfilter.gmail.plist"
+    launchctl load -w ~"/Library/LaunchAgents/imapfilter.krischik.plist"
+    launchctl load -w ~"/Library/LaunchAgents/imapfilter.mobileme.plist"
+    launchctl load -w ~"/Library/LaunchAgents/imapfilter.move.plist"
+    launchctl load -w ~"/Library/LaunchAgents/imapfilter.vermithrax.plist"
+    launchctl load -w ~"/Library/LaunchAgents/imapfilter.yahoo.plist"
+    
     #launchctl load -w "/Library/LaunchDaemons/com.krischik.fetchmail.plist"
     #port load fetchmail
 

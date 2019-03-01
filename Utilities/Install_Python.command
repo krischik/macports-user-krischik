@@ -36,11 +36,12 @@ if test "${USER}" = "root"; then
 	Install_Update ${I}
     done; unset I
 
-
-    select --set pygments py37-pygments
+    port select --set pygments py37-pygments
 else
     setopt Multi_OS
-    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+
+    brew install python
+    brew install python@2
 fi
 
 ############################################################ {{{1 ###########

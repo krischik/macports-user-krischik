@@ -14,10 +14,11 @@ setopt Err_Exit
 if test "${USER}" = "root"; then
     #Deselect_System
     ${0:h}/Install_Python.command
+    ${0:h}/Install_Ruby.command
 
     # A python 3 is needed to compile
     #
-    port select --set "python3" "python36"
+    port select --set "python3" "python37"
 
     for I in				\
 	"autoconf"			\
@@ -27,7 +28,6 @@ if test "${USER}" = "root"; then
 	"git"				\
 	"libtool"			\
 	"openssl"			\
-	"ruby25"			\
 	"secpwgen"			\
         "berkeley-db"			\
         "gperftools"
@@ -35,22 +35,21 @@ if test "${USER}" = "root"; then
 	Install_Update ${I} ${=General_Variants}
     done; unset I
 
-    port select --set "ruby" "ruby25"
+    port select --set "ruby" "ruby26"
 
-    gem install bundler
     gem install steem-ruby
     gem install radiator
-    gem install colorize
-    
+
     #Select_System
     #Clean
 else
     setopt Multi_OS
+    ${0:h}/Install_Python.command
+    ${0:h}/Install_Ruby.command
 
     # brew install homebrew/versions/boost160
     
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
-
 
     # brew update
     # brew upgrade
