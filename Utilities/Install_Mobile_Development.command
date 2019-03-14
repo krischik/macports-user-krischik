@@ -59,6 +59,8 @@ else
     ${0:h}/Install_Perl.command
 
     brew install carthage 
+    brew install openssl
+    brew link --force openssl
 
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 fi
