@@ -26,6 +26,7 @@ if test "${USER}" = "root"; then
     gem install contracts
     gem install gems
     gem install ruby-debug-ide
+    gem install fastlane
 else
     setopt Multi_OS
 fi

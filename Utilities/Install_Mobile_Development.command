@@ -16,6 +16,7 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
     ${0:h}/Install_Perl.command
+    ${0:h}/Install_Ruby.command
 
     for I in			    \
 	"android"		    \
@@ -57,9 +58,12 @@ if test "${USER}" = "root"; then
 else
     setopt Multi_OS
     ${0:h}/Install_Perl.command
+    ${0:h}/Install_Ruby.command
 
     brew install carthage 
     brew install openssl
+
+    brew cask install fastlane
     brew link --force openssl
 
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out

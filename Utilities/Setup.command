@@ -99,7 +99,7 @@ function Select_System ()
     # port select --set "llvm"	"mp-llvm-3.7"
     port select --set "maven"	"maven3"
     port select --set "scala"	"scala2.11"
-    # port select --set "sphinx"  "py36-sphinx"
+    # port select --set "sphinx"  "py37-sphinx"
 
     return
     } # Select_System
