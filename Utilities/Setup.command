@@ -67,6 +67,9 @@ function Load_System ()
     Load "/Library/LaunchDaemons/org.macports.slapd.plist"
     Load "/Library/LaunchDaemons/org.macports.texpire.plist"
 
+    port load openldap
+    sudo port load avahi
+
     return
     } # Load_System
 
@@ -133,6 +136,8 @@ function Unload ()
 function Unload_System ()
     {
     echo "===> Un-Load System"
+
+    port unload openldap
 
     Unload "/Library/LaunchDaemons/org.freedesktop.dbus-system.plist"
     Unload "/Library/LaunchDaemons/org.macports.dbus.plist"

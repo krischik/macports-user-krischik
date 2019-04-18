@@ -50,6 +50,7 @@ if test "${USER}" = "root"; then
    
 	   
     for I in				    \
+	"gnupg2"			    \
 	"fetchmail +fetchmailconf+ssl+ntml" \
 	"imapfilter"
     do

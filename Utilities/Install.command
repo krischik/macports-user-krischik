@@ -44,9 +44,7 @@ if test "${USER}" = "root"; then
 	"gcc_select"								\
 	"giflib"								\
 	"gmp"									\
-	"gnupg"									\
 	"gnutar"								\
-	"gpg-agent"								\
 	"gsed"									\
 	"gwhich"								\
 	"gzip +rsyncable"							\
