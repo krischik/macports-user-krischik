@@ -46,11 +46,10 @@ else
     setopt Multi_OS
     ${0:h}/Install_Python.command
     ${0:h}/Install_Ruby.command
-
-    # brew install homebrew/versions/boost160
     
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 
+    # brew install homebrew/versions/boost160
     # brew update
     # brew upgrade
     # brew install boost cmake git openssl autoconf automake qt5

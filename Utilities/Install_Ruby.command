@@ -27,6 +27,8 @@ if test "${USER}" = "root"; then
     gem install gems
     gem install ruby-debug-ide
     gem install fastlane
+    gem install steem-ruby
+    gem install radiator
 else
     setopt Multi_OS
 fi
