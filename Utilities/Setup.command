@@ -236,6 +236,8 @@ function Clean ()
     port -p uninstall inactive
     echo "===> Uninstall Outdated"
     port -p uninstall outdated
+    echo "===> Uninstall Outdated Ruby modules"
+    gem cleanup --verbose 
     echo "===> Clean"
     port -f -q clean --all all >/dev/null
 

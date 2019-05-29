@@ -26,9 +26,12 @@ if test "${USER}" = "root"; then
     gem install contracts
     gem install gems
     gem install ruby-debug-ide
+    gem install rubygems-update
     gem install fastlane
     gem install steem-ruby
     gem install radiator
+
+    update_rubygems
 else
     setopt Multi_OS
 fi

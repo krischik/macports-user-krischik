@@ -19,6 +19,12 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
+    gem update $(gem list | cut -d ' ' -f 1) --verbose
+
+    gem install rubygems-update
+    update_rubygems
+    gem update --system
+
     Clean
     Load_System
 else
