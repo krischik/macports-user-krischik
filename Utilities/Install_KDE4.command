@@ -17,24 +17,24 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
+    ${0:h}/Install_Develop.command
     ${0:h}/Install_Python.command
 
     for I in				\
-	"cmake +python37+qt5+docs+gui"  \
 	"qt4_select"			\
 	"qt4-mac-sqlite3-plugin"	\
-	"qt4-mac"			\
-	"qt5-sqlite-plugin"		\
-	"qt5"				\
-	"doxygen +wizard"
+	"qt4-mac"			
     do
 	Install_Update ${=I} "${Qt_Variants}${General_Variants}"
     done; unset I
 
     for I in			    \
 	"akonadi"		    \
+	"kde-l10n-de"		    \
 	"kdelibs4"		    \
 	"kde4-baseapps"		    \
+	"kdiskfree"		    \
+	"kdevelop"		    \
 	"kdiskfree"		    \
 	"kdepim4"		    \
 	"amarok"		    \

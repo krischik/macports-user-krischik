@@ -38,7 +38,7 @@ if test "${USER}" = "root"; then
 	"scala2.11"		    \
 	"scala2.11-docs"	    \
 	"scala2.12"		    \
-	"scala2.12-docs"	    
+	"scala2.12-docs"
     do
 	Install_Update ${I} ${=General_Variants}
     done; unset I
@@ -60,7 +60,7 @@ else
     ${0:h}/Install_Perl.command
     ${0:h}/Install_Ruby.command
 
-    brew install carthage 
+    brew install carthage
     brew install openssl
 
     brew cask install fastlane

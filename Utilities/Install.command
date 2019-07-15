@@ -21,13 +21,11 @@ if test "${USER}" = "root"; then
 	"aspell-dict-de"							\
 	"aspell-dict-en"							\
 	"aspell-dict-ru"							\
-	"autoconf"								\
 	"b5i2iso"								\
 	"bison +yacc"								\
 	"bitstream-vera"							\
 	"bzip2"									\
 	"coreutils"								\
-	"ctags"									\
 	"curl-ca-bundle"							\
 	"dbacl"									\
 	"dbus"									\
@@ -40,8 +38,6 @@ if test "${USER}" = "root"; then
 	"flex"									\
 	"fontconfig +vera"							\
 	"fontforge +freetype_bytecode"						\
-	"gcc6"									\
-	"gcc_select"								\
 	"giflib"								\
 	"gmp"									\
 	"gnutar"								\
@@ -53,10 +49,6 @@ if test "${USER}" = "root"; then
 	"jasper +jiv"								\
 	"jpeg"									\
 	"libpng"								\
-	"llvm-3.8"								\
-	"llvm-gcc42"								\
-	"llvm_select"								\
-	"m4"									\
 	"mdf2iso"								\
 	"mmv"									\
 	"mpfr"									\

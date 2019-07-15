@@ -17,28 +17,29 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
+    ${0:h}/Install_Develop.command
     ${0:h}/Install_Python.command
 
-    for I in				\
-	"cmake +python37+qt5+docs+gui"  \
-	"qt5_select"			\
-	"qt5-mac-sqlite3-plugin"	\
-	"qt5-mac"			\
-	"qt5-sqlite-plugin"		\
-	"qt5"				\
-	"doxygen +wizard"
+    for I in			    \
+	"qt5_select"		    \
+	"qt5-mac-sqlite3-plugin"    \
+	"qt5-mac"		    \
+	"qt5-sqlite-plugin"	    \
+	"qt5"
     do
 	Install_Update ${=I} "${Qt_Variants}${General_Variants}"
     done; unset I
 
     for I in			    \
 	"akonadi"		    \
+	"kde-l10n-de"		    \
 	"kdelibs5"		    \
 	"kde5-baseapps"		    \
 	"kdiskfree"		    \
 	"kdepim5"		    \
 	"amarok"		    \
-	"MP4Joiner"		
+	"MP4Joiner"		    \
+	"wireshark3"		    \
     do
 	# KDE libs hang in compile with 8 cores.
 	# build.jobs=1

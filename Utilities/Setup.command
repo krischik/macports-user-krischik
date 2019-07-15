@@ -66,6 +66,7 @@ function Load_System ()
     Load "/Library/LaunchDaemons/org.macports.rsyncd.plist"
     Load "/Library/LaunchDaemons/org.macports.slapd.plist"
     Load "/Library/LaunchDaemons/org.macports.texpire.plist"
+    Load "/Library/LaunchDaemons/homebrew.mxcl.jenkins.plist"
 
     port load openldap
     sudo port load avahi
@@ -90,16 +91,22 @@ function Select_System ()
     {
     echo "===> Select System"
 
-    port select --set "cython"	"cython27"
-    # port select --set "perl"	"perl5.26"
-    port select --set "python"	"python37"
-    port select --set "python3"	"python37"
-    port select --set "ruby"	"ruby26"
-    # port select --set "gcc"	"mp-gcc6"
-    # port select --set "llvm"	"mp-llvm-3.7"
-    port select --set "maven"	"maven3"
-    port select --set "scala"	"scala2.11"
-    # port select --set "sphinx"  "py37-sphinx"
+    port select --set "clang"	    "mp-clang-8.0"
+    port select --set "cython"	    "cython27"
+    port select --set "gcc"	    "mp-gcc6"
+    port select --set "llvm"	    "mp-llvm-8.0"
+    port select --set "maven"	    "maven3"
+    port select --set "nosetests"   "nosetests27"
+    port select --set "perl"	    "none"
+    port select --set "pygments"    "py37-pygments"
+    port select --set "python"	    "python37"
+    port select --set "python2"	    "python27"
+    port select --set "python3"	    "python37"
+    port select --set "qt4"	    "none"
+    port select --set "ruby"	    "ruby26"
+    port select --set "scala"	    "scala2.11"
+    port select --set "sphinx"      "py37-sphinx"
+    port select --set "wxWidgets"   "wxWidgets-3.0"
 
     return
     } # Select_System
@@ -108,16 +115,23 @@ function Deselect_System ()
     {
     echo "===> Select System"
 
-    port select --set "cython"	"none"
-    port select --set "perl"	"none"
-    port select --set "python"	"none"
-    port select --set "python3"	"none"
-    port select --set "ruby"	"none"
-    port select --set "gcc"	"none"
-    port select --set "llvm"	"none"
-    port select --set "maven"	"none"
-    port select --set "scala"	"none"
-    port select --set "sphinx"  "none"
+    port select --set "clang"	    "none"
+    port select --set "cython"	    "none"
+    port select --set "gcc"	    "none"
+    port select --set "llvm"	    "none"
+    port select --set "maven"	    "none"
+    port select --set "maven"	    "none"
+    port select --set "nosetests"   "none"
+    port select --set "perl"	    "none"
+    port select --set "pygments"    "none"
+    port select --set "python"	    "none"
+    port select --set "python2"	    "none"
+    port select --set "python3"	    "none"
+    port select --set "qt4"	    "none"
+    port select --set "ruby"	    "none"
+    port select --set "scala"	    "none"
+    port select --set "sphinx"      "none"
+    port select --set "wxWidgets"   "none"
 
     return
     } # Select_System
@@ -148,7 +162,8 @@ function Unload_System ()
     Unload "/Library/LaunchDaemons/org.macports.rsyncd.plist"
     Unload "/Library/LaunchDaemons/org.macports.slapd.plist"
     Unload "/Library/LaunchDaemons/org.macports.texpire.plist"
-    
+    Unload "/Library/LaunchDaemons/homebrew.mxcl.jenkins.plist"
+
     Unload "/System/Library/LaunchDaemons/org.postfix.master.plist"
 
     return

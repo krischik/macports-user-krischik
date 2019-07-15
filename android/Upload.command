@@ -24,7 +24,7 @@ popd
 pushd "/var/tmp"
     svn export --force ${Repository}/users/${User}/${Port}
     pushd "${Port}"
-	for I in "appbundles" "tools"; do
+	for I in "appbundles" ; do
 	    mv --verbose ${I} ${I}-r${in_Version}
 	    tar --verbose --create --gzip						\
 		--file="${Port}-${I}-r${in_Version}.tar.gz"				\
