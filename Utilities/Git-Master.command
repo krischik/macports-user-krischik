@@ -13,8 +13,8 @@ setopt No_Err_Exit
 
 pushd ${Base_Work_Dir}
     git checkout master
-    git pull origin
     git pull upstream master
+    git push origin
 popd
 
 ############################################################ {{{1 ###########
