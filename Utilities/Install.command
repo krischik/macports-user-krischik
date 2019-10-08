@@ -31,7 +31,6 @@ if test "${USER}" = "root"; then
 	"dbus"									\
 	"diffutils"								\
 	"dos2unix"								\
-	"docker"								\
 	"enchant"								\
 	"file +with_text_magic_file"						\
 	"findutils"								\

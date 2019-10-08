@@ -198,9 +198,9 @@ function Un_Install ()
     {
     local in_Package="${1}"
 
-    echo "===> Un-Install  ${in_Package}"
+    echo "===> Un-Install ${in_Package}"
 
-    port uninstall --follow-dependents ${=I}
+    port uninstall --follow-dependencies ${=I}
 
     return
     } # Un_Install
