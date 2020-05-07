@@ -16,6 +16,7 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
+
     for I in								\
 	"openssh"							\
 	"sshpass"							\
@@ -30,7 +31,8 @@ if test "${USER}" = "root"; then
 	"git-lfs"							\
 	"GitX"								\
 	"subversion +bash_completion+tools+mod_dav_svn+unicode_path"	\
-	"subversion-javahlbindings"					\
+	"subversion-javahlbindingsi"					\
+	"subversion-perlbindings"					\
 	"svn2git"
     do
 	Install_Update ${I} "${=General_Variants}"

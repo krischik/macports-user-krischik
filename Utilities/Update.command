@@ -19,10 +19,11 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
+    
     gem update $(gem list | cut -d ' ' -f 1) --verbose
 
-    gem install rubygems-update
-    update_rubygems
+    # gem install rubygems-update
+    # update_rubygems
     gem update --system
 
     Clean
@@ -34,6 +35,11 @@ else
 
     brew update
     brew upgrade
+
+    path=(/usr/local/opt/ruby/bin ${path})
+
+    gem update --system
+    gem update $(gem list | cut -d ' ' -f 1) --verbose
 
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 

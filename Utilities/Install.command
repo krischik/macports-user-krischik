@@ -25,13 +25,14 @@ if test "${USER}" = "root"; then
 	"bison +yacc"								\
 	"bitstream-vera"							\
 	"bzip2"									\
+	"clamav +clamav_milter"							\
 	"coreutils"								\
 	"curl-ca-bundle"							\
 	"dbacl"									\
 	"dbus"									\
 	"diffutils"								\
-	"dos2unix"								\
 	"docker"								\
+	"dos2unix"								\
 	"enchant"								\
 	"file +with_text_magic_file"						\
 	"findutils"								\

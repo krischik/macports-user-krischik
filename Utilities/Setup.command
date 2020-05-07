@@ -80,6 +80,8 @@ function Load_User ()
     Load "/Library/LaunchAgents/org.freedesktop.dbus-session.plist"
     Load "${HOME}/Library/LaunchAgents/com.krischik.imapfilter.plist"
 
+    # brew services start paritytech/paritytech/parity
+
     if test -d /Applications/MacPorts/KDE4/kdeinit4.app; then
 	open /Applications/MacPorts/KDE4/kdeinit4.app
     fi
@@ -176,6 +178,8 @@ function Unload_User ()
     Unload "/Library/LaunchAgents/org.freedesktop.dbus-session.plist"
     Unload "${HOME}/Library/LaunchAgents/com.krischik.imapfilter.plist"
 
+    # brew services start paritytech/paritytech/parity
+
     return
     } # Unload_User
 
@@ -212,11 +216,16 @@ function Update_Tree ()
 	    typeset Archive_Owner="$(gstat -c %U .)"
 	    typeset Archive_Group="$(gstat -c %G .)"
 
-	    echo "===> Git pull krischik"
-	    git pull "https://github.com/krischik/macports-ports"
+	    echo "===> Git pull master"
+	    git stash push
+	    git checkout master
+	    git pull
+	    git checkout develop
 
-	    echo "===> Git pull macports"
-	    git pull "https://github.com/macports/macports-ports"
+	    echo "===> Git pull krischik"
+	    git pull 
+	    git merge master
+	    git stash pop
 
 	    echo "===> Update index"
 	    portindex
@@ -235,9 +244,18 @@ function Update_Tree ()
 function Update_Packages ()
     {
     echo "===> Upgrade ImageMagick"
-    port -f deactivate cryptlib
+    port -f deactivate			\
+	cryptlib			\
+        subversion-javahlbindings	\
+	subversion-perlbindings-5.26	\
+	svn2git
+
     port upgrade --enforce-variants ImageMagick ${General_Variants}    
-    port activate cryptlib
+    port activate			\
+	cryptlib			\
+        subversion-javahlbindings	\
+	subversion-perlbindings-5.26	\
+	svn2git
 
     echo "===> Upgrade Outdated"
     port -p upgrade --enforce-variants outdated ${General_Variants}
