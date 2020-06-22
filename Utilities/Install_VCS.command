@@ -22,7 +22,7 @@ if test "${USER}" = "root"; then
 	"sshpass"							\
 	"cvs +gssapi+proxy"						\
 	"cvs2svn"							\
-	"git +credential_osxkeychain+doc+svn"				\
+	"git +credential_osxkeychain+doc+svn+perl5_28"			\
 	"git-extras"							\
 	"git-crypt"							\
 	"git-flow"							\

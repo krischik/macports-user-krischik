@@ -14,7 +14,8 @@ setopt Err_Exit
 if test "${USER}" = "root"; then
     for I in				\
 	"ruby25 +gmp"			\
-	"ruby26 +gmp"
+	"ruby26 +gmp"			\
+	"ruby27 +gmp"
     do
 	Install_Update ${I} ${=General_Variants}
     done; unset I

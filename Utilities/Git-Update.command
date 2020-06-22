@@ -13,8 +13,14 @@ setopt Err_Exit
 
 pushd "/Work/MacPorts"
     pushd "dports"
-	git pull  --all
 	git fetch --all
+	git checkout master
+	git pull
+
+	git checkout develop
+	git pull
+	git merge master
+
     popd
     pushd "krischik"
 	git pull  --all
