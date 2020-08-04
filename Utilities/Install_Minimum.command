@@ -14,7 +14,7 @@ setopt No_ErrExit
 
 if test "${USER}" = "root"; then
     xcode-select --install
-    xcode-select --switch /Applications/Developer/Xcode.app
+    xcode-select --switch /Applications/Xcode.app
 
     port install										\
 	"coreutils" ${=General_Variants}							\

@@ -52,21 +52,39 @@ if test "${USER}" = "root"; then
 
     npm -g install typescript
     npm -g install solc
+    npm -g install appium --no-shrinkwrap
 
     Select_System
     Clean
 else
     setopt Multi_OS
-    ${0:h}/Install_Perl.command
-    ${0:h}/Install_Ruby.command
+    # ${0:h}/Install_Perl.command
+    # ${0:h}/Install_Ruby.command
 
-    brew install carthage
-    brew install openssl
+    sudo ${0:a} >&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 
-    brew cask install fastlane
-    brew link --force openssl
+    # brew tap facebook/fb
+    # brew tap wix/brew
 
-    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+    # brew install carthage
+    # brew install openssl
+    # brew install npm
+    # brew install cmake
+    # brew install ffmpeg
+    # brew install idb-companion
+    # brew install applesimutils
+    # brew install jenkins
+
+    # brew cask install fastlane
+    #brew link --force openssl
+
+    # npm install --global appium
+    # npm install --global appium-doctor
+    # npm install --global mjpeg-consumer
+    # npm install --global opencv4nodejs
+    
+    # pip3.7 install fb-id
+
 fi
 
 ############################################################ {{{1 ###########

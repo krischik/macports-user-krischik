@@ -11,39 +11,20 @@ source ${0:h}/Setup.command
 setopt No_XTrace
 setopt Err_Exit
 
-function Install_GEM ()
-{
-    local in_GEM="${1}"
-
-    ${in_GEM} install bundler
-    ${in_GEM} install colorize
-    ${in_GEM} install contracts
-    ${in_GEM} install gems
-    ${in_GEM} install ruby-debug-ide
-    ${in_GEM} install rubygems-update
-    ${in_GEM} install fastlane
-    ${in_GEM} install steem-ruby
-    ${in_GEM} install radiator
-    ${in_GEM} install cocoapods
-}
-
 if test "${USER}" = "root"; then
-    for I in				\
-	"ruby25"			\
-	"ruby26"
-	"ruby27"
+    for I in			    \
+	"nodejs14"		    \
+	"npm6"			    
     do
-	Install_Update ${I} +gmp ${=General_Variants}
+	Install_Update ${I} ${=General_Variants}
     done; unset I
 
-    port select --set "ruby" "ruby27"
-
-    Install_GEM "/opt/local/bin/gem2.7"
-
-    update_rubygems
+    npm install --global downloadstation-cli
+    npm install --global typescript
+    npm install --global solc
+    npm install --global firebase-tools
 else
     setopt Multi_OS
-
 fi
 
 ############################################################ {{{1 ###########

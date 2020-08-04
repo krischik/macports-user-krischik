@@ -19,7 +19,6 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
-    
     gem update $(gem list | cut -d ' ' -f 1) --verbose
 
     # gem install rubygems-update
@@ -32,6 +31,8 @@ else
     setopt Multi_OS
 
     Unload_User
+
+    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 
     brew update
     brew upgrade
