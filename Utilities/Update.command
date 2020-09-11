@@ -11,19 +11,67 @@ source ${0:a:h}/Setup.command
 setopt No_XTrace
 setopt No_Err_Exit
 
+function Update_Ruby ()
+{
+    local in_Gem="${1}"
+   
+    if test -x "${in_Gem}"; then
+	echo "Update Rupy installation ${1}"
+
+	${in_Gem} update $(${in_Gem} list | cut -d ' ' -f 1)
+	${in_Gem} cleanup
+    fi
+}
+
+function Update_Node ()
+{
+    local in_NPM="${1}"
+    
+    if test -x "${in_NPM}"; then
+	echo "Update Node installation ${in_NPM}"
+
+	${in_NPM} update
+    fi
+}
+
+function Update_Python ()
+{
+    local in_PIP="${1}"
+    
+    if test -x "${in_PIP}"; then
+	echo "Update Perl installation ${in_PIP}"
+
+	${in_PIP} list --outdated --format=freeze   | \
+	    grep -v '^\-e'			    | \
+	    cut -d = -f 1			    | \
+	    xargs -n1 ${in_PIP} install -U
+    fi
+}
+
+function Update_Perl ()
+{
+    local in_CPAN="${1}"
+    
+    if test -x "${in_CPAN}"; then
+	echo "Update Perl installation ${in_CPAN}"
+
+	${in_CPAN} -u
+    fi
+}
+
 if test "${USER}" = "root"; then
-    #Unload_System
+    Unload_System
 
     port select --set gcc llvm-gcc6
 
     Update_Tree
     Update_Packages
 
-    gem update $(gem list | cut -d ' ' -f 1) --verbose
+    for I in "gem2.5" "gem2.6" "gem2.6"; do
+	Update_Ruby "/opt/local/bin/${I}"
+    done; unset I
 
-    gem install rubygems-update
-    update_rubygems
-    gem update --system
+    Update_Node "/opt/local/bin/npm"
 
     Clean
     Load_System
@@ -37,6 +85,18 @@ else
     brew update
     brew upgrade
 
+#   Update_Ruby	    "/usr/bin/gem"
+#   Update_Python   "/usr/bin/pip3"
+#   Update_Perl	    "/usr/bin/cpan"
+
+    Update_Ruby	    "/usr/local/opt/ruby/bin/gem"
+    Update_Node	    "/usr/local/opt/npm/bin/npm"
+    Update_Perl	    "/usr/local/opt/perl/bin/cpan"
+
+    for I in "pip2.7" "pip3.7" "pip3.8"; do
+	Update_Python "/usr/local/bin/${I}"
+    done; unset I
+ 
     Load_User
 fi
 
