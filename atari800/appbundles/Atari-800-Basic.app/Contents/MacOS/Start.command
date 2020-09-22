@@ -15,10 +15,11 @@ ${System_Data}/Setup.command
     -atari					\
     -basic					\
     -pal					\
+    -video-accel				\
     -windowed					\
-    -width 1280					\
-    -height 960					\
-    -bpp 16					\
+    -win-width 2048				\
+    -win-height 1152				\
+    -bpp 0					\
     -osb_rom "${System_Data}/ATARIOSB.ROM"	\
     -basic_rom "${System_Data}/ATARIBAS.ROM"	\
     ${User_Data}/DOS25.XFD			;

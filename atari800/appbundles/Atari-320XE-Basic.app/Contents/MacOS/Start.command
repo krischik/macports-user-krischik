@@ -4,7 +4,7 @@
 #   $Revision$
 #   $Date$
 #   $HeadURL$
-############################################################## }}}1 ##########
+############################################################# }}}1 ##########
 
 local User_Data="${HOME}/Library/Application Support/Atari800"
 local System_Data="@PREFIX@/share/atari800";
@@ -15,10 +15,11 @@ ${System_Data}/Setup.command
     -320xe					\
     -basic					\
     -pal					\
+    -video-accel				\
     -windowed					\
-    -width 1280					\
-    -height 960					\
-    -bpp 16					\
+    -win-width 2048				\
+    -win-height 1152				\
+    -bpp 0					\
     -xlxe_rom "${System_Data}/ATARIXL.ROM"	\
     -basic_rom "${System_Data}/ATARIBAS.ROM"	\
     ${User_Data}/Sparta32g.XFD			;

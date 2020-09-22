@@ -15,10 +15,11 @@ ${System_Data}/Setup.command
     -xl						\
     -nobasic					\
     -pal					\
+    -video-accel				\
     -windowed					\
-    -width 1280					\
-    -height 960					\
-    -bpp 16					\
+    -win-width 2048				\
+    -win-height 1152				\
+    -bpp 0					\
     -xlxe_rom "${System_Data}/ATARIXL.ROM"	\
     -basic_rom "${System_Data}/ATARIBAS.ROM"	\
     ${User_Data}/DOS25.XFD			;
