@@ -15,13 +15,7 @@ if test ! -d "${User_Data}"; then
     mkdir "${User_Data}";
 fi;
 
-for I in		\
-    "DEMOS1.XFD"	\
-    "DEMOS2.XFD"	\
-    "DOS25.XFD"		\
-    "Sparta32g.XFD"	\
-    "MYDOS45D.ATR"
-do
+for I in *.XFD *.ATR do
     if test ! -f "${User_Data}/${I}"; then
 	cp "${System_Data}/${I}" "${User_Data}/${I}";
     fi;
