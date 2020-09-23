@@ -43,7 +43,7 @@ ${System_Data}/Setup.command
     -basic_rom "${System_Data}/ATARIBAS.ROM"		\
     -osb_rom   "${System_Data}/ATARIOSB.ROM"		\
     -xlxe_rom  "${System_Data}/ATARIXL.ROM"		\
-    ${User_Data}/MYDOS45D.ATR
+    ${User_Data}/MYDOS45D.XFD
 
 ############################################################ {{{1 ###########
 # vim: set nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab :
