@@ -11,12 +11,17 @@ setopt Err_Exit;
 typeset -r in_Version=${1}
 typeset -r Repository="macports-user-krischik"
 typeset -r Port="atari800"
+typeset -r Tag="${Port}_${in_Version}"
 
 typeset -x -g GITHUB_USER="krischik"
 
 alias mv=/opt/local/bin/gmv
 alias rm=/opt/local/bin/grm
 alias cp=/opt/local/bin/gcp
+
+# git flow release start ${Tag}
+# git flow release finish ${Tag}
+# gir push --tags
 
 pushd "/var/tmp"
     gcp --verbose --recursive "/Work/MacPorts/krischik/${Port}" "."
@@ -36,7 +41,7 @@ pushd "/var/tmp"
 		--description	    "Patch files for the atari800 MacPorts distribution"    \
 		--user		    "${User}"						    \
 		--repo  	    "${Repository}"			    		    \
-		--tag		    "${Port}_${in_Version}"		    		    \
+		--tag		    "${Tag}"						    \
 		--file		    "${Port}-${I}-r${in_Version}.tar.gz"    		    \
 		--name		    "${Port}-${I}-r${in_Version}"
 	done; unset I
