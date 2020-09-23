@@ -13,18 +13,25 @@ setopt Err_Exit
 
 pushd "/Work/MacPorts"
     pushd "dports"
-	git fetch --all
+	# get current version regardsless of branch
+	#
+	git fetch --all --prune
+	git fetch --all --prune --tags
+
+	# update local master branch
+	#
 	git checkout master
 	git pull
 
+	# update local develop branch
+	#
 	git checkout develop
 	git pull
 	git merge master
-
     popd
     pushd "krischik"
-	git pull  --all
-	git fetch --all
+	git fetch --all --prune
+	git fetch --all --prune --tags
     popd
 popd
 
