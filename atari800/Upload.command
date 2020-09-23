@@ -9,7 +9,7 @@
 setopt Err_Exit;
 
 typeset -r in_Version=${1}
-typeset -r Repository="https://github.com/krischik/macports-ports"
+typeset -r Repository="macports-user-krischik"
 typeset -r Port="atari800"
 
 typeset -x -g GITHUB_USER="krischik"
@@ -29,19 +29,20 @@ pushd "/var/tmp"
 		--file="${Port}-${I}-r${in_Version}.tar.gz"	\
 		${I}-r${in_Version}
 
-	    /usr/local/bin/github-release				    \
-		--verbose						    \
-		upload							    \
-		--security-token    "${GitHub_Upload_Key}"		    \
-		--user		    "${User}"				    \
-		--repo  	    "${Repository}"			    \
-		--tag		    "${Port}_${in_Version}"		    \
-		--file		    "${Port}-${I}-r${in_Version}.tar.gz"    \
+	    /usr/local/bin/github-release						    \
+		--verbose						    		    \
+		upload							    		    \
+		--security-token    "${GitHub_Upload_Key}"		    		    \
+		--description	    "Patch files for the atari800 MacPorts distribution"    \
+		--user		    "${User}"						    \
+		--repo  	    "${Repository}"			    		    \
+		--tag		    "${Port}_${in_Version}"		    		    \
+		--file		    "${Port}-${I}-r${in_Version}.tar.gz"    		    \
 		--name		    "${Port}-${I}-r${in_Version}"
 	done; unset I
     popd
 
-    rm --verbose --recursive "${Port}"
+    # rm --verbose --recursive "${Port}"
 popd
 
 ############################################################ {{{1 ###########
