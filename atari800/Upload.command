@@ -53,7 +53,7 @@ pushd "/var/tmp"
 		--repo		    "${Repository}"				\
 		--tag		    "${Tag}"					\
 		--file		    "${Port}-${I}-r${in_Version}.tar.gz"	\
-		--name		    "${Port}-${I}-r${in_Version}"
+		--name		    "${Port}-${I}-r${in_Version}.tar.gz"
 	done; unset I
     popd
 
