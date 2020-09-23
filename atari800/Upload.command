@@ -21,7 +21,7 @@ alias rm=/opt/local/bin/grm
 alias cp=/opt/local/bin/gcp
 
 git add "${Work}"
-git commit --message="Commit for release ${Tag}"
+git commit --allow-empty --message="Commit for release ${Tag}"
 git push
 
 /usr/local/bin/github-release							\
