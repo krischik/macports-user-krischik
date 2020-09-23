@@ -11,7 +11,7 @@ setopt Err_Exit;
 typeset -r in_Version=${1}
 typeset -r Repository="macports-user-krischik"
 typeset -r Port="atari800"
-typeset -r Tag="${Port}_${in_Version}"
+typeset -r Tag="${Port}-${in_Version}"
 
 typeset -x -g GITHUB_USER="krischik"
 
@@ -24,25 +24,35 @@ alias cp=/opt/local/bin/gcp
 # gir push --tags
 
 pushd "/var/tmp"
+    # /usr/local/bin/github-release						    \
+	# --verbose								    \
+	# release									    \
+	# --security-token    "${GitHub_Upload_Key}"				    \
+	# --user		    "${GITHUB_USER}"					    \
+	# --repo		    "${Repository}"					    \
+	# --tag		    "${Tag}"						    \
+	# --name		    "${Port}-${I}-r${in_Version}"			    \
+	# --description	    "Patch files for atari800 MacPorts distribution"	    \
+	# --pre-release
+
     gcp --verbose --recursive "/Work/MacPorts/krischik/${Port}" "."
 
     pushd "${Port}"
 	for I in "appbundles" "share"; do
 	    mv --verbose ${I} ${I}-r${in_Version}
 
-	    tar --verbose --create --gzip			\
-		--file="${Port}-${I}-r${in_Version}.tar.gz"	\
+	    tar --verbose --create --gzip					    \
+		--file="${Port}-${I}-r${in_Version}.tar.gz"			    \
 		${I}-r${in_Version}
 
-	    /usr/local/bin/github-release						    \
-		--verbose						    		    \
-		upload							    		    \
-		--security-token    "${GitHub_Upload_Key}"		    		    \
-		--description	    "Patch files for the atari800 MacPorts distribution"    \
-		--user		    "${User}"						    \
-		--repo  	    "${Repository}"			    		    \
-		--tag		    "${Tag}"						    \
-		--file		    "${Port}-${I}-r${in_Version}.tar.gz"    		    \
+	    /usr/local/bin/github-release					    \
+		--verbose							    \
+		upload								    \
+		--security-token    "${GitHub_Upload_Key}"			    \
+		--user		    "${GITHUB_USER}"				    \
+		--repo		    "${Repository}"				    \
+		--tag		    "${Tag}"					    \
+		--file		    "${Port}-${I}-r${in_Version}.tar.gz"	    \
 		--name		    "${Port}-${I}-r${in_Version}"
 	done; unset I
     popd
