@@ -27,11 +27,11 @@ git push
 /usr/local/bin/github-release							\
     release									\
     --security-token	"${GitHub_Upload_Key}"					\
-    --user		    "${GITHUB_USER}"					\
-    --repo		    "${Repository}"					\
-    --tag		    "${Tag}"						\
-    --name		    "${Port}-r${in_Version}"				\
-    --description	    "Patch files for atari800 MacPorts distribution"	\
+    --user		"${GITHUB_USER}"					\
+    --repo		"${Repository}"						\
+    --tag		"${Tag}"						\
+    --name		"${Port}-r${in_Version}"				\
+    --description	"Patch files for atari800 MacPorts distribution"	\
     --pre-release
 
 pushd "/var/tmp"
