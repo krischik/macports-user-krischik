@@ -30,12 +30,13 @@ git push
     --user		    "${GITHUB_USER}"					\
     --repo		    "${Repository}"					\
     --tag		    "${Tag}"						\
-    --name		    "${Port}-${I}-r${in_Version}"			\
+    --name		    "${Port}-r${in_Version}"				\
     --description	    "Patch files for atari800 MacPorts distribution"	\
     --pre-release
 
 pushd "/var/tmp"
-    gcp --verbose --recursive "${Work}/${Port}" "."
+    cp --verbose --recursive "${Work}/${Port}" "."
+    rm --verbose --recursive **/.backups
 
     pushd "${Port}"
 	for I in "appbundles" "share"; do
