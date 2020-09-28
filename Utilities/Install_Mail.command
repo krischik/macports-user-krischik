@@ -50,7 +50,7 @@ if test "${USER}" = "root"; then
    
 	   
     for I in				    \
-	"gnupg2"			    \
+	"gnupg2 +openldap+pinentry_mac "    \
 	"fetchmail +fetchmailconf+ssl+ntml" \
 	"imapfilter"
     do

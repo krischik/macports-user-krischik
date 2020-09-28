@@ -15,13 +15,10 @@ if test "${USER}" = "root"; then
     Deselect_System
     Update_Tree
     Update_Packages
-    ${0:h}/Install_Perl.command
-    ${0:h}/Install_Ruby.command
 
     for I in			    \
 	"android"		    \
 	"ant-contrib"		    \
-	"antenna"		    \
 	"apache-ant"		    \
 	"gradle"		    \
 	"junit"			    \
@@ -29,11 +26,7 @@ if test "${USER}" = "root"; then
 	"maven3"		    \
 	"maven31"		    \
 	"maven32"		    \
-	"microemu"		    \
 	"gmake +guile"		    \
-	"mono"			    \
-	"nodejs7"		    \
-	"npm5"			    \
 	"proguard"		    \
 	"scala2.11"		    \
 	"scala2.11-docs"	    \
@@ -50,41 +43,12 @@ if test "${USER}" = "root"; then
 	Install_Update ${I} ${=General_Variants}
     done; unset I
 
-    npm -g install typescript
-    npm -g install solc
-    npm -g install appium --no-shrinkwrap
-
     Select_System
     Clean
 else
     setopt Multi_OS
-    # ${0:h}/Install_Perl.command
-    # ${0:h}/Install_Ruby.command
 
     sudo ${0:a} >&1 2>&2 &>~/Library/Logs/${0:r:t}.out
-
-    # brew tap facebook/fb
-    # brew tap wix/brew
-
-    # brew install carthage
-    # brew install openssl
-    # brew install npm
-    # brew install cmake
-    # brew install ffmpeg
-    # brew install idb-companion
-    # brew install applesimutils
-    # brew install jenkins
-
-    # brew cask install fastlane
-    #brew link --force openssl
-
-    # npm install --global appium
-    # npm install --global appium-doctor
-    # npm install --global mjpeg-consumer
-    # npm install --global opencv4nodejs
-    
-    # pip3.7 install fb-id
-
 fi
 
 ############################################################ {{{1 ###########

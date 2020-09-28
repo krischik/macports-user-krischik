@@ -13,17 +13,16 @@ setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
 
-    port uninstall  \
-	"python26"  \
-	"py26-*"    \
-	"python34"  \
-	"py34-*"    \
-	"python34"  \
-	"py34-*"    \
-	"python35"  \
-	"py35-*"
+    port uninstall "python26" "py26-*"
+    port uninstall "python27" "py27-*"
+    port uninstall "python34" "py34-*"
+    port uninstall "python35" "py35-*"
+    port uninstall "python36" "py36-*"
+#   port uninstall "python37" "py37-*"
 
 else
+    brew
+
     setopt Multi_OS
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 fi
