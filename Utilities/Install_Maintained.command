@@ -12,27 +12,22 @@ setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    Deselect_System
-    Update_Tree
-    Update_Packages
-
-    for I in					    \
-	"atari800"				    \
-	"derby-server"				    \
-	"free42"				    \
-	"glassfishv3"				    \
-	"leafnode"				    \
-	"nonpareil"				    \
-	"nrg4iso"				    \
-	"oorexx"				    \
-	"sigil"					    \
+    for I in			\
+	"editors/sigil"		\
+	"emulators/atari800"	\
+	"emulators/free42"	\
+	"emulators/nonpareil"	\
+	"java/derby-server"	\
+	"java/glassfishv3"	\
+	"lang/oorexx"		\
+	"news/leafnode"		\
+	"sysutils/nrg4iso"	\
 	"vimproc"
     do
-	port install -f ${=I} ${=General_Variants}
+	pushd "/Work/MacPorts/dports/${1}"
+	   port install -f current ${=General_Variants}
+	popd
     done; unset I
-
-    Select_System
-    Clean
 else
     setopt Multi_OS
 
