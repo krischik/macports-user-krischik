@@ -7,14 +7,15 @@
 ############################################################## }}}1 ##########
 
 brew install "coreutils"
+brew install "diffutils"
 brew install "exiftool"
+brew install "gnupg"
 brew install "imapfilter"
 brew install "java"
 brew install "macvim"
 brew install "par2"
 brew install "svn"
-brew install "gnupg"
-brew install "diffutils"
+brew install "trash"
 
 brew cask install "macvim"
 brew cask install "osxfuse"

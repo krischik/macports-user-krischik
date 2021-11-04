@@ -15,9 +15,11 @@ pushd "/Work/MacPorts"
     pushd "dports"
 	# get current version regardsless of branch
 	#
-	git fetch --all --prune --tags
-	git pull
-	git merge "remotes/upstream/master"
+	git fetch --all --prune --tags	
+	git stash push --message "Stash to merge upstream/master"
+	git merge
+	git merge  --message "Merge upstream/master" "remotes/upstream/master"
+	git stash pop
     popd
     pushd "krischik"
 	git fetch --all --prune --tags

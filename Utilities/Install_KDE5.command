@@ -23,7 +23,6 @@ if test "${USER}" = "root"; then
     for I in			    \
 	"qt5_select"		    \
 	"qt5-mac-sqlite3-plugin"    \
-	"qt5-mac"		    \
 	"qt5-sqlite-plugin"	    \
 	"qt5"
     do
@@ -39,7 +38,7 @@ if test "${USER}" = "root"; then
 	"kdepim5"		    \
 	"amarok"		    \
 	"MP4Joiner"		    \
-	"wireshark3"		    \
+	"wireshark3"
     do
 	# KDE libs hang in compile with 8 cores.
 	# build.jobs=1

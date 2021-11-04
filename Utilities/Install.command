@@ -35,6 +35,7 @@ if test "${USER}" = "root"; then
 	"dos2unix"								\
 	"enchant"								\
 	"file +with_text_magic_file"						\
+	"Filezilla"								\
 	"findutils"								\
 	"flex"									\
 	"fontconfig +vera"							\
@@ -47,6 +48,7 @@ if test "${USER}" = "root"; then
 	"gzip +rsyncable"							\
 	"hunspell"								\
 	"hunspell-dict-de_DE"							\
+	"ImageMagick +graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"  \
 	"jasper +jiv"								\
 	"jpeg"									\
 	"libpng"								\
@@ -54,6 +56,7 @@ if test "${USER}" = "root"; then
 	"mmv"									\
 	"mpfr"									\
 	"nrg2iso"								\
+	"ntfs-3g"								\
 	"openldap"								\
 	"p7zip"									\
 	"par2"									\
@@ -77,32 +80,33 @@ if test "${USER}" = "root"; then
 	"xpm"									\
 	"xz"									\
 	"yencode"								\
+	"macfuse"								\
+	"ext4fuse"								\
+	"avahi +mono"								\
+	"fugu"
+	"VeraCrypt"								\
 	"zsh +doc+mp_completion"						\
-	"FileZilla"								\
-	"ImageMagick +graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"
     do
 	Install_Update ${=I} "${General_Variants}"
     done; unset I
 
-    sudo port -f deactivate cryptlib
+    port -f deactivate cryptlib
 
     Install_Update						    \
 	"ImageMagick"						    \
 	"+graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"  \
 	"${General_Variants}"
 
-    sudo port activate cryptlib
+    port activate cryptlib
 
-    # Ports without a universal variant
+    mkdir "/opt/local/share/clamav"
 
-    for I in									\
-	"osxfuse"								\
-	"ext4fuse"								\
-	"avahi +mono"								\
-	"fugu"
-    do
-	Install_Update ${=I}
-    done; unset I
+    chown _clamav:_clamav "/opt/local/share/clamav"
+    chmod ugo+rwx	  "/opt/local/var/log"
+
+    pushd "/opt/local/etc"
+	cp "/opt/local/etc/freshclam.conf.sample" "/opt/local/etc/freshclam.conf"
+    popd
 
     Select_System
     Clean

@@ -17,15 +17,12 @@ if test "${USER}" = "root"; then
     Update_Packages
 
     for I in			    \
-	"android"		    \
 	"ant-contrib"		    \
 	"apache-ant"		    \
 	"gradle"		    \
 	"junit"			    \
 	"kotlin"		    \
 	"maven3"		    \
-	"maven31"		    \
-	"maven32"		    \
 	"gmake +guile"		    \
 	"proguard"		    \
 	"scala2.11"		    \

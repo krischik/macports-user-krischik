@@ -14,14 +14,14 @@ setopt No_Err_Exit
 if test "${USER}" = "root"; then
     for I in			\
 	"python37"		\
-	"python38"		\
-	"py38-crypto"		\
-	"py38-gnureadline"	\
-	"py38-tkinter"		\
-	"py38-xlwt"		\
-	"py38-pip"		\
-	"py38-pygments"		\
-	"py38-xlwt"		
+	"python39"		\
+	"py39-crypto"		\
+	"py39-gnureadline"	\
+	"py39-tkinter"		\
+	"py39-xlwt"		\
+	"py39-pip"		\
+	"py39-pygments"		\
+	"py39-xlwt"		
     do
 	Install_Update ${I} "${=General_Variants}"
     done; unset I
@@ -30,9 +30,9 @@ if test "${USER}" = "root"; then
     # universal as py27-numpy has no universal variant
     #
     for I in			\
-	"py38-numpy"		\
-	"py38-cairo"		\
-	"py38-pygtk"
+	"py39-numpy"		\
+	"py39-cairo"		\
+	"py39-pygtk"
     do
 	Install_Update ${I}
     done; unset I

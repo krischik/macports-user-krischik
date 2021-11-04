@@ -9,23 +9,33 @@
 source ${0:h}/Setup.command
 
 setopt No_XTrace
-setopt No_Err_Exit
+setopt Err_Exit
+
+# XXX Outdated
+
+#	"java/derby-server"	\
+#	"java/glassfishv3"	\
+#	"news/leafnode"		\
+#	"sysutils/nrg4iso"	\
+
+# FIXME Some bug to fix
+
+#	"lang/oorexx"		\
 
 if test "${USER}" = "root"; then
     for I in			\
+	"devel/Arduino"		\
+	"devel/minipro"		\
 	"editors/sigil"		\
+	"editors/vimproc"	\
 	"emulators/atari800"	\
 	"emulators/free42"	\
-	"emulators/nonpareil"	\
-	"java/derby-server"	\
-	"java/glassfishv3"	\
-	"lang/oorexx"		\
-	"news/leafnode"		\
-	"sysutils/nrg4iso"	\
-	"vimproc"
+	"emulators/nonpareil "	\
+	"java/android"		\
+	"lang/cc65"		
     do
-	pushd "/Work/MacPorts/dports/${1}"
-	   port install -f current ${=General_Variants}
+	pushd "/Work/MacPorts/dports/${I}"
+	   port install -f current +debugger +voyager ${=General_Variants}
 	popd
     done; unset I
 else

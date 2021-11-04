@@ -8,7 +8,7 @@
 
 source ${0:h}/Setup.command
 
-setopt No_X_Trace
+setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
@@ -17,7 +17,10 @@ if test "${USER}" = "root"; then
     for I in			\
 	"antenna"		\
 	"apache2"		\
+	"maven31"		\
+	"maven32"		\
 	"docker"		\
+	"openjdk11"		\
 	"fontforge"		\
 	"gcc6"			\
 	"gcc8"			\

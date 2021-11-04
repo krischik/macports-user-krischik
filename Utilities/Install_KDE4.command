@@ -35,6 +35,7 @@ if test "${USER}" = "root"; then
 	"kde4-baseapps"		    \
 	"kdiskfree"		    \
 	"kdevelop"		    \
+	"konsole"		    \
 	"kdiskfree"		    \
 	"kdepim4"		    \
 	"amarok"		    \

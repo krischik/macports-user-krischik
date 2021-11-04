@@ -18,6 +18,7 @@ function Update_Ruby ()
     if test -x "${in_Gem}"; then
 	echo "Update Rupy installation ${1}"
 
+	${in_Gem} uninstall google-api-client
 	${in_Gem} update $(${in_Gem} list | cut -d ' ' -f 1)
 	${in_Gem} cleanup
     fi
@@ -64,10 +65,14 @@ if test "${USER}" = "root"; then
 
     port select --set gcc llvm-gcc6
 
-    Update_Tree
+    echo "===> Self Update"
+    port selfupdate
+    echo "===> Sync"
+    port sync
+
     Update_Packages
 
-    for I in "gem2.5" "gem2.6" "gem2.6"; do
+    for I in "gem2.5" "gem2.6" "gem2.6" "gem2.7"; do
 	Update_Ruby "/opt/local/bin/${I}"
     done; unset I
 
@@ -79,6 +84,7 @@ else
     setopt Multi_OS
 
     Unload_User
+    Update_Tree
 
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 

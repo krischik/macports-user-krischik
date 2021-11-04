@@ -105,7 +105,7 @@ function Select_System ()
     port select --set "python3"	    "python38"
     port select --set "qt4"	    "none"
     port select --set "ruby"	    "ruby26"
-    port select --set "scala"	    "scala2.11"
+    port select --set "scala"	    "scala2.12"
     port select --set "sphinx"      "py38-sphinx"
     port select --set "wxWidgets"   "wxWidgets-3.0"
 
@@ -120,7 +120,6 @@ function Deselect_System ()
     port select --set "cython"	    "none"
     port select --set "gcc"	    "none"
     port select --set "llvm"	    "none"
-    port select --set "maven"	    "none"
     port select --set "maven"	    "none"
     port select --set "nosetests"   "none"
     port select --set "perl"	    "none"
@@ -216,26 +215,14 @@ function Update_Tree ()
 	    typeset Archive_Group="$(gstat -c %G .)"
 
 	    echo "===> Git pull master"
-	    git stash push
-	    git checkout master
-	    git pull
-	    git checkout develop
-
-	    echo "===> Git pull krischik"
-	    git pull 
-	    git merge master
-	    git stash pop
+	    git fetch upstream
+	    git merge upstream/master
 
 	    echo "===> Update index"
 	    portindex
 	    gchown --recursive ${Archive_Owner}:${Archive_Group} .
 	popd
     fi
-
-    echo "===> Self Update"
-    port selfupdate
-    echo "===> Sync"
-    port sync
 
     return
     } # Update_Tree
