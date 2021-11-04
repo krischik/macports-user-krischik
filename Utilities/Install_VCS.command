@@ -32,8 +32,7 @@ if test "${USER}" = "root"; then
 	"GitX"								\
 	"subversion +bash_completion+tools+mod_dav_svn+unicode_path"	\
 	"subversion-javahlbindingsi"					\
-	"subversion-perlbindings"					\
-	"svn2git"
+	"subversion-perlbindings"					
     do
 	Install_Update ${I} "${=General_Variants}"
     done; unset I

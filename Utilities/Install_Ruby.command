@@ -25,6 +25,7 @@ function Install_GEM ()
     ${in_GEM} install steem-ruby
     ${in_GEM} install radiator
     ${in_GEM} install cocoapods
+    ${in_GEM} install svn2git
 }
 
 if test "${USER}" = "root"; then

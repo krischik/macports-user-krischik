@@ -233,15 +233,13 @@ function Update_Packages ()
     port -f deactivate			\
 	cryptlib			\
         subversion-javahlbindings	\
-	subversion-perlbindings-5.26	\
-	svn2git
+	subversion-perlbindings-5.26	
 
     port upgrade --enforce-variants ImageMagick ${General_Variants}    
     port activate			\
 	cryptlib			\
         subversion-javahlbindings	\
-	subversion-perlbindings-5.26	\
-	svn2git
+	subversion-perlbindings-5.26	
 
     echo "===> Upgrade Outdated"
     port -p upgrade --enforce-variants outdated ${General_Variants}
