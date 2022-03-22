@@ -80,11 +80,8 @@ if test "${USER}" = "root"; then
 	"xpm"									\
 	"xz"									\
 	"yencode"								\
-	"macfuse"								\
-	"ext4fuse"								\
 	"avahi +mono"								\
 	"fugu"
-	"VeraCrypt"								\
 	"zsh +doc+mp_completion"						\
     do
 	Install_Update ${=I} "${General_Variants}"

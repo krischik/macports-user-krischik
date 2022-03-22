@@ -1,9 +1,9 @@
 #!/opt/local/bin/zsh
 ############################################################## {{{1 ##########
 #   $Author: krischik@macports.org $
-#   $Revision: 97540 $
-#   $Date: 2012-09-08 14:39:54 +0200 (Sa, 08. Sep 2012) $
-#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Uninstall_GNOME.command $
+#   $Revision: 143895 $
+#   $Date: 2015-12-25 08:11:12 +0100 (Fr, 25. Dez 2015) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Install.command $
 ############################################################## }}}1 ##########
 
 source ${0:h}/Setup.command
@@ -12,37 +12,12 @@ setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    Unload_System
+    port -f uninstall 
 
-    for I in			\
-	"antenna"		\
-	"apache2"		\
-	"docker"		\
-	"fontforge"		\
-	"gcc6"			\
-	"gcc8"			\
-	"llvm-3.7"		\
-	"llvm-3.9"		\
-	"maven31"		\
-	"maven32"		\
-	"microemu"		\
-	"openjdk11"		\
-	"scala2.11"		\
-	"scala2.11-docs"	\
-	"yasm"
-    do
-	Un_Install ${=I}
-    done; unset I
-
-    Clean
-    Load_System
 else
     setopt Multi_OS
-    Unload_User
-
 
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
-    Load_User
 fi
 
 ############################################################ {{{1 ###########

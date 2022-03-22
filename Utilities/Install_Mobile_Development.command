@@ -25,8 +25,6 @@ if test "${USER}" = "root"; then
 	"maven3"		    \
 	"gmake +guile"		    \
 	"proguard"		    \
-	"scala2.11"		    \
-	"scala2.11-docs"	    \
 	"scala2.12"		    \
 	"scala2.12-docs"
     do

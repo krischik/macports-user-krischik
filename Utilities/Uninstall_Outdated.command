@@ -10,23 +10,34 @@ setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    Unload_System
-
     for I in		    \
+	"ext4fuse"	    \
 	"gcc6"              \
 	"llvm-3.7"	    \
-	"llvm-3.9"
+	"llvm-3.9"	    \
+	"osxfuse"	    \
+	"macfuse"	    \
+	"VeraCrypt"	    \
+	"yasm"
     do
+	echo "uninstall ${=I}"
 	port uninstall --follow-dependents ${=I}
     done; unset I
-
-    Load_System
 else
     setopt Multi_OS
 
-    Unload_User
     sudo ${0} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
-    Load_User
+
+    for I in		    \
+	"imapfilter"	    \
+	"openjdk"
+	"osxfuse"	    \
+    do
+	echo "uninstall ${=I}"
+	brew uninstall --ignore-dependencies ${=I}
+    done; unset I
+
+    brew uninstall "imapfilter"
 fi
 
 ############################################################ {{{1 ###########
