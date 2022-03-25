@@ -68,9 +68,10 @@ else
 
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 
-    brew cask install macdown
-#    brew install macvim 
-#    brew link macvim
+    brew cask install	\
+	"macvim"	\
+	"macdown"
+
 fi
 
 ############################################################ {{{1 ###########

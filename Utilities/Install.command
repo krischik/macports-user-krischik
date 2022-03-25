@@ -111,6 +111,15 @@ else
     setopt Multi_OS
 
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+
+    brew install	\
+	"coreutils"	\
+	"diffutils"	\
+	"exiftool"	\
+	"macfuse"	\
+	"par2"		\
+	"trash"		\
+	"veracrypt"
 fi
 
 ############################################################ {{{1 ###########

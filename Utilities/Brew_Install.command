@@ -6,16 +6,6 @@
 # $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Update.command $
 ############################################################## }}}1 ##########
 
-brew install "coreutils"
-brew install "diffutils"
-brew install "exiftool"
-brew install "gnupg"
-brew install "macdown"
-brew install "macfuse"
-brew install "macvim"
-brew install "par2"
-brew install "trash"
-brew install "veracrypt"
 
 # brew install "java"
 # brew cask install "vlc"
