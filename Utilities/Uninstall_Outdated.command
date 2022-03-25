@@ -10,15 +10,38 @@ setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    for I in		    \
-	"ext4fuse"	    \
-	"gcc6"              \
-	"llvm-3.7"	    \
-	"llvm-3.9"	    \
-	"osxfuse"	    \
-	"macfuse"	    \
-	"VeraCrypt"	    \
-	"yasm"
+    for I in				\
+	"ext4fuse"	    		\
+	"gcc6"              		\
+	"llvm-3.7"	    		\
+	"llvm-3.9"	    		\
+	"osxfuse"	    		\
+	"macfuse"	    		\
+	"VeraCrypt"	    		\
+	"yasm"				\
+	"antenna"			\
+	"apache2"			\
+	"docker"			\
+	"fontforge"			\
+	"gcc6"				\
+	"gcc8"				\
+	"llvm-3.7"			\
+	"llvm-3.9"			\
+	"maven31"			\
+	"maven32"			\
+	"microemu"			\
+	"openjdk11"			\
+	"scala2.11"			\
+	"scala2.11-docs"		\
+	"yasm"				\
+	"git"				\
+	"git-extras"			\
+	"git-crypt"			\
+	"git-flow"			\
+	"git-flow-bash-completion"	\
+	"git-cvs"			\
+	"git-lfs"			\
+	"GitX"
     do
 	echo "uninstall ${=I}"
 	port uninstall --follow-dependents ${=I}
@@ -30,14 +53,12 @@ else
 
     for I in		    \
 	"imapfilter"	    \
-	"openjdk"
-	"osxfuse"	    \
+	"openjdk"	    \
+	"osxfuse"
     do
 	echo "uninstall ${=I}"
 	brew uninstall --ignore-dependencies ${=I}
     done; unset I
-
-    brew uninstall "imapfilter"
 fi
 
 ############################################################ {{{1 ###########

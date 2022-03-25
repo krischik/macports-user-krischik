@@ -14,22 +14,7 @@ setopt No_Err_Exit
 if test "${USER}" = "root"; then
     Unload_System
 
-    for I in			\
-	"antenna"		\
-	"apache2"		\
-	"docker"		\
-	"fontforge"		\
-	"gcc6"			\
-	"gcc8"			\
-	"llvm-3.7"		\
-	"llvm-3.9"		\
-	"maven31"		\
-	"maven32"		\
-	"microemu"		\
-	"openjdk11"		\
-	"scala2.11"		\
-	"scala2.11-docs"	\
-	"yasm"
+    for I in				\
     do
 	Un_Install ${=I}
     done; unset I
@@ -39,7 +24,6 @@ if test "${USER}" = "root"; then
 else
     setopt Multi_OS
     Unload_User
-
 
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
     Load_User

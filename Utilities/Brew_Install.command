@@ -14,7 +14,6 @@ brew install "macdown"
 brew install "macfuse"
 brew install "macvim"
 brew install "par2"
-brew install "svn"
 brew install "trash"
 brew install "veracrypt"
 

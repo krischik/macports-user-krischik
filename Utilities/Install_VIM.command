@@ -20,17 +20,17 @@ if test "${USER}" = "root"; then
 #   ${0:h}/Install_Python.command
 #   ${0:h}/Install_Ruby.command
 
-    for I in								    \
-	"autoconf"							    \
-	"ctags"								    \
-	"gettext"							    \
-	"gnutar"							    \
-	"grep"								    \
-	"libiconv"							    \
-	"lua"								    \
-	"ncurses"							    \
-	"tcl"				    \
-	"MacVim +cscope +huge +nls +tcl +xim"  \
+    for I in			    \
+	"autoconf"		    \
+	"ctags"			    \
+	"gettext"		    \
+	"gnutar"		    \
+	"grep"			    \
+	"libiconv"		    \
+	"lua"			    \
+	"ncurses"		    \
+	"tcl"			    \
+	"MacVim +cscope +huge +nls" \
 	"vimproc"
     do
 	Install_Update ${I} "${=General_Variants}"

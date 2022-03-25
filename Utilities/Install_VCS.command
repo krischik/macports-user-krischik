@@ -16,20 +16,10 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
-
     for I in								\
-	"openssh"							\
 	"sshpass"							\
 	"cvs +gssapi+proxy"						\
 	"cvs2svn"							\
-	"git +credential_osxkeychain+doc+svn+perl5_28"			\
-	"git-extras"							\
-	"git-crypt"							\
-	"git-flow"							\
-	"git-flow-bash-completion"					\
-	"git-cvs"							\
-	"git-lfs"							\
-	"GitX"								\
 	"subversion +bash_completion+tools+mod_dav_svn+unicode_path"	\
 	"subversion-javahlbindingsi"					\
 	"subversion-perlbindings"					
@@ -41,7 +31,17 @@ if test "${USER}" = "root"; then
     Clean
 else
     setopt Multi_OS
-    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+
+    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out#
+
+    brew install		    \
+	"git"			    \
+	"git-credential-manager"    \
+	"git-crypt"		    \
+	"git-extras"		    \
+	"git-flow"		    \
+	"git-lfs"		    \
+	"svn"
 fi
 
 ############################################################ {{{1 ###########
