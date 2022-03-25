@@ -47,7 +47,6 @@ if test "${USER}" = "root"; then
     launchctl unload -w ~"/Library/LaunchAgents/imapfilter.yahoo.plist"
     
     setopt Err_Exit
-   
 	   
     for I in				    \
 	"gnupg2 +openldap+pinentry_mac "    \

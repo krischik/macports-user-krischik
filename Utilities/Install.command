@@ -31,7 +31,6 @@ if test "${USER}" = "root"; then
 	"dbacl"									\
 	"dbus"									\
 	"diffutils"								\
-	"docker"								\
 	"dos2unix"								\
 	"enchant"								\
 	"file +with_text_magic_file"						\
@@ -39,7 +38,6 @@ if test "${USER}" = "root"; then
 	"findutils"								\
 	"flex"									\
 	"fontconfig +vera"							\
-	"fontforge +freetype_bytecode"						\
 	"giflib"								\
 	"gmp"									\
 	"gnutar"								\

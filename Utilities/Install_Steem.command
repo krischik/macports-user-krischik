@@ -27,7 +27,6 @@ if test "${USER}" = "root"; then
 	"docker-compose"			    \
 	"boost"					    \
 	"cryptlib"				    \
-	"git"					    \
 	"libtool"				    \
 	"openssl"				    \
 	"secpwgen"				    \

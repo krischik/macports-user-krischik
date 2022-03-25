@@ -11,37 +11,33 @@ setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
     for I in				\
-	"ext4fuse"	    		\
-	"gcc6"              		\
-	"llvm-3.7"	    		\
-	"llvm-3.9"	    		\
-	"osxfuse"	    		\
-	"macfuse"	    		\
-	"VeraCrypt"	    		\
-	"yasm"				\
 	"antenna"			\
 	"apache2"			\
 	"docker"			\
+	"ext4fuse"	    		\
 	"fontforge"			\
 	"gcc6"				\
 	"gcc8"				\
+	"git"				\
+	"git-crypt"			\
+	"git-cvs"			\
+	"git-extras"			\
+	"git-flow"			\
+	"git-flow-bash-completion"	\
+	"git-lfs"			\
+	"GitX"				\
 	"llvm-3.7"			\
 	"llvm-3.9"			\
+	"macfuse"	    		\
 	"maven31"			\
 	"maven32"			\
 	"microemu"			\
 	"openjdk11"			\
+	"osxfuse"	    		\
 	"scala2.11"			\
 	"scala2.11-docs"		\
-	"yasm"				\
-	"git"				\
-	"git-extras"			\
-	"git-crypt"			\
-	"git-flow"			\
-	"git-flow-bash-completion"	\
-	"git-cvs"			\
-	"git-lfs"			\
-	"GitX"
+	"VeraCrypt"	    		\
+	"yasm"
     do
 	echo "uninstall ${=I}"
 	port uninstall --follow-dependents ${=I}
