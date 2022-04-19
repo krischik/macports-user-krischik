@@ -12,17 +12,19 @@ setopt No_XTrace
 setopt Err_Exit
 
 # XXX Outdated
-
 #	"java/derby-server"	\
 #	"java/glassfishv3"	\
 #	"news/leafnode"		\
 #	"sysutils/nrg4iso"	\
 
 # FIXME Some bug to fix
-
 #	"lang/oorexx"		\
 
 if test "${USER}" = "root"; then
+    # sigil needs libzip deactivated during build
+    #
+    port -f deactivate libzip
+
     for I in			\
 	"devel/Arduino"		\
 	"devel/minipro"		\
@@ -30,7 +32,7 @@ if test "${USER}" = "root"; then
 	"editors/vimproc"	\
 	"emulators/atari800"	\
 	"emulators/free42"	\
-	"emulators/nonpareil "	\
+	"emulators/nonpareil"	\
 	"java/android"		\
 	"lang/cc65"		
     do
@@ -38,6 +40,8 @@ if test "${USER}" = "root"; then
 	   port install -f current +debugger +voyager ${=General_Variants}
 	popd
     done; unset I
+
+    port activate libzip
 else
     setopt Multi_OS
 
