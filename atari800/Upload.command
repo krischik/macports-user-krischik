@@ -26,7 +26,7 @@ git push
 
 /usr/local/bin/github-release							\
     release									\
-    --security-token	"${GitHub_Upload_Key}"					\
+    --security-token	"${GITHUB_TOKEN}"					\
     --user		"${GITHUB_USER}"					\
     --repo		"${Repository}"						\
     --tag		"${Tag}"						\
@@ -48,7 +48,7 @@ pushd "/var/tmp"
 
 	    /usr/local/bin/github-release					\
 		upload								\
-		--security-token    "${GitHub_Upload_Key}"			\
+		--security-token    "${GITHUB_TOKEN}"				\
 		--user		    "${GITHUB_USER}"				\
 		--repo		    "${Repository}"				\
 		--tag		    "${Tag}"					\
