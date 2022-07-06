@@ -39,7 +39,6 @@ ${System_Data}/Setup.command
     -win-height	    1120				\
     -win-width	    1680				\
     -windowed						\
-    -xep80						\
     -config    "${User_Data}/Atari-1400XL-Basic.cfg"	\
     -basic_rom "${System_Data}/ATARIBAS.ROM"		\
     -osb_rom   "${System_Data}/ATARIOSB.ROM"		\
