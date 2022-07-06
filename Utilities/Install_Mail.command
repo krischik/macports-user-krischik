@@ -47,10 +47,9 @@ if test "${USER}" = "root"; then
     launchctl unload -w ~"/Library/LaunchAgents/imapfilter.yahoo.plist"
     
     setopt Err_Exit
-   
 	   
     for I in				    \
-	"gnupg2"			    \
+	"gnupg2 +openldap+pinentry_mac "    \
 	"fetchmail +fetchmailconf+ssl+ntml" \
 	"imapfilter"
     do
@@ -73,6 +72,9 @@ if test "${USER}" = "root"; then
 else
     setopt Multi_OS
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+
+    brew install	\
+	"gnupg"
 fi
 
 ############################################################ {{{1 ###########

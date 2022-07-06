@@ -15,28 +15,16 @@ if test "${USER}" = "root"; then
     Deselect_System
     Update_Tree
     Update_Packages
-    ${0:h}/Install_Perl.command
-    ${0:h}/Install_Ruby.command
 
     for I in			    \
-	"android"		    \
 	"ant-contrib"		    \
-	"antenna"		    \
 	"apache-ant"		    \
 	"gradle"		    \
 	"junit"			    \
 	"kotlin"		    \
 	"maven3"		    \
-	"maven31"		    \
-	"maven32"		    \
-	"microemu"		    \
 	"gmake +guile"		    \
-	"mono"			    \
-	"nodejs7"		    \
-	"npm5"			    \
 	"proguard"		    \
-	"scala2.11"		    \
-	"scala2.11-docs"	    \
 	"scala2.12"		    \
 	"scala2.12-docs"
     do
@@ -50,23 +38,12 @@ if test "${USER}" = "root"; then
 	Install_Update ${I} ${=General_Variants}
     done; unset I
 
-    npm -g install typescript
-    npm -g install solc
-
     Select_System
     Clean
 else
     setopt Multi_OS
-    ${0:h}/Install_Perl.command
-    ${0:h}/Install_Ruby.command
 
-    brew install carthage
-    brew install openssl
-
-    brew cask install fastlane
-    brew link --force openssl
-
-    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+    sudo ${0:a} >&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 fi
 
 ############################################################ {{{1 ###########

@@ -80,6 +80,8 @@ function Load_User ()
     Load "/Library/LaunchAgents/org.freedesktop.dbus-session.plist"
     Load "${HOME}/Library/LaunchAgents/com.krischik.imapfilter.plist"
 
+    # brew services start paritytech/paritytech/parity
+
     if test -d /Applications/MacPorts/KDE4/kdeinit4.app; then
 	open /Applications/MacPorts/KDE4/kdeinit4.app
     fi
@@ -92,20 +94,19 @@ function Select_System ()
     echo "===> Select System"
 
     port select --set "clang"	    "mp-clang-8.0"
-    port select --set "cython"	    "cython27"
+    port select --set "cython"	    "cython28"
     port select --set "gcc"	    "mp-gcc6"
     port select --set "llvm"	    "mp-llvm-8.0"
     port select --set "maven"	    "maven3"
     port select --set "nosetests"   "nosetests27"
     port select --set "perl"	    "none"
-    port select --set "pygments"    "py37-pygments"
-    port select --set "python"	    "python37"
-    port select --set "python2"	    "python27"
-    port select --set "python3"	    "python37"
+    port select --set "pygments"    "py38-pygments"
+    port select --set "python"	    "python38"
+    port select --set "python3"	    "python38"
     port select --set "qt4"	    "none"
     port select --set "ruby"	    "ruby26"
-    port select --set "scala"	    "scala2.11"
-    port select --set "sphinx"      "py37-sphinx"
+    port select --set "scala"	    "scala2.12"
+    port select --set "sphinx"      "py38-sphinx"
     port select --set "wxWidgets"   "wxWidgets-3.0"
 
     return
@@ -119,7 +120,6 @@ function Deselect_System ()
     port select --set "cython"	    "none"
     port select --set "gcc"	    "none"
     port select --set "llvm"	    "none"
-    port select --set "maven"	    "none"
     port select --set "maven"	    "none"
     port select --set "nosetests"   "none"
     port select --set "perl"	    "none"
@@ -176,6 +176,8 @@ function Unload_User ()
     Unload "/Library/LaunchAgents/org.freedesktop.dbus-session.plist"
     Unload "${HOME}/Library/LaunchAgents/com.krischik.imapfilter.plist"
 
+    # brew services start paritytech/paritytech/parity
+
     return
     } # Unload_User
 
@@ -198,9 +200,9 @@ function Un_Install ()
     {
     local in_Package="${1}"
 
-    echo "===> Un-Install  ${in_Package}"
+    echo "===> Un-Install ${in_Package}"
 
-    port uninstall --follow-dependents ${=I}
+    port uninstall --follow-dependencies ${=I}
 
     return
     } # Un_Install
@@ -212,11 +214,9 @@ function Update_Tree ()
 	    typeset Archive_Owner="$(gstat -c %U .)"
 	    typeset Archive_Group="$(gstat -c %G .)"
 
-	    echo "===> Git pull krischik"
-	    git pull "https://github.com/krischik/macports-ports"
-
-	    echo "===> Git pull macports"
-	    git pull "https://github.com/macports/macports-ports"
+	    echo "===> Git pull master"
+	    git fetch upstream
+	    git merge upstream/master
 
 	    echo "===> Update index"
 	    portindex
@@ -224,20 +224,22 @@ function Update_Tree ()
 	popd
     fi
 
-    echo "===> Self Update"
-    port selfupdate
-    echo "===> Sync"
-    port sync
-
     return
     } # Update_Tree
 
 function Update_Packages ()
     {
     echo "===> Upgrade ImageMagick"
-    port -f deactivate cryptlib
+    port -f deactivate			\
+	cryptlib			\
+        subversion-javahlbindings	\
+	subversion-perlbindings-5.26	
+
     port upgrade --enforce-variants ImageMagick ${General_Variants}    
-    port activate cryptlib
+    port activate			\
+	cryptlib			\
+        subversion-javahlbindings	\
+	subversion-perlbindings-5.26	
 
     echo "===> Upgrade Outdated"
     port -p upgrade --enforce-variants outdated ${General_Variants}

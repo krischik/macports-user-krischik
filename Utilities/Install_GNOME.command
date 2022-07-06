@@ -23,7 +23,7 @@ if test "${USER}" = "root"; then
 	"cairo"						\
 	"gconf"						\
 	"gmime"						\
-	"gexiv2 +python37"				\
+	"gexiv2 +python39"				\
 	"gtk-engines2"					\
 	"gtk-theme-switch"				\
 	"gtk2"						\
@@ -43,6 +43,7 @@ if test "${USER}" = "root"; then
 	"gnome-mime-data"				\
 	"gnome-theme"					\
 	"gnome-themes-standard"				\
+	"gnome-terminal +nautilus"			\
 	"hicolor-icon-theme"				\
 	"mono"						\
 	"mono-addins"					\

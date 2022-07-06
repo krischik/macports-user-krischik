@@ -25,19 +25,19 @@ if test "${USER}" = "root"; then
 	"bison +yacc"								\
 	"bitstream-vera"							\
 	"bzip2"									\
+	"clamav +clamav_milter"							\
 	"coreutils"								\
 	"curl-ca-bundle"							\
 	"dbacl"									\
 	"dbus"									\
 	"diffutils"								\
 	"dos2unix"								\
-	"docker"								\
 	"enchant"								\
 	"file +with_text_magic_file"						\
+	"Filezilla"								\
 	"findutils"								\
 	"flex"									\
 	"fontconfig +vera"							\
-	"fontforge +freetype_bytecode"						\
 	"giflib"								\
 	"gmp"									\
 	"gnutar"								\
@@ -46,6 +46,7 @@ if test "${USER}" = "root"; then
 	"gzip +rsyncable"							\
 	"hunspell"								\
 	"hunspell-dict-de_DE"							\
+	"ImageMagick +graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"  \
 	"jasper +jiv"								\
 	"jpeg"									\
 	"libpng"								\
@@ -53,6 +54,7 @@ if test "${USER}" = "root"; then
 	"mmv"									\
 	"mpfr"									\
 	"nrg2iso"								\
+	"ntfs-3g"								\
 	"openldap"								\
 	"p7zip"									\
 	"par2"									\
@@ -76,32 +78,30 @@ if test "${USER}" = "root"; then
 	"xpm"									\
 	"xz"									\
 	"yencode"								\
+	"avahi +mono"								\
+	"fugu"
 	"zsh +doc+mp_completion"						\
-	"FileZilla"								\
-	"ImageMagick +graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"
     do
 	Install_Update ${=I} "${General_Variants}"
     done; unset I
 
-    sudo port -f deactivate cryptlib
+    port -f deactivate cryptlib
 
     Install_Update						    \
 	"ImageMagick"						    \
 	"+graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"  \
 	"${General_Variants}"
 
-    sudo port activate cryptlib
+    port activate cryptlib
 
-    # Ports without a universal variant
+    mkdir "/opt/local/share/clamav"
 
-    for I in									\
-	"osxfuse"								\
-	"ext4fuse"								\
-	"avahi +mono"								\
-	"fugu"
-    do
-	Install_Update ${=I}
-    done; unset I
+    chown _clamav:_clamav "/opt/local/share/clamav"
+    chmod ugo+rwx	  "/opt/local/var/log"
+
+    pushd "/opt/local/etc"
+	cp "/opt/local/etc/freshclam.conf.sample" "/opt/local/etc/freshclam.conf"
+    popd
 
     Select_System
     Clean
@@ -109,6 +109,15 @@ else
     setopt Multi_OS
 
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+
+    brew install	\
+	"coreutils"	\
+	"diffutils"	\
+	"exiftool"	\
+	"macfuse"	\
+	"par2"		\
+	"trash"		\
+	"veracrypt"
 fi
 
 ############################################################ {{{1 ###########

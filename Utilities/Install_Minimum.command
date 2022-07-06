@@ -14,7 +14,7 @@ setopt No_ErrExit
 
 if test "${USER}" = "root"; then
     xcode-select --install
-    xcode-select --switch /Applications/Developer/Xcode.app
+    xcode-select --switch /Applications/Xcode.app
 
     port install										\
 	"coreutils" ${=General_Variants}							\
@@ -34,6 +34,9 @@ else
     setopt Multi_OS
 
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+
+    brew install	\
+	"coreutils"	\
 fi
 
 ############################################################ {{{1 ###########

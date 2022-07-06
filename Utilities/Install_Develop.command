@@ -14,6 +14,7 @@ setopt No_Err_Exit
 if test "${USER}" = "root"; then
     for I in				\
 	"autoconf"			\
+	"automake"			\
 	"cmake +python37+qt5+docs+gui"  \
 	"ctags"				\
 	"doxygen +wizard"		\

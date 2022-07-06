@@ -10,23 +10,51 @@ setopt No_XTrace
 setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
-    Unload_System
-
-    for I in		    \
-	"gcc6"              \
-	"llvm-3.7"	    \
-	"llvm-3.9"
+    for I in				\
+	"antenna"			\
+	"apache2"			\
+	"docker"			\
+	"ext4fuse"	    		\
+	"fontforge"			\
+	"gcc6"				\
+	"gcc8"				\
+	"git"				\
+	"git-crypt"			\
+	"git-cvs"			\
+	"git-extras"			\
+	"git-flow"			\
+	"git-flow-bash-completion"	\
+	"git-lfs"			\
+	"GitX"				\
+	"llvm-3.7"			\
+	"llvm-3.9"			\
+	"macfuse"	    		\
+	"maven31"			\
+	"maven32"			\
+	"microemu"			\
+	"openjdk11"			\
+	"osxfuse"	    		\
+	"scala2.11"			\
+	"scala2.11-docs"		\
+	"VeraCrypt"	    		\
+	"yasm"
     do
+	echo "uninstall ${=I}"
 	port uninstall --follow-dependents ${=I}
     done; unset I
-
-    Load_System
 else
     setopt Multi_OS
 
-    Unload_User
     sudo ${0} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
-    Load_User
+
+    for I in		    \
+	"imapfilter"	    \
+	"openjdk"	    \
+	"osxfuse"
+    do
+	echo "uninstall ${=I}"
+	brew uninstall --ignore-dependencies ${=I}
+    done; unset I
 fi
 
 ############################################################ {{{1 ###########

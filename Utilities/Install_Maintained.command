@@ -9,30 +9,39 @@
 source ${0:h}/Setup.command
 
 setopt No_XTrace
-setopt No_Err_Exit
+setopt Err_Exit
+
+# XXX Outdated
+#	"java/derby-server"	\
+#	"java/glassfishv3"	\
+#	"news/leafnode"		\
+#	"sysutils/nrg4iso"	\
+
+# FIXME Some bug to fix
+#	"lang/oorexx"		\
 
 if test "${USER}" = "root"; then
-    Deselect_System
-    Update_Tree
-    Update_Packages
+    # sigil needs libzip deactivated during build
+    #
+    port -f deactivate libzip
 
-    for I in					    \
-	"atari800"				    \
-	"derby-server"				    \
-	"free42"				    \
-	"glassfishv3"				    \
-	"leafnode"				    \
-	"nonpareil"				    \
-	"nrg4iso"				    \
-	"oorexx"				    \
-	"sigil"					    \
-	"vimproc"
+    for I in			\
+	"devel/Arduino"		\
+	"devel/minipro"		\
+	"editors/sigil"		\
+	"editors/vimproc"	\
+	"emulators/atari800"	\
+	"emulators/free42"	\
+	"emulators/nonpareil"	\
+	"java/android"		\
+	"lang/cc65"		
     do
-	port install -f ${=I} ${=General_Variants}
+	pushd "/Work/MacPorts/dports/${I}"
+	   port install -f current +debugger +voyager ${=General_Variants}
+	popd
     done; unset I
 
-    Select_System
-    Clean
+    port activate libzip
 else
     setopt Multi_OS
 

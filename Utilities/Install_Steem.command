@@ -15,21 +15,22 @@ if test "${USER}" = "root"; then
     #Deselect_System
     ${0:h}/Install_Python.command
     ${0:h}/Install_Ruby.command
+    ${0:h}/Install_Develop.command
+    ${0:h}/Install_VCS.command
 
     # A python 3 is needed to compile
     #
     port select --set "python3" "python37"
 
-    for I in				\
-	"autoconf"			\
-	"automake"			\
-	"boost"				\
-	"cryptlib"			\
-	"git"				\
-	"libtool"			\
-	"openssl"			\
-	"secpwgen"			\
-        "berkeley-db"			\
+    for I in					    \
+	"docker +bash_completion+zsh_completion"    \
+	"docker-compose"			    \
+	"boost"					    \
+	"cryptlib"				    \
+	"libtool"				    \
+	"openssl"				    \
+	"secpwgen"				    \
+        "berkeley-db"				    \
         "gperftools"
     do
 	Install_Update ${I} ${=General_Variants}
@@ -63,19 +64,21 @@ else
     # typeset -x -g BOOST_LIBRARYDIR="${BOOST_ROOT}/lib"
     # typeset -x -g BOOST_INCLUDEDIR="${BOOST_ROOT}/include"
 
-    # git fetch --tags --force
-    # git submodule update --init --recursive
-    # git checkout tags/v0.19.2
-
     # pushd "/Volumes/KINGSTON/Work/steemit"
-	# git clone https://github.com/steemit/steem
-
+	# if test -d "steem"; then
+	    # git clone https://github.com/steemit/steem
+	# fi
+	   
 	# pushd "steem"
+	    # git fetch --all --tags --prune
+	    # git checkout tags/v0.22.1
 	    # git submodule update --init --recursive
 	    # cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_CONTENT_PATCHING=OFF -DLOW_MEMORY_NODE=ON
 	    # make
 	# popd
     # popd
+    #
+#https://www.investigationdiscovery.com/crimefeed/bad-behavior/christina-marie-curtis-daycare-worker-charged-4-toddlers-suffer-broken-legs
 fi
 
 ############################################################ {{{1 ###########

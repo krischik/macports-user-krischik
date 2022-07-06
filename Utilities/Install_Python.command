@@ -13,14 +13,15 @@ setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
     for I in			\
-	"python27"		\
-	"py27-crypto"		\
-	"py27-gnureadline"	\
-	"py27-tkinter"		\
-	"py27-xlwt"		\
 	"python37"		\
-	"py37-pygments"		\
-	"py37-xlwt"
+	"python39"		\
+	"py39-crypto"		\
+	"py39-gnureadline"	\
+	"py39-tkinter"		\
+	"py39-xlwt"		\
+	"py39-pip"		\
+	"py39-pygments"		\
+	"py39-xlwt"		
     do
 	Install_Update ${I} "${=General_Variants}"
     done; unset I
@@ -29,19 +30,16 @@ if test "${USER}" = "root"; then
     # universal as py27-numpy has no universal variant
     #
     for I in			\
-	"py27-numpy"		\
-	"py27-cairo"		\
-	"py27-pygtk"
+	"py39-numpy"		\
+	"py39-cairo"		\
+	"py39-pygtk"
     do
 	Install_Update ${I}
     done; unset I
-
-    port select --set pygments py37-pygments
 else
     setopt Multi_OS
 
     brew install python
-    brew install python@2
 fi
 
 ############################################################ {{{1 ###########

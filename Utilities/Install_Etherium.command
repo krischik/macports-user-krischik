@@ -26,8 +26,6 @@ if test "${USER}" = "root"; then
 else
     setopt Multi_OS
 
-    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
-
     brew update
     brew upgrade
 
@@ -41,6 +39,9 @@ else
     brew install ethstore
 
     brew linkapps solidity
+
+    sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+
 fi
 
 ############################################################ {{{1 ###########
