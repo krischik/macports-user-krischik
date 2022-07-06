@@ -22,11 +22,11 @@ alias cp=/opt/local/bin/gcp
 
 git add "${Work}"
 git commit --allow-empty --message="Commit for release ${Tag}"
-git push
+git push --tags
 
 /usr/local/bin/github-release							\
     release									\
-    --security-token	"${GitHub_Upload_Key}"					\
+    --security-token	"${GITHUB_TOKEN}"					\
     --user		"${GITHUB_USER}"					\
     --repo		"${Repository}"						\
     --tag		"${Tag}"						\
@@ -48,7 +48,7 @@ pushd "/var/tmp"
 
 	    /usr/local/bin/github-release					\
 		upload								\
-		--security-token    "${GitHub_Upload_Key}"			\
+		--security-token    "${GITHUB_TOKEN}"				\
 		--user		    "${GITHUB_USER}"				\
 		--repo		    "${Repository}"				\
 		--tag		    "${Tag}"					\
