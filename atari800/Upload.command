@@ -22,7 +22,6 @@ alias cp=/opt/local/bin/gcp
 
 git add "${Work}"
 git commit --allow-empty --message="Commit for release ${Tag}"
-git tag --force "${Tag}"
 git push --tags
 
 /usr/local/bin/github-release							\
