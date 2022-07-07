@@ -23,6 +23,7 @@ if test "${USER}" = "root"; then
     npm install --global typescript
     npm install --global solc
     npm install --global firebase-tools
+    npm install --global downloadstation-cli
 else
     setopt Multi_OS
 fi

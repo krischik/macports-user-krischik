@@ -9,12 +9,16 @@
 source ${0:h}/Setup.command
 
 setopt No_XTrace
-setopt No_Err_Exit
+setopt Err_Exit
 
-pushd ${Base_Work_Dir}
-    git checkout master
-    git pull upstream master
-    git push origin
+pushd "/Work/MacPorts"
+    pushd "dports"
+	git stash push --message "Stash to fetch upstream/master"
+	git checkout --force master
+	git pull upstream master
+	git push origin
+	git stash pop
+    popd
 popd
 
 ############################################################ {{{1 ###########
