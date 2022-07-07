@@ -30,7 +30,7 @@ if test "${USER}" = "root"; then
 	"editors/vimproc"	\
 	"emulators/atari800"	\
 	"emulators/free42"	\
-	"emulators/nonpareil "	\
+	"emulators/nonpareil"	\
 	"java/android"		\
 	"lang/cc65"		
     do
