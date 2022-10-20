@@ -39,7 +39,7 @@ ${System_Data}/Setup.command
     -win-height	    1120				\
     -win-width	    1680				\
     -windowed						\
-    -config    "${User_Data}//Atari-1400XL-MyDos.cfg"	\
+    -config    "${User_Data}/Atari-1400XL-MyDos.cfg"	\
     -basic_rom "${System_Data}/ATARIBAS.ROM"		\
     -osb_rom   "${System_Data}/ATARIOSB.ROM"		\
     -xlxe_rom  "${System_Data}/ATARIXL.ROM"		\
