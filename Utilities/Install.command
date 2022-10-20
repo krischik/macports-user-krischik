@@ -116,6 +116,7 @@ else
 	"exiftool"	\
 	"macfuse"	\
 	"par2"		\
+	"powershell"	\
 	"trash"		\
 	"veracrypt"
 fi
