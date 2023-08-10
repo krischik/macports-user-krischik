@@ -56,7 +56,7 @@ if test "${USER}" = "root"; then
     for I in					    \
 	"gimp-app +animation+help_browser"	    \
 	"gimp-help-en"				    \
-	"gimp2 +help_browser"			    \
+	"gimp2 +help_browser-python27"		    \
 	"gqview"				    \
 	"pan2"
     do

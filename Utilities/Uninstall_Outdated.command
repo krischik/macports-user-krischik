@@ -18,6 +18,7 @@ if test "${USER}" = "root"; then
 	"fontforge"			\
 	"gcc6"				\
 	"gcc8"				\
+	"gimp-app"			\
 	"git"				\
 	"git-crypt"			\
 	"git-cvs"			\
@@ -34,6 +35,7 @@ if test "${USER}" = "root"; then
 	"microemu"			\
 	"openjdk11"			\
 	"osxfuse"	    		\
+	"python27"			\
 	"scala2.11"			\
 	"scala2.11-docs"		\
 	"VeraCrypt"	    		\
