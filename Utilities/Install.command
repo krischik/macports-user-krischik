@@ -41,8 +41,15 @@ else
 
     brew install	\
 	"coreutils"	\
-	"zsh"		\
-	"grep"
+	"diffutils"	\
+	"exiftool"	\
+	"grep"		\
+	"macfuse"	\
+	"par2"		\
+	"powershell"	\
+	"trash"		\
+	"veracrypt"	\
+	"zsh"
 fi
 
 ############################################################ {{{1 ###########

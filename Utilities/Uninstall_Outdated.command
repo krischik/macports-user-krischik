@@ -20,6 +20,7 @@ if test "${USER}" = "root"; then
 	"gcc6"				\
 	"gcc8"				\
 	"rsync"				\
+	"gimp-app"			\
 	"git"				\
 	"git-crypt"			\
 	"git-cvs"			\
@@ -36,6 +37,7 @@ if test "${USER}" = "root"; then
 	"microemu"			\
 	"openjdk11"			\
 	"osxfuse"	    		\
+	"python27"			\
 	"scala2.11"			\
 	"scala2.11-docs"		\
 	"VeraCrypt"	    		\

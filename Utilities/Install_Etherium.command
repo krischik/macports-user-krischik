@@ -40,6 +40,8 @@ else
 
     brew linkapps solidity
 
+    /usr/local/bin/pip3.11 install eth-keyfile web3
+
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 
 fi
