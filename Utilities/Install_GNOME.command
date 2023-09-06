@@ -54,9 +54,9 @@ if test "${USER}" = "root"; then
     done; unset I
 
     for I in					    \
-	"gimp-app +animation+help_browser"	    \
+	"gimp2 +quartz"				    \
+	"gimp2-launcher"			    \
 	"gimp-help-en"				    \
-	"gimp2 +help_browser"			    \
 	"gqview"				    \
 	"pan2"
     do

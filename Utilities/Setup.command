@@ -95,8 +95,8 @@ function Select_System ()
 
     port select --set "clang"	    "mp-clang-8.0"
     port select --set "cython"	    "cython28"
-    port select --set "gcc"	    "mp-gcc6"
-    port select --set "llvm"	    "mp-llvm-8.0"
+    port select --set "gcc"	    "mp-gcc12"
+    port select --set "llvm"	    "mp-llvm-15"
     port select --set "maven"	    "maven3"
     port select --set "nosetests"   "nosetests27"
     port select --set "perl"	    "none"

@@ -16,8 +16,10 @@ if test "${USER}" = "root"; then
 	"docker"			\
 	"ext4fuse"	    		\
 	"fontforge"			\
+	"ctags"				\
 	"gcc6"				\
 	"gcc8"				\
+	"rsync"				\
 	"git"				\
 	"git-crypt"			\
 	"git-cvs"			\

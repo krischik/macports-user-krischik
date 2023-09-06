@@ -13,6 +13,7 @@ setopt Err_Exit
 
 # XXX Outdated
 #	"java/derby-server"	\
+#	"editors/vimproc"	\
 #	"java/glassfishv3"	\
 #	"news/leafnode"		\
 #	"sysutils/nrg4iso"	\
@@ -23,13 +24,12 @@ setopt Err_Exit
 if test "${USER}" = "root"; then
     # sigil needs libzip deactivated during build
     #
-    port -f deactivate libzip
+    port -f deactivate libzip || true
 
     for I in			\
 	"devel/Arduino"		\
 	"devel/minipro"		\
 	"editors/sigil"		\
-	"editors/vimproc"	\
 	"emulators/atari800"	\
 	"emulators/free42"	\
 	"emulators/nonpareil"	\
@@ -37,9 +37,13 @@ if test "${USER}" = "root"; then
 	"lang/cc65"		
     do
 	pushd "/Work/MacPorts/dports/${I}"
-	   port install -f current +debugger +voyager ${=General_Variants}
+	   port install -f current ${=General_Variants}
 	popd
     done; unset I
+
+    pushd "/Work/MacPorts/dports/emulators/nonpareil"
+	port install -f current +debugger +voyager ${=General_Variants}
+    popd
 
     port activate libzip
 else

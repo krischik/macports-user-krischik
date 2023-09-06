@@ -1,110 +1,39 @@
-#!/opt/local/bin/zsh
+#!/bin/zsh
 ############################################################## {{{1 ##########
 #   $Author: krischik@macports.org $
-#   $Revision: 143895 $
-#   $Date: 2015-12-25 08:11:12 +0100 (Fr, 25. Dez 2015) $
-#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Install.command $
+#   $Revision: 143884 $
+#   $Date: 2015-12-24 21:02:29 +0100 (Do, 24. Dez 2015) $
+#   $HeadURL: http://svn.macports.org/repository/macports/users/krischik/Utilities/Install_Minimum.command $
 ############################################################## }}}1 ##########
 
 source ${0:h}/Setup.command
 
 setopt No_XTrace
-setopt No_Err_Exit
+setopt MultiOS
+setopt No_ErrExit
 
 if test "${USER}" = "root"; then
-    Deselect_System
-    Update_Tree
-    Update_Packages
+    xcode-select --install
+    xcode-select --switch /Applications/Xcode.app
 
-    for I in									\
-	"aspell +nls"								\
-	"aspell-dict-de"							\
-	"aspell-dict-en"							\
-	"aspell-dict-ru"							\
-	"b5i2iso"								\
-	"bison +yacc"								\
-	"bitstream-vera"							\
-	"bzip2"									\
-	"clamav +clamav_milter"							\
-	"coreutils"								\
-	"curl-ca-bundle"							\
-	"dbacl"									\
-	"dbus"									\
-	"diffutils"								\
-	"dos2unix"								\
-	"enchant"								\
-	"file +with_text_magic_file"						\
-	"Filezilla"								\
-	"findutils"								\
-	"flex"									\
-	"fontconfig +vera"							\
-	"giflib"								\
-	"gmp"									\
-	"gnutar"								\
-	"gsed"									\
-	"gwhich"								\
-	"gzip +rsyncable"							\
-	"hunspell"								\
-	"hunspell-dict-de_DE"							\
-	"ImageMagick +graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"  \
-	"jasper +jiv"								\
-	"jpeg"									\
-	"libpng"								\
-	"mdf2iso"								\
-	"mmv"									\
-	"mpfr"									\
-	"nrg2iso"								\
-	"ntfs-3g"								\
-	"openldap"								\
-	"p7zip"									\
-	"par2"									\
-	"pdi2iso"								\
-	"png2ico"								\
-	"readline"								\
-	"rsync +rsyncd"								\
-	"shared-mime-info"							\
-	"sitecopy"								\
-	"slocate"								\
-	"spellutils"								\
-	"sshpass"								\
-	"star"									\
-	"texinfo"								\
-	"tiff"									\
-	"uif2iso"								\
-	"unison +aqua"								\
-	"urw-fonts"								\
-	"wget +ssl"								\
-	"wput +ssl"								\
-	"xpm"									\
-	"xz"									\
-	"yencode"								\
-	"avahi +mono"								\
-	"fugu"
-	"zsh +doc+mp_completion"						\
-    do
-	Install_Update ${=I} "${General_Variants}"
-    done; unset I
+    port install										\
+	"coreutils" ${=General_Variants}							\
+	"zsh" "+doc" "+mp_completion" ${=General_Variants}					\
+	1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 
-    port -f deactivate cryptlib
+    ${0:h}/Install_VIM.command
+    ${0:h}/Install_Maintained.command
+    ${0:h}/Install_VCS.command
+    ${0:h}/Install_Mobile_Development.command
 
-    Install_Update						    \
-	"ImageMagick"						    \
-	"+graphviz+gs+hdri+jbig+jpeg2+lcms+lqr+mpeg+perl+rsvg+wmf"  \
-	"${General_Variants}"
+    # echo /opt/local/bin/zsh >>/etc/shells
+    # echo /usr/local/bin/zsh >>/etc/shells
 
-    port activate cryptlib
+    # "subversion" "+bash_completion+tools+mod_dav_svn+unicode_path" "${=General_Variants}"	\
+    # gchmod --verbose 755    "/Applications/Developer/Xcode.app/Contents/Developer/Library/PrivateFrameworks/CoreSimulator.framework/Versions/A/XPCServices/com.apple.CoreSimulator.CoreSimulatorService.xpc"
+    # gchown --verbose root   "/Applications/Developer/Xcode.app/Contents/Developer/Library/PrivateFrameworks/CoreSimulator.framework/Versions/A/XPCServices/com.apple.CoreSimulator.CoreSimulatorService.xpc"
+    # gchgrp --verbose wheel  "/Applications/Developer/Xcode.app/Contents/Developer/Library/PrivateFrameworks/CoreSimulator.framework/Versions/A/XPCServices/com.apple.CoreSimulator.CoreSimulatorService.xpc"
 
-    mkdir "/opt/local/share/clamav"
-
-    chown _clamav:_clamav "/opt/local/share/clamav"
-    chmod ugo+rwx	  "/opt/local/var/log"
-
-    pushd "/opt/local/etc"
-	cp "/opt/local/etc/freshclam.conf.sample" "/opt/local/etc/freshclam.conf"
-    popd
-
-    Select_System
-    Clean
 else
     setopt Multi_OS
 
@@ -112,12 +41,8 @@ else
 
     brew install	\
 	"coreutils"	\
-	"diffutils"	\
-	"exiftool"	\
-	"macfuse"	\
-	"par2"		\
-	"trash"		\
-	"veracrypt"
+	"zsh"		\
+	"grep"
 fi
 
 ############################################################ {{{1 ###########

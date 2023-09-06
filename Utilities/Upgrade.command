@@ -21,20 +21,20 @@ if test "${USER}" = "root"; then
 
     ./Install_Minimum.command 
 
-    ./Install.command
-    ./Install_VIM.command
-    ./Install_VCS.command
-    ./Install_Mobile_Development.command
-    ./Install_GNOME.command
-    ./Install_KDE4.command
-    ./Install_Player.command
-    ./Install_Maintained.command
+    # ./Install.command
+    # ./Install_VIM.command
+    # ./Install_VCS.command
+    # ./Install_Mobile_Development.command
+    # ./Install_GNOME.command
+    # ./Install_KDE4.command
+    # ./Install_Player.command
+    # ./Install_Maintained.command
 
-    #curl -O https://svn.macports.org/repository/macports/contrib/restore_ports/restore_ports.tcl
-    #curl --location --remote-name https://github.com/macports/macports-contrib/raw/master/restore_ports/restore_ports.tcl
-    #chmod +x restore_ports.tcl
-    #./restore_ports.tcl installed.txt
-    #xargs sudo port setrequested < requested.txt
+    # curl -O https://svn.macports.org/repository/macports/contrib/restore_ports/restore_ports.tcl
+    # curl --location --remote-name https://github.com/macports/macports-contrib/raw/master/restore_ports/restore_ports.tcl
+    # chmod +x restore_ports.tcl
+    # ./restore_ports.tcl installed.txt
+    # xargs sudo port setrequested < requested.txt
 
     Clean
 else

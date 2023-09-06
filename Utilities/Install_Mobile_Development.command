@@ -16,15 +16,18 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
+#	"ant-contrib"		    \
+#	"apache-ant"		    \
+#	"gradle"		    \
+#	"junit"			    \
+#	"kotlin"		    \
+#	"maven3"		    \
+#	"gmake +guile"		    \
+#	"proguard"		    \
+#	"maven_select"		    \
+
     for I in			    \
-	"ant-contrib"		    \
-	"apache-ant"		    \
-	"gradle"		    \
-	"junit"			    \
-	"kotlin"		    \
-	"maven3"		    \
-	"gmake +guile"		    \
-	"proguard"		    \
+	"sitecopy"		    \
 	"scala2.12"		    \
 	"scala2.12-docs"
     do
@@ -32,7 +35,6 @@ if test "${USER}" = "root"; then
     done; unset I
 
     for I in			    \
-	"maven_select"		    \
 	"scala_select"
     do
 	Install_Update ${I} ${=General_Variants}
@@ -44,6 +46,9 @@ else
     setopt Multi_OS
 
     sudo ${0:a} >&1 2>&2 &>~/Library/Logs/${0:r:t}.out
+
+    brew install	\
+	"maven"		
 fi
 
 ############################################################ {{{1 ###########

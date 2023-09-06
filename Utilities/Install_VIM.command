@@ -20,17 +20,9 @@ if test "${USER}" = "root"; then
 #   ${0:h}/Install_Python.command
 #   ${0:h}/Install_Ruby.command
 
-    for I in			    \
-	"autoconf"		    \
-	"ctags"			    \
-	"gettext"		    \
-	"gnutar"		    \
-	"grep"			    \
-	"libiconv"		    \
-	"lua"			    \
-	"ncurses"		    \
-	"tcl"			    \
-	"MacVim +cscope +huge +nls" \
+    for I in						    \
+	"universal-ctags +aspell+iconv+libxml2+manpages"    \
+	"MacVim +cscope +huge +nls"			    \
 	"vimproc"
     do
 	Install_Update ${I} "${=General_Variants}"
@@ -68,10 +60,10 @@ else
 
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 
-    brew cask install	\
-	"macvim"	\
-	"macdown"
-
+    brew cask install	    \
+	"macvim"	    \
+	"macdown"	    \
+	"universal-ctags"
 fi
 
 ############################################################ {{{1 ###########

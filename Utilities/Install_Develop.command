@@ -15,20 +15,30 @@ if test "${USER}" = "root"; then
     for I in				\
 	"autoconf"			\
 	"automake"			\
-	"cmake +python37+qt5+docs+gui"  \
-	"ctags"				\
+	"cmake +python37+qt5+docs+gui"	\
 	"doxygen +wizard"		\
-	"gcc10"				\
+	"gcc12"				\
 	"gcc_select"			\
-	"llvm-8.0"			\
+	"gdb"				\
+	"llvm-15"			\
 	"llvm-gcc42"			\
 	"llvm_select"			\
-	"m4"
+	"m4"				\
+	"universal-ctags +aspell"
     do
 	Install_Update ${I} "${=General_Variants}"
     done; unset I
 else
     setopt Multi_OS
+
+    brew install	\
+	cmake		\
+	gcc		\
+	gdb		\
+	gmake		\
+	universal-ctags
+
+    sudo ${0:a} >&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 fi
 
 ############################################################ {{{1 ###########

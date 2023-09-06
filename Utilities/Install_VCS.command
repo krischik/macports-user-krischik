@@ -17,6 +17,7 @@ if test "${USER}" = "root"; then
     Update_Packages
 
     for I in								\
+	"rsync +rsyncd"							\
 	"sshpass"							\
 	"cvs +gssapi+proxy"						\
 	"cvs2svn"							\
@@ -35,6 +36,7 @@ else
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out#
 
     brew install		    \
+	"rsync"			    \
 	"git"			    \
 	"git-credential-manager"    \
 	"git-crypt"		    \
