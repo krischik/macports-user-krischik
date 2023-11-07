@@ -11,6 +11,7 @@ setopt No_Err_Exit
 
 if test "${USER}" = "root"; then
     for I in				\
+	"sitecopy"			\
 	"antenna"			\
 	"apache2"			\
 	"docker"			\
@@ -34,6 +35,8 @@ if test "${USER}" = "root"; then
 	"macfuse"	    		\
 	"maven31"			\
 	"maven32"			\
+	"maven_select"			\
+	"maven3"			\
 	"microemu"			\
 	"openjdk11"			\
 	"osxfuse"	    		\

@@ -21,13 +21,12 @@ if test "${USER}" = "root"; then
 #	"gradle"		    \
 #	"junit"			    \
 #	"kotlin"		    \
-#	"maven3"		    \
 #	"gmake +guile"		    \
 #	"proguard"		    \
 #	"maven_select"		    \
+#	"maven3"		    \
 
     for I in			    \
-	"sitecopy"		    \
 	"scala2.12"		    \
 	"scala2.12-docs"
     do
