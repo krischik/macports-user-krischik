@@ -34,7 +34,7 @@ if test "${USER}" = "root"; then
 	"ruby26"
 	"ruby27"
     do
-	Install_Update ${I} +gmp ${=General_Variants}
+	Install_Update "/opt/local/bin/${I}" +gmp ${=General_Variants}
     done; unset I
 
     port select --set "ruby" "ruby27"

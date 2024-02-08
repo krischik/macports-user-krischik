@@ -105,7 +105,6 @@ function Select_System ()
     port select --set "python3"	    "python38"
     port select --set "qt4"	    "none"
     port select --set "ruby"	    "ruby26"
-    port select --set "scala"	    "scala2.12"
     port select --set "sphinx"      "py38-sphinx"
     port select --set "wxWidgets"   "wxWidgets-3.0"
 
@@ -129,7 +128,6 @@ function Deselect_System ()
     port select --set "python3"	    "none"
     port select --set "qt4"	    "none"
     port select --set "ruby"	    "none"
-    port select --set "scala"	    "none"
     port select --set "sphinx"      "none"
     port select --set "wxWidgets"   "none"
 

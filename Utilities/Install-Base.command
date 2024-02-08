@@ -41,7 +41,6 @@ if test "${USER}" = "root"; then
 	"giflib"								\
 	"gmp"									\
 	"gnutar"								\
-	"gsed"									\
 	"gwhich"								\
 	"gzip +rsyncable"							\
 	"hunspell"								\
@@ -114,6 +113,7 @@ else
 	"coreutils"	\
 	"diffutils"	\
 	"exiftool"	\
+	"gnu-sed"	\
 	"macfuse"	\
 	"par2"		\
 	"trash"		\

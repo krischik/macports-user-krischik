@@ -26,18 +26,18 @@ if test "${USER}" = "root"; then
 #	"maven_select"		    \
 #	"maven3"		    \
 
-    for I in			    \
-	"scala2.12"		    \
-	"scala2.12-docs"
-    do
-	Install_Update ${I} ${=General_Variants}
-    done; unset I
-
-    for I in			    \
-	"scala_select"
-    do
-	Install_Update ${I} ${=General_Variants}
-    done; unset I
+#    for I in			    \
+#	"scala2.12"		    \
+#	"scala2.12-docs"
+#    do
+#	Install_Update ${I} ${=General_Variants}
+#    done; unset I
+#
+#    for I in			    \
+#	"scala_select"
+#    do
+#	Install_Update ${I} ${=General_Variants}
+#    done; unset I
 
     Select_System
     Clean
