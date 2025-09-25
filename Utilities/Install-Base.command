@@ -113,6 +113,7 @@ else
 	"coreutils"	\
 	"diffutils"	\
 	"exiftool"	\
+	"grep"		\
 	"gnu-sed"	\
 	"macfuse"	\
 	"par2"		\

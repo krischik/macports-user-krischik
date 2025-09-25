@@ -40,7 +40,7 @@ function Update_Python ()
     local in_PIP="${1}"
     
     if test -x "${in_PIP}"; then
-	echo "Update Perl installation ${in_PIP}"
+	echo "Update Python installation ${in_PIP}"
 
 	${in_PIP} list --outdated --format=freeze   | \
 	    grep -v '^\-e'			    | \
@@ -72,7 +72,7 @@ if test "${USER}" = "root"; then
 
     Update_Packages
 
-    for I in "gem2.5" "gem2.6" "gem2.6" "gem2.7"; do
+    for I in "gem3.4"; do
 	Update_Ruby "/opt/local/bin/${I}"
     done; unset I
 
@@ -99,7 +99,7 @@ else
     Update_Node	    "/usr/local/opt/npm/bin/npm"
     Update_Perl	    "/usr/local/opt/perl/bin/cpan"
 
-    for I in "pip2.7" "pip3.7" "pip3.8"; do
+    for I in "pip3.9" "pip3.12" "pip3.13"; do
 	Update_Python "/usr/local/bin/${I}"
     done; unset I
  

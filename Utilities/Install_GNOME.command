@@ -17,6 +17,10 @@ if test "${USER}" = "root"; then
     Update_Tree
     Update_Packages
 
+    port select --set python python27
+    port select --set python2 python27
+    port select --set cython cython27
+
     ${0:h}/Install_Python.command
 
     for I in						\
@@ -73,6 +77,9 @@ else
     sudo ${0:a} 1>&1 2>&2 &>~/Library/Logs/${0:r:t}.out
     Load_User
 fi
+
+# sudo port install gimp2 +quartz  gqview +quartz  nonpareil +quartz  gtk-theme-switch +quartz  gtk-engines2 +quartz  libcanberra +quartz gtk-sharp2 +quartz  libglade2 +quartz  gtkspell2 +quartz 
+# sudo port install  py27-pygtk +quartz gqview +quartz gtk-theme-switch +quartz gtk-engines2 +quartz libcanberra +quartz
 
 # To start gnome put "exec gnome-session" in your .xinitrc
 # See also http://trac.macports.org/wiki/GNOME
