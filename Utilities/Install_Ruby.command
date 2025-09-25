@@ -30,9 +30,7 @@ function Install_GEM ()
 
 if test "${USER}" = "root"; then
     for I in				\
-	"ruby25"			\
-	"ruby26"
-	"ruby27"
+	"ruby34"
     do
 	Install_Update "/opt/local/bin/${I}" +gmp ${=General_Variants}
     done; unset I

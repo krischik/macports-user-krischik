@@ -17,7 +17,8 @@ typeset       Qt_Variants="+docs"
 # and most GNOME tools still need X11.
 #
 #typeset   Gnome_Variants="+quartz+bundle+no_X11-x11"
-typeset    Gnome_Variants="+x11"
+typeset   Gnome_Variants="+quartz"
+#typeset   Gnome_Variants="+x11"
 
 if test -d "/Work/MacPorts/dports"; then
     typeset Base_Work_Dir="/Work/MacPorts/dports"
@@ -103,8 +104,9 @@ function Select_System ()
     port select --set "pygments"    "py38-pygments"
     port select --set "python"	    "python38"
     port select --set "python3"	    "python38"
+    port select --set "python2"	    "python27"
     port select --set "qt4"	    "none"
-    port select --set "ruby"	    "ruby26"
+    port select --set "ruby"	    "ruby33"
     port select --set "sphinx"      "py38-sphinx"
     port select --set "wxWidgets"   "wxWidgets-3.0"
 

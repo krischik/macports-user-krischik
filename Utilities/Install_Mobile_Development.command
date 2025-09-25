@@ -25,19 +25,16 @@ if test "${USER}" = "root"; then
 #	"proguard"		    \
 #	"maven_select"		    \
 #	"maven3"		    \
-
-#    for I in			    \
+#	"scala_select"
 #	"scala2.12"		    \
 #	"scala2.12-docs"
-#    do
-#	Install_Update ${I} ${=General_Variants}
-#    done; unset I
-#
-#    for I in			    \
-#	"scala_select"
-#    do
-#	Install_Update ${I} ${=General_Variants}
-#    done; unset I
+
+    for I in			    \
+	"kotlin"		    \
+    do
+	Install_Update ${I} ${=General_Variants}
+    done; unset I
+
 
     Select_System
     Clean
@@ -46,8 +43,9 @@ else
 
     sudo ${0:a} >&1 2>&2 &>~/Library/Logs/${0:r:t}.out
 
-    brew install	\
-	"maven"		
+#    brew install	\
+#	"kotlin"	\
+#	"maven"		
 fi
 
 ############################################################ {{{1 ###########
