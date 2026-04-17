@@ -31,11 +31,14 @@ if test "${USER}" = "root"; then
 else
     setopt Multi_OS
 
-    brew install	\
-	cmake		\
-	gcc		\
-	gdb		\
-	gmake		\
+    brew install	    \
+	cmake		    \
+	gcc		    \
+	gdb		    \
+	gmake		    \
+	java		    \
+	oracle-jdk	    \
+	oracle-jdk-javadoc  \
 	universal-ctags
 
     sudo ${0:a} >&1 2>&2 &>~/Library/Logs/${0:r:t}.out

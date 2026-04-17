@@ -16,9 +16,12 @@
 --  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------ }}}1 -----------
 
+set |Project Home| to (system attribute "PROJECT_HOME")
+
 tell application "Terminal"
     set |Tab| to do script "
-cd \"/Work/MacPorts/krischik/Utilities\""
+source \"" & |Project Home| & "/krischik/Utilities/Setup.command\";
+cd \"" & |Project Home| & "/krischik/Utilities\""
     set current settings of |Tab| to settings set ("MacPorts")
     set background color of |Tab| to {57344, 57344, 65535}
     set custom title of |Tab| to ("MacPorts")
